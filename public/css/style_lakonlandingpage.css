@@ -1,0 +1,65 @@
+.banner {
+  /* background: url("https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2018/11/dark-wallpapers.jpg") */
+  /* background: url("../img/lakon/bg-lakon1.jpg"); */
+  background: url("../img/lakon/bg-lakon2.jpg");
+  /* background: url("../img/lakon/bg-lakon3.jpg"); */
+  /* background: url("../img/lakon/bg-lakon4.jpg"); */
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat center center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  color: #fff;
+}
+
+.lingkaran {
+  display: inline-block;
+  border-radius: 50%;
+  width: 150px;
+  margin: auto;
+  height: 150px;
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.lingkaran i {
+  position: relative;
+  top: 30px;
+}
+
+.icon i {
+  position: relative;
+}
+
+.crop-img {
+  object-fit: cover;
+}
+
+.tim img {
+  width: 250px;
+  border: 10px solid #cccccc;
+}
+
+a.social {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #333;
+  line-height: 40px;
+}
+
+.client img {
+  height: auto;
+  max-height: 50px;
+}
+
+.kontak {
+  background: url("https://wallpaperaccess.com/full/1318627.jpg") no-repeat
+    center center;
+  background-size: cover;
+  padding-bottom: 20%;
+  padding-top: 20%;
+  color: #fff;
+}
