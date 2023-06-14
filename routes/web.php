@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\File;
 use App\Http\Controllers\DashboardController;
 use App\Http\Livewire\Pages\User\UserPage;
 use App\Http\Livewire\Pages\User\DaftarUser;
+use App\Http\Livewire\Master\PerjanjianTipe;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::middleware([
     // config('jetstream.auth_session'),
     // 'verified'
 ])->group(function () {
+    Route::get('master/tipe-perjanjian', PerjanjianTipe::class)->name('tipe.perijinan');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
     Route::post('/ganti-password', [DashboardController::class, 'gantiPassword'])->name('ganti.password');

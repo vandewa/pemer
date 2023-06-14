@@ -31,6 +31,10 @@
                 <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
                     <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
                 </li>
+                <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
+                    <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perijinan</a>
+                </li>
+               
             </ul>
         </li>
 
