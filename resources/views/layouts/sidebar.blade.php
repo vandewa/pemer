@@ -34,6 +34,9 @@
                 <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
                     <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perijinan</a>
                 </li>
+                <li class="{{ Request::segment(2) == 'jenis-perjanjian' ? 'mm-active' : '' }}">
+                    <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perijinan</a>
+                </li>
                
             </ul>
         </li>
