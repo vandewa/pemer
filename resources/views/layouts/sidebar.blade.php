@@ -32,10 +32,10 @@
                     <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
                 </li>
                 <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
-                    <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perijinan</a>
+                    <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perjanjian</a>
                 </li>
                 <li class="{{ Request::segment(2) == 'jenis-perjanjian' ? 'mm-active' : '' }}">
-                    <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perijinan</a>
+                    <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
                 </li>
                
             </ul>

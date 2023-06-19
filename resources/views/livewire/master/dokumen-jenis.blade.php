@@ -30,6 +30,17 @@
                     <input type="text" class="form-control" wire:model.lazy='form.name'  placeholder="Tipe Perjanjian">
                 </div>
             </div>
+            <div class="row mb-3">
+                <label for="inputPhoneNo2" class="col-sm-3 col-form-label">Tipe Perjanjian</label>
+                <div class="col-sm-9">
+                   <select wire:model.lazy="form.tipe_perjanjian_id" class="form-control">
+                    <option value="">Pilih Tipe Perjanjian</option>
+                    @foreach ($listPerjanjian as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                   </select>
+                </div>
+            </div>
             <div class="row">
                 <label class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
@@ -52,6 +63,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Tipe</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -63,6 +75,7 @@
                     <tr>
                         <th scope="row">{{ $a++ }}</th>
                         <td>{{ $item->name }}</td>
+                        <td>{{ $item->perjanjianTipe->name }}</td>
                         <td> <div class="gap-3 table-actions d-flex align-items-center fs-6">
                             <a href="#" class="text-warning" wire:click='show({{ $item->id }})' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit" type="button"><i class="bi bi-pencil-fill"></i>
                             </a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Master;
 
+use App\Models\JenisDokumen;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\TipePerjanjian;
@@ -14,11 +15,17 @@ class DokumenJenis extends Component
     protected $listeners = ['deleteConfirmed' => 'rowsDeleted'];
     public $edit = 0;
 
-    public $nama;
+    public $nama, $listPerjanjian;
 
     public $form = [
-        'name' => ""
+        'name' => "", 
+        'tipe_perjanjian_id' => ""
     ];
+
+    public function mount()
+    {
+        $this->listPerjanjian = TipePerjanjian::all();
+    }
 
     public function store()
     {
@@ -26,28 +33,31 @@ class DokumenJenis extends Component
             $this->editStore();
             return 0;
         }
-       $a =  TipePerjanjian::create($this->form);
+       $a =  JenisDokumen::create($this->form);
        if($a){
         session()->flash('success', 'Data berhasil disimpan');  
+        $this->clear();
        }
     }
 
     public function show($id)
     {
-        $a = TipePerjanjian::find($id);
+        $a = JenisDokumen::find($id);
         $this->edit = $a->id;
         $this->form['name'] = $a->name;
+        $this->form['tipe_perjanjian_id'] = $a->tipe_perjanjian_id;
     }
 
     public function clear()
     {
         $this->form['name'] = "";
+        $this->form['tipe_perjanjian_id'] = "";
         $this->edit = 0;
     }
 
     public function editStore()
     {
-        TipePerjanjian::find($this->edit)->update($this->form);
+        JenisDokumen::find($this->edit)->update($this->form);
 
         $this->clear();
     }
@@ -59,13 +69,13 @@ class DokumenJenis extends Component
 
     public function rowsDeleted()
     {
-        TipePerjanjian::where('id', $this->delete_id)->first()->delete();
+        JenisDokumen::where('id', $this->delete_id)->first()->delete();
         $this->dispatchBrowserEvent('Delete');
     }
 
     public function render()
     {
-        $data =  TipePerjanjian::select('*');
+        $data =  JenisDokumen::with('perjanjianTipe')->select('*');
         if($this->nama){
             $data->where('name', 'like', "%$this->nama%");
         }

@@ -29,6 +29,7 @@ class PerjanjianTipe extends Component
        $a =  TipePerjanjian::create($this->form);
        if($a){
         session()->flash('success', 'Data berhasil disimpan');  
+        $this->clear();
        }
     }
 
