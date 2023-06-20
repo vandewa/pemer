@@ -24,12 +24,10 @@
                  <div class="mt-4 mb-0 text-center col-md-6">
                      <img src="{{ asset('pemda.png') }}" style="width: 80px;">
                      <h2 class="heading-section">
-                         <span
-                             style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 40pt">L
+                         <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 40pt">L
                              <i class="fa fa-buysellads" aria-hidden="true"></i> K O N</span>
                      </h2>
-                     <span
-                         style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
+                     <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
                          Layanan Konsultasi Online )</span>
                  </div>
              </div>
@@ -37,37 +35,41 @@
                  <div class="col-md-6 col-lg-4">
                      <div class="p-0 login-wrap">
                          <h6 class="mb-4 text-center" style="color: #ffffff;">Masukkan Email dan Password Anda</h6>
-                         <form action="{{ route('login') }}" class="signin-form" id="flogin"
-                             onsubmit="return lsogin();" method="post" accept-charset="utf-8">
+                         <form action="{{ route('login') }}" class="signin-form" id="flogin" onsubmit="return lsogin();" method="post" accept-charset="utf-8">
                              @csrf
 
                              <x-validation-errors class="mb-4" />
 
                              @if (session('status'))
-                                 <div class="mb-4 text-sm font-medium text-green-600">
-                                     {{ session('status') }}
-                                 </div>
+                             <div class="mb-4 text-sm font-medium text-green-600">
+                                 {{ session('status') }}
+                             </div>
                              @endif
 
                              <div class="form-group">
-                                 <input type="email" class="form-control" name="email" placeholder="Email"
-                                     id="flogin_username" autofocus required>
+                                 <input type="email" class="form-control" name="email" placeholder="Email" id="flogin_username" autofocus required>
                              </div>
                              <div class="form-group">
-                                 <input name="password" placeholder="Password" id="flogin_password" type="password"
-                                     class="form-control" required>
-                                 <span toggle="#flogin_password"
-                                     class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                 <input name="password" placeholder="Password" id="flogin_password" type="password" class="form-control" required>
+                                 <span toggle="#flogin_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                              </div>
                              <div class="form-group">
-                                 <button type="submit" class="px-3 form-control btn submit" id="flogin_tb_ok"
-                                     style="background-color: rgb(51, 88, 244) !important;
+                                 <button type="submit" class="px-3 form-control btn submit" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
 								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
 								background-size: 210% 210%;
 								background-position: 100% 0;
 								transition: all .15s ease;
 								box-shadow: none;
 								color: #fff;"><b>Login</b></button>
+                             </div>
+                             <div class="form-group">
+                                 <a href="{{ route('register') }}" class="px-3 form-control btn" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
+								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
+								background-size: 210% 210%;
+								background-position: 100% 0;
+								transition: all .15s ease;
+								box-shadow: none;
+								color: #fff;"><b>Register</b></a>
                              </div>
                          </form>
                      </div>
@@ -94,6 +96,7 @@
          $(function() {
              $(".alert").delay(3000).slideUp(300);
          });
+
      </script>
      <script type="text/javascript">
          (function($) {
@@ -115,6 +118,7 @@
                  }
              });
          })(jQuery);
+
      </script>
  </body>
 

@@ -7,6 +7,8 @@ use App\Http\Livewire\Pages\User\UserPage;
 use App\Http\Livewire\Pages\User\DaftarUser;
 use App\Http\Livewire\Master\PerjanjianTipe;
 use App\Http\Livewire\Master\DokumenJenis;
+use App\Http\Livewire\Master\Instansi;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,9 +37,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('master/tipe-perjanjian', PerjanjianTipe::class)->name('tipe.perijinan');
     Route::get('master/jenis-perjanjian', DokumenJenis::class)->name('jenis.perijinan');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
     Route::post('/ganti-password', [DashboardController::class, 'gantiPassword'])->name('ganti.password');
     Route::get('user/{id?}', UserPage::class)->name('user');
     Route::get('user-index', DaftarUser::class)->name('user.index');
+    Route::get('master/instansi', Instansi::class)->name('master.instansi');
 });

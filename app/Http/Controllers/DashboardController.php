@@ -76,7 +76,7 @@ class DashboardController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function gantiPassword(Request $request)

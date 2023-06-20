@@ -25,5 +25,10 @@ if (!function_exists('get_code_group')) {
             return 'LKN-' . $no;
         }
     }
-
+    if (!function_exists('get_instansi')) {
+        function get_instansi()
+        {
+            return \App\Models\Instansi::where('antrian', '1')->pluck('name', 'id');
+        }
+    }
 }
