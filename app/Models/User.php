@@ -25,13 +25,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'no_hp',
-        'opd',
-    ];
+
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -63,4 +58,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function role()
+    {
+        return $this->belongsTo(Spatie\Permission\Models\Role::class, 'user_id');
+    }
 }

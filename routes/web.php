@@ -29,9 +29,9 @@ Route::get('docs', function () {
 });
 
 Route::middleware([
-    // 'auth:sanctum',
-    // config('jetstream.auth_session'),
-    // 'verified'
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
 ])->group(function () {
     Route::get('master/tipe-perjanjian', PerjanjianTipe::class)->name('tipe.perijinan');
     Route::get('master/jenis-perjanjian', DokumenJenis::class)->name('jenis.perijinan');
