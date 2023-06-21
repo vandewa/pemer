@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode');
             $table->string('name');
-            $table->string('antrian');
+            $table->enum('status', ['0', '1']);
             $table->timestamps();
         });
     }

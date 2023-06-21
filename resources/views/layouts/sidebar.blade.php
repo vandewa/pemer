@@ -20,6 +20,54 @@
             </a>
         </li>
 
+        <li class="{{ Request::segment(1) == 'pengajuan' ? 'mm-active' : '' }}">
+            <a href="{{ route('pengajuan') }}">
+                <div class="parent-icon"><i class="lni lni-clipboard"></i>
+                </div>
+                <div class="menu-title">Pengajuan</div>
+            </a>
+        </li>
+        <li class="{{ Request::segment(3) == 'user' ? 'mm-active' : '' }}">
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-archive"></i>
+                </div>
+                <div class="menu-title">Kesepakatan Bersama</div>
+            </a>
+            <ul>
+                <ul>
+                    <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
+                        <a href="{{ route('pengajuan.daftar') }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                    </li>
+                    <li class="{{ Request::segment(2) == 'instansi' ? 'mm-active' : '' }}">
+                        <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                    </li>
+                    <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
+                        <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                    </li>
+                </ul>
+            </ul>
+        </li>
+        <li class="{{ Request::segment(3) == 'user' ? 'mm-active' : '' }}">
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-archive"></i>
+                </div>
+                <div class="menu-title">Perjanjian Kerja Sama</div>
+            </a>
+            <ul>
+                <ul>
+                    <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
+                        <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                    </li>
+                    <li class="{{ Request::segment(2) == 'instansi' ? 'mm-active' : '' }}">
+                        <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                    </li>
+                    <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
+                        <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                    </li>
+                </ul>
+            </ul>
+        </li>
+
         <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
