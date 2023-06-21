@@ -12,22 +12,22 @@
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
-        <li class="{{ Request::segment(1) == 'dashboard' ? 'mm-active' : '' }}">
-            <a href="{{ route('dashboard') }}">
+        <li>
+            <a href="{{ route('home') }}">
                 <div class="parent-icon"><i class="bi bi-house-fill"></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
 
-        <li class="{{ Request::segment(1) == 'pengajuan' ? 'mm-active' : '' }}">
+        <li>
             <a href="{{ route('pengajuan') }}">
                 <div class="parent-icon"><i class="lni lni-clipboard"></i>
                 </div>
                 <div class="menu-title">Pengajuan</div>
             </a>
         </li>
-        <li class="{{ Request::segment(3) == 'user' ? 'mm-active' : '' }}">
+        <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
                 </div>
@@ -35,19 +35,19 @@
             </a>
             <ul>
                 <ul>
-                    <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
+                    <li>
                         <a href="{{ route('pengajuan.daftar') }}"><i class="bi bi-circle"></i>Antar Daerah</a>
                     </li>
-                    <li class="{{ Request::segment(2) == 'instansi' ? 'mm-active' : '' }}">
+                    <li>
                         <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Luar Negri</a>
-                    </li>
-                    <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
+                        </lis=>
+                    <li>
                         <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
                     </li>
                 </ul>
             </ul>
         </li>
-        <li class="{{ Request::segment(3) == 'user' ? 'mm-active' : '' }}">
+        <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
                 </div>
@@ -55,42 +55,41 @@
             </a>
             <ul>
                 <ul>
-                    <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
+                    <li>
                         <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>Antar Daerah</a>
                     </li>
-                    <li class="{{ Request::segment(2) == 'instansi' ? 'mm-active' : '' }}">
+                    <li>
                         <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Luar Negri</a>
                     </li>
-                    <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
+                    <li>
                         <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
                     </li>
                 </ul>
             </ul>
         </li>
 
-        <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
-            <a href="javascript:;" class="has-arrow">
+        <li>
+            <a class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
                 </div>
                 <div class="menu-title">Master</div>
             </a>
             <ul>
-                <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
+                <li>
                     <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
                 </li>
-                <li class="{{ Request::segment(2) == 'instansi' ? 'mm-active' : '' }}">
+                <li>
                     <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
                 </li>
-                <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
+                <li>
                     <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perjanjian</a>
                 </li>
-                <li class="{{ Request::segment(2) == 'jenis-perjanjian' ? 'mm-active' : '' }}">
+                <li>
                     <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
                 </li>
 
             </ul>
         </li>
-
     </ul>
     <!--end navigation-->
 </aside>

@@ -10,6 +10,7 @@ use App\Http\Livewire\Pages\User\UserPage;
 use App\Http\Livewire\Master\PerjanjianTipe;
 use App\Http\Livewire\Pages\User\DaftarUser;
 use App\Http\Controllers\DashboardController;
+use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Pages\Permohonan\PengajuanDaftar;
 
 /*
@@ -39,6 +40,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::group(['middleware' => 'profile.completed'], function () {
+        Route::get('home', Home::class)->name('home');
         Route::get('pengajuan', Pengajuan::class)->name('pengajuan');
         Route::get('master/tipe-perjanjian', PerjanjianTipe::class)->name('tipe.perijinan');
         Route::get('master/jenis-perjanjian', DokumenJenis::class)->name('jenis.perijinan');
