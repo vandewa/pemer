@@ -19,14 +19,6 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
-
-        <li>
-            <a href="{{ route('pengajuan') }}">
-                <div class="parent-icon"><i class="lni lni-clipboard"></i>
-                </div>
-                <div class="menu-title">Pengajuan</div>
-            </a>
-        </li>
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -36,13 +28,13 @@
             <ul>
                 <ul>
                     <li>
-                        <a href="{{ route('pengajuan.daftar') }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '1']) }}"><i class="bi bi-circle"></i>Antar Daerah</a>
                     </li>
                     <li>
-                        <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Luar Negri</a>
-                        </lis=>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '2']) }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                    </li>
                     <li>
-                        <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '3']) }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
                     </li>
                 </ul>
             </ul>
@@ -56,13 +48,13 @@
             <ul>
                 <ul>
                     <li>
-                        <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '4']) }}"><i class="bi bi-circle"></i>Antar Daerah</a>
                     </li>
                     <li>
-                        <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '5']) }}"><i class="bi bi-circle"></i>Luar Negri</a>
                     </li>
                     <li>
-                        <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '6']) }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
                     </li>
                 </ul>
             </ul>
@@ -76,9 +68,6 @@
             </a>
             <ul>
                 <li>
-                    <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
-                </li>
-                <li>
                     <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
                 </li>
                 <li>
@@ -87,7 +76,12 @@
                 <li>
                     <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
                 </li>
-
+                <li>
+                    <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
+                </li>
+                <li>
+                    <a href="{{ route('permission.role') }}"><i class="bi bi-circle"></i>Permission Role</a>
+                </li>
             </ul>
         </li>
     </ul>

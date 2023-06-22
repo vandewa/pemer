@@ -17,6 +17,9 @@ class RoleSeeder extends Seeder
         $permissions = [
             ['name' => 'CRUD master data'],
             ['name' => 'pengajuan'],
+            ['name' => 'kesepakatan'],
+            ['name' => 'perjanjian'],
+            ['name' => 'home']
         ];
 
         foreach ($permissions as $key) {

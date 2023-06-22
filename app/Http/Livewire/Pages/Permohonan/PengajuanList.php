@@ -5,14 +5,14 @@ namespace App\Http\Livewire\Pages\Permohonan;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Perjanjian;
+use Illuminate\Database\Eloquent\Builder;
 
 class PengajuanList extends DataTableComponent
 {
     protected $model = Perjanjian::class;
-    public $no;
+    public $no, $data_id = 1;
 
-
-    public function mount()
+    public function mount($data_id)
     {
         $this->no;
     }
@@ -21,18 +21,30 @@ class PengajuanList extends DataTableComponent
         $this->setPrimaryKey('id');
         $this->setDefaultSort('id', 'desc');
     }
-
+    public function builder(): Builder
+    {
+        if ($this->data_id !== null) {
+            return Perjanjian::where('jenis_dokumen_id', $this->data_id);
+        }
+        return Perjanjian::query();
+    }
     public function columns(): array
     {
         return [
-            Column::make("No", "id")->format(fn () => ++$this->no +  ($this->page - 1) * $this->perPage)->sortable(),
+            Column::make("No", "id")->format(fn () => ++$this->no +  ($this->page - 1) * $this->perPage),
             Column::make("Status Pengajuan", "status")
                 ->format(
                     function ($value, $row, Column $column) {
-                        if ($row->status == 1) {
-                            return '<span class="badge badge-success">Active</span>';
-                        } else {
-                            return '<span class="badge badge-warning">Tidak</span>';
+                        switch ($row->status) {
+                            case ('open'):
+                                return ' <span class="badge bg-primary">Open</span>';
+                                break;
+                            case ('done'):
+                                return ' <span class="badge bg-success">Konfirmasi</span>';
+                                break;
+                            case ('reject'):
+                                return ' <span class="badge bg-danger">Di Tolak</span>';
+                                break;
                         }
                     }
                 )

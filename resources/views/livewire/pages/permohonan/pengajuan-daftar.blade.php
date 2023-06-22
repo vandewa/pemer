@@ -19,7 +19,7 @@
         <!--end breadcrumb-->
         <div class="card">
             <div class="card-body">
-                <livewire:pages.permohonan.pengajuan-list />
+                <livewire:pages.permohonan.pengajuan-list :data_id="$data_id" />
             </div>
         </div>
     </main>

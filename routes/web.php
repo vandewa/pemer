@@ -12,6 +12,7 @@ use App\Http\Livewire\Pages\User\DaftarUser;
 use App\Http\Controllers\DashboardController;
 use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Pages\Permohonan\PengajuanDaftar;
+use App\Http\Livewire\Pages\User\PermissionRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,11 @@ Route::middleware([
         Route::get('pengajuan', Pengajuan::class)->name('pengajuan');
         Route::get('master/tipe-perjanjian', PerjanjianTipe::class)->name('tipe.perijinan');
         Route::get('master/jenis-perjanjian', DokumenJenis::class)->name('jenis.perijinan');
+        Route::get('master/instansi', Instansi::class)->name('master.instansi');
+        Route::get('user/permission', PermissionRole::class)->name('permission.role');
         Route::post('/ganti-password', [DashboardController::class, 'gantiPassword'])->name('ganti.password');
         Route::get('user-index', DaftarUser::class)->name('user.index');
-        Route::get('master/instansi', Instansi::class)->name('master.instansi');
+        
     });
     Route::get('user/{id?}', UserPage::class)->name('user');
     Route::get('daftarpengajuan', PengajuanDaftar::class)->name('pengajuan.daftar');
