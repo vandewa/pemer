@@ -6,25 +6,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <input type="text" class="form-control" id="id" wire:model.lazy="id_user">
                 <label class="col-lg-4 col-form-label">Nama Role :</label>
                 <input type="text" class="form-control" id="name" wire:model.lazy="name">
                 <label class="col-lg-4 col-form-label">Role Permission :</label>
-                <div wire:ignore>
-                    {!! Form::select('permission_user', get_permission_user(), null, [
-                    'id' => 'permission_user',
-                    'multiple' => 'multiple',
-                    'class' => 'form-control permission_user',
-                    'wire:model.lazy' => 'permission_user',
-                    ]) !!}
-                </div>
-                <select multiple data-role="tagsinput">
-                    <option value="Amsterdam">Amsterdam</option>
-                    <option value="Washington">Washington</option>
-                    <option value="Sydney">Sydney</option>
-                    <option value="Beijing">Beijing</option>
-                    <option value="Cairo">Cairo</option>
+                <select class="multiple-select" data-placeholder="Choose anything" multiple="multiple">
+                    <option value="United States" selected>United States</option>
+                    <option value="United Kingdom" selected>United Kingdom</option>
+                    <option value="Afghanistan" selected>Afghanistan</option>
+                    <option value="Aland Islands">Aland Islands</option>
+                    <option value="Albania">Albania</option>
                 </select>
             </div>
+            {{ $permission_user}}
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
@@ -37,18 +31,24 @@
     window.addEventListener('data', event => {
         var data = event.detail.data;
         $('#name').val(data.name);
+        $('#id').val(data.id);
         console.log(data.name);
-    })
+    });
+    window.addEventListener('permission_user', event => {
+        var data2 = event.detail.permission_user;
+        $('#permission_user2').val(data2);
+        console.log(data2);
+    });
     $(document).ready(function() {
-        window.addEventListener('select2untukroleuser', event => {
-            $('.permission_user').select2();
-
-            $('#permission_user').on('change', function(e) {
-                var data = $('#permission_user').select2("val");
-                @this.set('permission_user', data);
+        // Initialize Select2 inside the modal
+        $('#editModalPermissionUser').on('shown.bs.modal', function() {
+            $('.multiple-select').select2({
+                placeholder: 'Choose anything'
+                , multiple: true
             });
         });
     });
 </script>
-<script src="{{ asset('snacked/ltr/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
+<link href="{{ asset('snacked/ltr/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
+<script src="{{ asset('snacked/ltr/assets/plugins/select2/js/select2.min.js') }}"></script>
 @endpush

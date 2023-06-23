@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Role;
 class PermissionUserList extends DataTableComponent
 {
     protected $model = Role::class;
-    public $no, $data, $user_id, $name;
+    public $no, $data, $user_id, $name, $permission_user;
     public function mount()
     {
         $this->no;
@@ -21,10 +21,15 @@ class PermissionUserList extends DataTableComponent
     }
     public function getID($id)
     {
-        $this->data = User::find($id);
+        $this->data = Role::find($id);
+        $this->permission_user = $this->data->getPermissionNames();
         $this->dispatchBrowserEvent('data', [
             'data' => $this->data
         ]);
+        $this->dispatchBrowserEvent('permission_user', [
+            'permission_user' => $this->permission_user
+        ]);
+        $this->dispatchBrowserEvent('select2untukroleuser');
         $this->dispatchBrowserEvent('show-modal-permission-user');
     }
     public function columns(): array
