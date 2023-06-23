@@ -39,4 +39,11 @@ if (!function_exists('get_code_group')) {
             JenisDokumen::with('perjanjianTipe')->pluck('name', 'perjanjianTipe.name', 'id');
         }
     }
+
+    if (!function_exists('get_permission_user')) {
+        function get_permission_user()
+        {
+            return \Spatie\Permission\Models\Permission::pluck('name', 'name');
+        }
+    }
 }
