@@ -49,6 +49,7 @@ class PengajuanList extends DataTableComponent
                     }
                 )
                 ->html(),
+
             Column::make("No. Dokumen Pemkot", "no_pemkot")
                 ->sortable()->searchable(),
             Column::make("No. Dokumen Penyedia", "no_penyedia")

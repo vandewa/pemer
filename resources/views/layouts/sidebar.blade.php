@@ -12,6 +12,7 @@
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
+        @can('home')
         <li>
             <a href="{{ route('home') }}">
                 <div class="parent-icon"><i class="bi bi-house-fill"></i>
@@ -19,6 +20,8 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
+        @endcan
+        @can('kesepakatan')
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -39,6 +42,8 @@
                 </ul>
             </ul>
         </li>
+        @endcan
+        @can('perjanjian')
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -59,7 +64,8 @@
                 </ul>
             </ul>
         </li>
-
+        @endcan
+        @can('master data')
         <li>
             <a class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -84,6 +90,7 @@
                 </li>
             </ul>
         </li>
+        @endcan
     </ul>
     <!--end navigation-->
 </aside>

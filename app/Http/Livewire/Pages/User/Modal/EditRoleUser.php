@@ -30,7 +30,7 @@ class EditRoleUser extends Component
             ]);
             $role->givePermissionTo($this->permission_user);
         }
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatchBrowserEvent('close-modal-role');
         $this->dispatchBrowserEvent('Success');
     }
     public function update()
@@ -42,13 +42,12 @@ class EditRoleUser extends Component
             ]);
             $role->syncPermissions($this->permission_user);
         }
-        $this->dispatchBrowserEvent('close-modal');
+        $this->dispatchBrowserEvent('close-modal-role');
         $this->dispatchBrowserEvent('Success');
     }
     public function handleEvent($user_id)
     {
-        $this->id_user = $user_id['data'];
-        $this->data = Role::find($this->id_user);
+        $this->data = Role::find($user_id['data']);
         $this->idnya = $this->data->id;
         $this->name = $this->data->name;
         $this->permission_user = $this->data->getPermissionNames();

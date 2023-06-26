@@ -13,7 +13,7 @@
                         <div class="d-flex align-items-center mb-3">
                             <h6 class="mb-0">User</h6>
                         </div>
-                        <livewire:pages.user.permission-user-list />
+                        <livewire:pages.user.role-user-list />
                     </div>
                 </div>
             </div>
@@ -23,23 +23,29 @@
                         <div class="d-flex align-items-center mb-3">
                             <h6 class="mb-0">Permission</h6>
                         </div>
-                        <livewire:pages.user.permission-role-list />
+                        <livewire:pages.user.permission-list />
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <livewire:pages.user.modal.edit-role-user>
+        <livewire:pages.user.modal.edit-permission>
 </div>
 @push('script')
 <script>
-    window.addEventListener('show-modal-permission-user', event => {
+    window.addEventListener('show-modal-role-user', event => {
         $('#edit-role-user').modal('show');
     });
-    window.addEventListener('close-modal', event => {
+    window.addEventListener('close-modal-role', event => {
         $('#edit-role-user').modal('hide')
     })
-
+    window.addEventListener('show-modal-permission', event => {
+        $('#edit-permission').modal('show');
+    });
+    window.addEventListener('close-modal-permission', event => {
+        $('#edit-permission').modal('hide')
+    })
 </script>
 
 @endpush

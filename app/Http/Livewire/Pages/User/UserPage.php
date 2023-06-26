@@ -41,7 +41,6 @@ class UserPage extends Component
             ])->assignRole($this->role_user);
 
             $this->dispatchBrowserEvent('Success');
-            redirect()->to(route('user.index'));
         }
     }
 
@@ -72,8 +71,7 @@ class UserPage extends Component
                 'password' => Hash::make($this->password),
             ]);
         }
-
-        redirect()->to(route('user.index'));
+        $this->dispatchBrowserEvent('Update');
     }
 
     public function mount($id = "")
