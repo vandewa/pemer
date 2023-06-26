@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Pages\User;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
+use Livewire\Livewire;
 use Spatie\Permission\Models\Role;
 
 class PermissionUserList extends DataTableComponent
@@ -19,17 +20,11 @@ class PermissionUserList extends DataTableComponent
     {
         $this->setPrimaryKey('id');
     }
-    public function getID($id)
+    public function getID($user_id)
     {
-        $this->data = Role::find($id);
-        $this->permission_user = $this->data->getPermissionNames();
-        $this->dispatchBrowserEvent('data', [
-            'data' => $this->data
+        $this->dispatchBrowserEvent('user_id', [
+            'user_id' => $user_id
         ]);
-        $this->dispatchBrowserEvent('permission_user', [
-            'permission_user' => $this->permission_user
-        ]);
-        $this->dispatchBrowserEvent('select2untukroleuser');
         $this->dispatchBrowserEvent('show-modal-permission-user');
     }
     public function columns(): array

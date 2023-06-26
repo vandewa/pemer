@@ -29,17 +29,17 @@
             </div>
         </div>
     </main>
-    @include('livewire.pages.user.modal-permission.edit-user')
-    @include('livewire.pages.user.modal-permission.edit-permission')
+    <livewire:pages.user.modal.edit-role-user>
 </div>
 @push('script')
 <script>
     window.addEventListener('show-modal-permission-user', event => {
-        $('#editModalPermissionUser').modal('show');
+        $('#edit-role-user').modal('show');
     });
-    Livewire.on('close-modal', event => {
-        $('#editModal').modal('hide')
+    window.addEventListener('close-modal', event => {
+        $('#edit-role-user').modal('hide')
     })
+
 </script>
 
 @endpush

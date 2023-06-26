@@ -30,24 +30,19 @@
     <link href="{{ asset('snacked/ltr/assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/header-colors.css') }}" rel="stylesheet" />
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    <!-- Or for RTL support -->
+<!-- Or for RTL support -->
 
     <!-- Scripts -->
 
     <link href="{{ asset('snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <link href="{{ asset('snacked/ltr/assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('snacked/ltr/assets/plugins/select2/css/select2-bootstrap4.css') }}" rel="stylesheet" />
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-
+    <livewire:styles />
     @stack('css')
-    @livewireStyles
 
-    @vite([])
+
 
     {{-- <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script> --}}
 
@@ -282,8 +277,7 @@
     <!-- Vector map JavaScript -->
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <script src="{{ asset('snacked/ltr/assets/plugins/select2/js/select2.min.js') }}"></script>
-    <script src="{{ asset('snacked/ltr/assets/js/form-select2.js') }}"></script>
+
     {{-- <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script> --}}
 
 
@@ -364,7 +358,7 @@
     @include('sweetalert::alert')
     @stack('js')
     @stack('script')
-    @livewireScripts
+    <livewire:scripts />
 
     <script>
         $(document).on('click', '.delete-data-table', function(a) {
