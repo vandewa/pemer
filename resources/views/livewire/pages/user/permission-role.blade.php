@@ -4,13 +4,7 @@
         <div class="mb-3 page-breadcrumb d-none d-sm-flex align-items-center">
             <div class="breadcrumb-title pe-3">Permission Role User</div>
         </div>
-        <select class="multiple-select" data-placeholder="Choose anything" multiple="multiple">
-            <option value="United States" selected>United States</option>
-            <option value="United Kingdom" selected>United Kingdom</option>
-            <option value="Afghanistan" selected>Afghanistan</option>
-            <option value="Aland Islands">Aland Islands</option>
-            <option value="Albania">Albania</option>
-        </select>
+
         <!--end breadcrumb-->
         <div class="row">
             <div class="col-12 col-lg-6 col-xl-6 d-flex">
@@ -46,7 +40,6 @@
     Livewire.on('close-modal', event => {
         $('#editModal').modal('hide')
     })
-
 </script>
 
 @endpush

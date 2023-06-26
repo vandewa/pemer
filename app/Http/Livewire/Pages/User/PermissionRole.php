@@ -7,7 +7,8 @@ use Spatie\Permission\Models\Role;
 
 class PermissionRole extends Component
 {
-    public $permission_user;
+    public $permission_user, $name;
+
 
     public function render()
     {
