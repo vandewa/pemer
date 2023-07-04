@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('perjanjians', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jenis_dokumen_id');
+            $table->enum('status', ['open', 'done', 'reject']);
             $table->string('no_pemkot');
             $table->string('no_penyedia');
             $table->text('judul');
@@ -22,11 +23,12 @@ return new class extends Migration
             $table->longText('tentang');
             $table->longText('ruang_lingkup');
             $table->date('tanggal_mulai');
-            $table->longText('tanggal_selesai');
+            $table->date('tanggal_selesai');
             $table->timestamps();
             $table->foreign('jenis_dokumen_id')->references('id')->on('jenis_dokumens')
-            ->onUpdate('cascade')
-            ->onDelete('restrict');
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+            $table->string('pemohon_id');
         });
     }
 

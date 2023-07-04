@@ -36,7 +36,7 @@
                                             <label class="form-label">OPD</label>
                                             {!! Form::select('id', get_instansi(), null, ['class'=> 'form-control',
                                             'placeholder' => 'Pilih OPD', 'wire:model.lazy' => 'instansi_id']); !!}
-                                            @error('opd')
+                                            @error('intansi_id')
                                             <span class="form-text text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -44,10 +44,9 @@
                                     <div class="col-md-6">
                                         <div class="col-12">
                                             <label class="form-label">No HP</label>
-                                            <input type="text" class="form-control" wire:model.lazy="no_hp">
-                                            @error('no_hp')
-                                            <span class="form-text text-danger">{{ $message }}</span>
-                                            @enderror
+                                            <div class="form-group form-group-feedback form-group-feedback-right">
+                                                <input type="text" class="form-control" wire:model.lazy="no_hp" placeholder="Masukan Nomor Handphone">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +93,6 @@
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label"></label>
                                     <div class="col-sm-12 text-end">
-                                        <a href="{{ route('user.index') }}" class="px-5 btn btn-secondary">Kembali</a>
                                         <button type="submit" class="px-5 btn btn-primary">Simpan</button>
                                     </div>
                                 </div>

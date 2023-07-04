@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\JenisDokumen;
+
 if (!function_exists('get_code_group')) {
     function get_code_group($code)
     {
@@ -28,7 +30,20 @@ if (!function_exists('get_code_group')) {
     if (!function_exists('get_instansi')) {
         function get_instansi()
         {
-            return \App\Models\Instansi::where('antrian', '1')->pluck('name', 'id');
+            return \App\Models\Instansi::where('status', '1')->pluck('name', 'id');
+        }
+    }
+    if (!function_exists('get_jenis_dokumens')) {
+        function get_jenis_dokumens()
+        {
+            JenisDokumen::with('perjanjianTipe')->pluck('name', 'perjanjianTipe.name', 'id');
+        }
+    }
+
+    if (!function_exists('get_permission_user')) {
+        function get_permission_user()
+        {
+            return \Spatie\Permission\Models\Permission::pluck('name', 'name');
         }
     }
 }

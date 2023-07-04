@@ -15,8 +15,12 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-            ['name' => 'CRUD master data'],
+            ['name' => 'master data'],
             ['name' => 'pengajuan'],
+            ['name' => 'verivikasi'],
+            ['name' => 'kesepakatan'],
+            ['name' => 'perjanjian'],
+            ['name' => 'home']
         ];
 
         foreach ($permissions as $key) {
@@ -37,6 +41,9 @@ class RoleSeeder extends Seeder
 
         $user->syncPermissions(
             'pengajuan',
+            'kesepakatan',
+            'perjanjian',
+            'home'
         );
     }
 }

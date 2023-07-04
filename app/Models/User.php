@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Spatie\Permission\Models\Role::class, 'user_id');
     }
+
+    public function isProfileComplete()
+    {
+        return $this->name && $this->no_hp && $this->instansi_id;
+    }
 }

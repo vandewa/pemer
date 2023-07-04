@@ -12,37 +12,85 @@
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
-        <li class="{{ Request::segment(1) == 'dashboard' ? 'mm-active' : '' }}">
-            <a href="{{ route('dashboard') }}">
+        @can('home')
+        <li>
+            <a href="{{ route('home') }}">
                 <div class="parent-icon"><i class="bi bi-house-fill"></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
-
-        <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
+        @endcan
+        @can('kesepakatan')
+        <li>
             <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-archive"></i>
+                </div>
+                <div class="menu-title">Kesepakatan Bersama</div>
+            </a>
+            <ul>
+                <ul>
+                    <li>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '1']) }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                    </li>
+                    <li>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '2']) }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                    </li>
+                    <li>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '3']) }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                    </li>
+                </ul>
+            </ul>
+        </li>
+        @endcan
+        @can('perjanjian')
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-archive"></i>
+                </div>
+                <div class="menu-title">Perjanjian Kerja Sama</div>
+            </a>
+            <ul>
+                <ul>
+                    <li>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '4']) }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                    </li>
+                    <li>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '5']) }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                    </li>
+                    <li>
+                        <a href="{{ route("pengajuan.daftar", ["id" => '6']) }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                    </li>
+                </ul>
+            </ul>
+        </li>
+        @endcan
+        @can('master data')
+        <li>
+            <a class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
                 </div>
                 <div class="menu-title">Master</div>
             </a>
             <ul>
-                <li class="{{ Request::segment(1) == 'user' ? 'mm-active' : '' }}">
-                    <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
-                </li>
-                <li class="{{ Request::segment(2) == 'instansi' ? 'mm-active' : '' }}">
+                <li>
                     <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
                 </li>
-                <li class="{{ Request::segment(2) == 'tipe-perjanjian' ? 'mm-active' : '' }}">
+                <li>
                     <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perjanjian</a>
                 </li>
-                <li class="{{ Request::segment(2) == 'jenis-perjanjian' ? 'mm-active' : '' }}">
+                <li>
                     <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
                 </li>
-
+                <li>
+                    <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
+                </li>
+                <li>
+                    <a href="{{ route('permission.role') }}"><i class="bi bi-circle"></i>Permission Role</a>
+                </li>
             </ul>
         </li>
-
+        @endcan
     </ul>
     <!--end navigation-->
 </aside>

@@ -17,8 +17,7 @@ class UserPage extends Component
     public $role_user;
     public $password_confirmation;
     public $role;
-    public $no_hp;
-    public $opd;
+    public $no_hp, $instansi_id;
 
     public function simpanData()
     {
@@ -37,12 +36,11 @@ class UserPage extends Component
                 'name' => $this->name,
                 'email' => $this->email,
                 'no_hp' => $this->no_hp,
-                'opd' => $this->opd,
+                'intansi_id' => $this->intansi_id,
                 'password' => Hash::make($this->password),
             ])->assignRole($this->role_user);
 
             $this->dispatchBrowserEvent('Success');
-            redirect()->to(route('user.index'));
         }
     }
 
@@ -61,7 +59,7 @@ class UserPage extends Component
             'name' => $this->name,
             'email' => $this->email,
             'no_hp' => $this->no_hp,
-            'opd' => $this->opd,
+            'instansi_id' => $this->instansi_id,
         ]);
 
         DB::table('model_has_roles')->where('model_id', $this->idnya)->delete();
@@ -73,8 +71,7 @@ class UserPage extends Component
                 'password' => Hash::make($this->password),
             ]);
         }
-
-        redirect()->to(route('user.index'));
+        $this->dispatchBrowserEvent('Update');
     }
 
     public function mount($id = "")
@@ -84,7 +81,7 @@ class UserPage extends Component
             $this->name = $data->name;
             $this->email = $data->email;
             $this->no_hp = $data->no_hp;
-            $this->opd = $data->opd;
+            $this->instansi_id = $data->instansi_id;
             $this->role_user = $data->getRoleNames();
         }
 
