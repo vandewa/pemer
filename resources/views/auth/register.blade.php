@@ -25,11 +25,11 @@
                  <div class="mt-4 mb-0 text-center col-md-6">
                      <img src="{{ asset('pemda.png') }}" style="width: 80px;">
                      <h2 class="heading-section">
-                         <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 40pt">L
-                             <i class="fa fa-buysellads" aria-hidden="true"></i> K O N</span>
-                     </h2>
-                     <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
-                         Layanan Konsultasi Online )</span>
+                        <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 50pt">P
+                           <i class="fa fa-etsy" aria-hidden="true"></i></i> M E R</span>
+                    </h2>
+                    <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
+                        Perjanjian Kerja Online )</span>
                  </div>
              </div>
              <div class="mt-4 row justify-content-center">

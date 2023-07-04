@@ -29,10 +29,19 @@ class RoleSeeder extends Seeder
             );
         }
 
-        Role::create([
+        $admin = Role::create([
             'name' => 'admin',
             'guard_name' => 'web'
         ]);
+
+        $admin->syncPermissions(
+            'master data',
+            'pengajuan',
+            'verivikasi',
+            'kesepakatan',
+            'perjanjian',
+            'home',
+        );
 
         $user = Role::create([
             'name' => 'user',

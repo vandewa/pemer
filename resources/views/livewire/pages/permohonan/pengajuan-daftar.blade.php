@@ -13,9 +13,12 @@
                 </nav>
             </div>
         </div>
-        <div class="mt-4 mb-3">
-            <a href="{{ route('pengajuan') }}"><button class="px-5 btn btn-primary radius-30"><i class="mr-1 bx bx-plus-circle"></i>Tambah Pengajuan</button></a>
-        </div>
+        @if (Auth::check())
+            <div class="mt-4 mb-3">
+                <a href="{{ route('pengajuan') }}"><button class="px-5 btn btn-primary radius-30"><i
+                            class="mr-1 bx bx-plus-circle"></i>Tambah Pengajuan</button></a>
+            </div>
+        @endif
         <!--end breadcrumb-->
         <div class="card">
             <div class="card-body">

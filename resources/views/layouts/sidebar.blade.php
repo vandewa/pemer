@@ -2,7 +2,8 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('snacked/ltr/assets/images/favicon/android-chrome-512x512.png') }}" class="logo-icon" alt="logo icon">
+            <img src="{{ asset('snacked/ltr/assets/images/favicon/android-chrome-512x512.png') }}" class="logo-icon"
+                alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text" style="color:black;">LAKON</h4>
@@ -12,7 +13,6 @@
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
-        @can('home')
         <li>
             <a href="{{ route('home') }}">
                 <div class="parent-icon"><i class="bi bi-house-fill"></i>
@@ -20,8 +20,6 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
-        @endcan
-        @can('kesepakatan')
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -31,19 +29,20 @@
             <ul>
                 <ul>
                     <li>
-                        <a href="{{ route("pengajuan.daftar", ["id" => '1']) }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                        <a href="{{ route('pengajuan.daftar', ['id' => '1']) }}"><i class="bi bi-circle"></i>Antar
+                            Daerah</a>
                     </li>
                     <li>
-                        <a href="{{ route("pengajuan.daftar", ["id" => '2']) }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                        <a href="{{ route('pengajuan.daftar', ['id' => '2']) }}"><i class="bi bi-circle"></i>Luar
+                            Negri</a>
                     </li>
                     <li>
-                        <a href="{{ route("pengajuan.daftar", ["id" => '3']) }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                        <a href="{{ route('pengajuan.daftar', ['id' => '3']) }}"><i class="bi bi-circle"></i>Pihak
+                            Ketiga</a>
                     </li>
                 </ul>
             </ul>
         </li>
-        @endcan
-        @can('perjanjian')
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -53,43 +52,45 @@
             <ul>
                 <ul>
                     <li>
-                        <a href="{{ route("pengajuan.daftar", ["id" => '4']) }}"><i class="bi bi-circle"></i>Antar Daerah</a>
+                        <a href="{{ route('pengajuan.daftar', ['id' => '4']) }}"><i class="bi bi-circle"></i>Antar
+                            Daerah</a>
                     </li>
                     <li>
-                        <a href="{{ route("pengajuan.daftar", ["id" => '5']) }}"><i class="bi bi-circle"></i>Luar Negri</a>
+                        <a href="{{ route('pengajuan.daftar', ['id' => '5']) }}"><i class="bi bi-circle"></i>Luar
+                            Negri</a>
                     </li>
                     <li>
-                        <a href="{{ route("pengajuan.daftar", ["id" => '6']) }}"><i class="bi bi-circle"></i>Pihak Ketiga</a>
+                        <a href="{{ route('pengajuan.daftar', ['id' => '6']) }}"><i class="bi bi-circle"></i>Pihak
+                            Ketiga</a>
                     </li>
                 </ul>
             </ul>
         </li>
-        @endcan
         @can('master data')
-        <li>
-            <a class="has-arrow">
-                <div class="parent-icon"><i class="lni lni-archive"></i>
-                </div>
-                <div class="menu-title">Master</div>
-            </a>
-            <ul>
-                <li>
-                    <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
-                </li>
-                <li>
-                    <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perjanjian</a>
-                </li>
-                <li>
-                    <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
-                </li>
-                <li>
-                    <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
-                </li>
-                <li>
-                    <a href="{{ route('permission.role') }}"><i class="bi bi-circle"></i>Permission Role</a>
-                </li>
-            </ul>
-        </li>
+            <li>
+                <a class="has-arrow">
+                    <div class="parent-icon"><i class="lni lni-archive"></i>
+                    </div>
+                    <div class="menu-title">Master</div>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perjanjian</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('permission.role') }}"><i class="bi bi-circle"></i>Permission Role</a>
+                    </li>
+                </ul>
+            </li>
         @endcan
     </ul>
     <!--end navigation-->
