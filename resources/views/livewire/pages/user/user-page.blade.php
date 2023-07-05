@@ -33,9 +33,9 @@
                                 <div class="mb-3 row">
                                     <div class="col-md-6">
                                         <div class="col-12">
-                                            <label class="form-label">OPD</label>
+                                            <label class="form-label">Lembaga</label>
                                             {!! Form::select('id', get_instansi(), null, ['class'=> 'form-control',
-                                            'placeholder' => 'Pilih OPD', 'wire:model.lazy' => 'instansi_id']); !!}
+                                            'placeholder' => 'Pilih Lembaga', 'wire:model.lazy' => 'instansi_id']); !!}
                                             @error('intansi_id')
                                             <span class="form-text text-danger">{{ $message }}</span>
                                             @enderror
@@ -61,30 +61,6 @@
                                                 @endforeach
                                             </select>
                                             @error('role')
-                                            <span class="form-text text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                @if(Request::segment('2') != null)
-                                <legend style="font-size: 20px;">Ganti Password</legend>
-                                <hr>
-                                @endif
-                                <div class="mb-3 row">
-                                    <div class="col-md-6">
-                                        <div class="col-12">
-                                            <label class="form-label">Password</label>
-                                            <input type="password" class="form-control" wire:model.lazy="password">
-                                            @error('password')
-                                            <span class="form-text text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="col-12">
-                                            <label class="form-label">Konfirmasi Password</label>
-                                            <input type="password" class="form-control" wire:model.lazy="password_confirmation">
-                                            @error('password_confirmation')
                                             <span class="form-text text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>

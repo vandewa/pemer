@@ -42,6 +42,7 @@ Route::middleware([
 ])->group(function () {
     Route::group(['middleware' => 'profile.completed'], function () {
         Route::get('pengajuan', Pengajuan::class)->name('pengajuan');
+        Route::get('daftarpengajuan', PengajuanDaftar::class)->name('pengajuan.daftar');
         Route::get('master/tipe-perjanjian', PerjanjianTipe::class)->name('tipe.perijinan');
         Route::get('master/jenis-perjanjian', DokumenJenis::class)->name('jenis.perijinan');
         Route::get('master/instansi', Instansi::class)->name('master.instansi');
@@ -52,6 +53,6 @@ Route::middleware([
     Route::get('user/{id?}', UserPage::class)->name('user');
 });
 Route::get('home', Home::class)->name('home');
-Route::get('daftarpengajuan', PengajuanDaftar::class)->name('pengajuan.daftar');
+
 
 Route::get('cekWA', [Controller::class, 'cekWA'])->name('cekWA');

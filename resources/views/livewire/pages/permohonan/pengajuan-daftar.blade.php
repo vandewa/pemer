@@ -14,16 +14,23 @@
             </div>
         </div>
         @if (Auth::check())
-            <div class="mt-4 mb-3">
-                <a href="{{ route('pengajuan') }}"><button class="px-5 btn btn-primary radius-30"><i
-                            class="mr-1 bx bx-plus-circle"></i>Tambah Pengajuan</button></a>
-            </div>
+        <div class="mt-4 mb-3">
+            <a href="{{ route('pengajuan') }}"><button class="px-5 btn btn-primary radius-30"><i class="mr-1 bx bx-plus-circle"></i>Tambah Pengajuan</button></a>
+        </div>
         @endif
         <!--end breadcrumb-->
         <div class="card">
             <div class="card-body">
-                <livewire:pages.permohonan.pengajuan-list :data_id="$data_id" />
+                <livewire:pages.permohonan.pengajuan-list />
             </div>
         </div>
+        <livewire:pages.permohonan.modal.show-pengajuan>
     </main>
 </div>
+@push('script')
+<script>
+    window.addEventListener('show-modal-pengajuan', event => {
+        $('#show_pengajuan').modal('show');
+    })
+</script>
+@endpush

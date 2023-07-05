@@ -2,17 +2,17 @@
 
 namespace App\Http\Livewire\Pages\Permohonan;
 
-use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Perjanjian;
+use App\Models\Pengajuan;
 use Illuminate\Database\Eloquent\Builder;
+use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
 
 class PengajuanList extends DataTableComponent
 {
-    protected $model = Perjanjian::class;
-    public $no, $data_id = 1;
+    protected $model = Pengajuan::class;
+    public $no;
 
-    public function mount($data_id)
+    public function mount()
     {
         $this->no;
     }
@@ -23,10 +23,14 @@ class PengajuanList extends DataTableComponent
     }
     public function builder(): Builder
     {
-        if ($this->data_id !== null) {
-            return Perjanjian::where('jenis_dokumen_id', $this->data_id);
-        }
-        return Perjanjian::query();
+        return Pengajuan::where('pemohon_id', Auth()->user()->id);
+    }
+    public function getID($terima_id)
+    {
+        $this->dispatchBrowserEvent('kirim_id', [
+            'kirim_id' => $terima_id
+        ]);
+        $this->dispatchBrowserEvent('show-modal-pengajuan');
     }
     public function columns(): array
     {
@@ -36,38 +40,67 @@ class PengajuanList extends DataTableComponent
                 ->format(
                     function ($value, $row, Column $column) {
                         switch ($row->status) {
-                            case ('open'):
-                                return ' <span class="badge bg-primary">Open</span>';
+                            case ('Pengajuan'):
+                                return ' <span class="badge bg-info">Pengajuan</span>';
                                 break;
-                            case ('done'):
-                                return ' <span class="badge bg-success">Konfirmasi</span>';
+                            case ('Ditinjau'):
+                                return ' <span class="badge bg-warning">Di terima</span>';
                                 break;
-                            case ('reject'):
+                            case ('Diproses'):
+                                return ' <span class="badge bg-warning">Di Proses</span>';
+                                break;
+                            case ('Selesai'):
+                                return ' <span class="badge bg-success">Selesai</span>';
+                                break;
+                            case ('Ditolak'):
                                 return ' <span class="badge bg-danger">Di Tolak</span>';
                                 break;
                         }
                     }
                 )
                 ->html(),
+            Column::make("Judul", "judul"),
+            Column::make("Jenis", 'jenis_dokumen_id')
+                ->format(function ($value, $row, Column $column) {
+                    return $row->jenisDokument->perjanjianTipe->name . ' ' . $row->jenisDokument->name;
+                }),
+            Column::make("Surat Permohonan", "path_surat_permohonan")
+                ->format(
+                    function ($value, $row, Column $column) {
+                        return '<div>
+                    <div class="list-icons">
+                        <div class="dropdown">
+                        <a  href="' . $row->path_surat_permohonan . '" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Views" target="_blank">Lihat File</a>
+                        </div>
+                    </div>';
+                    }
+                )
+                ->html(),
+            Column::make("Studi Kelayakan / KAK", "tgl_permohonan")
+                ->format(
+                    function ($value, $row, Column $column) {
+                        return '<div>
+                <div class="list-icons">
+                    <div class="dropdown">
+                    <a  href="' . $row->tgl_permohonan . '" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Views" target="_blank">Lihat File</a>
+                    </div>
+                </div>';
+                    }
+                )
+                ->html(),
+            Column::make('Action', 'id')
+                ->format(
+                    function ($value, $row, Column $column) {
+                        return '<div>
+                        <div class="list-icons">
+                            <div class="dropdown">
+                            <a wire:click="getID(' . $row->id . ')" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Views"><i class="bi bi-eye-fill"></i></a>
+                            </div>
+                        </div>';
+                    }
+                )
+                ->html(),
 
-            Column::make("No. Dokumen Pemkot", "no_pemkot")
-                ->sortable()->searchable(),
-            Column::make("No. Dokumen Penyedia", "no_penyedia")
-                ->sortable()->searchable(),
-            Column::make("Perjanjian Kerjasama", "judul")
-                ->sortable()->searchable(),
-            Column::make("Pihak I", "pihak_1")
-                ->sortable()->searchable(),
-            Column::make("Pihak II", "pihak_2")
-                ->sortable()->searchable(),
-            Column::make("Tentang", "tentang")
-                ->sortable()->searchable(),
-            Column::make("Ruang Lingkup", "ruang_lingkup")
-                ->sortable()->searchable(),
-            Column::make("Jangka Waktu", "tanggal_mulai")
-                ->sortable()->searchable(),
-            Column::make("Batas Akhir", "tanggal_selesai")
-                ->sortable()->searchable(),
         ];
     }
 }

@@ -16,12 +16,17 @@ class OpdSeeder extends Seeder
         $data = [
             [
                 'kode' => '01',
-                'name' => 'INSTANSI / LEMBAGA',
+                'name' => 'Pemerintah Daerah',
                 'status' => '1'
             ],
             [
                 'kode' => '02',
-                'name' => 'SWASTA',
+                'name' => 'Instansi Pemerintah Pusat',
+                'status' => '1'
+            ],
+            [
+                'kode' => '03',
+                'name' => 'Pihak Ketiga',
                 'status' => '1'
             ],
 

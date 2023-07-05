@@ -2,8 +2,7 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('snacked/ltr/assets/images/favicon/android-chrome-512x512.png') }}" class="logo-icon"
-                alt="logo icon">
+            <img src="{{ asset('snacked/ltr/assets/images/favicon/android-chrome-512x512.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text" style="color:black;">LAKON</h4>
@@ -66,31 +65,38 @@
                 </ul>
             </ul>
         </li>
+        <li>
+            <a href="{{ route('pengajuan.daftar') }}">
+                <div class="parent-icon"><i class="lni lni-archive"></i>
+                </div>
+                <div class="menu-title">Pengajuan</div>
+            </a>
+        </li>
         @can('master data')
-            <li>
-                <a class="has-arrow">
-                    <div class="parent-icon"><i class="lni lni-archive"></i>
-                    </div>
-                    <div class="menu-title">Master</div>
-                </a>
-                <ul>
-                    <li>
-                        <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perjanjian</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('permission.role') }}"><i class="bi bi-circle"></i>Permission Role</a>
-                    </li>
-                </ul>
-            </li>
+        <li>
+            <a class="has-arrow">
+                <div class="parent-icon"><i class="lni lni-archive"></i>
+                </div>
+                <div class="menu-title">Master</div>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
+                </li>
+                <li>
+                    <a href="{{ route('tipe.perijinan') }}"><i class="bi bi-circle"></i>Tipe Perjanjian</a>
+                </li>
+                <li>
+                    <a href="{{ route('jenis.perijinan') }}"><i class="bi bi-circle"></i>Jenis Perjanjian</a>
+                </li>
+                <li>
+                    <a href="{{ route('user.index') }}"><i class="bi bi-circle"></i>User</a>
+                </li>
+                <li>
+                    <a href="{{ route('permission.role') }}"><i class="bi bi-circle"></i>Permission Role</a>
+                </li>
+            </ul>
+        </li>
         @endcan
     </ul>
     <!--end navigation-->

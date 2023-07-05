@@ -2,60 +2,80 @@
 
 namespace App\Http\Livewire\Pages\Permohonan;
 
-use App\Models\JenisDokumen;
-use App\Models\Perjanjian;
 use Livewire\Component;
+use App\Models\Pengajuan as ModelPengajuan;
+use App\Models\Perjanjian;
+use App\Models\JenisDokumen;
 
 
 class Pengajuan extends Component
 {
-    public $tipePerjanjian, $jenis_dokumen_id, $no_pemkot, $no_penyedia, $judul, $pihak_1, $pihak_2, $tentang, $ruang_lingkup, $tanggal_mulai, $tanggal_selesai;
-    protected $rules = [
-        'jenis_dokumen_id' => 'required',
-        'no_pemkot' => 'required',
-        'no_penyedia' => 'required',
-        'judul' => 'required',
-        'pihak_1' => 'required',
-        'pihak_2' => 'required',
-        'tentang' => 'required',
-        'ruang_lingkup' => 'required',
-        'tanggal_mulai' => 'required',
-        'tanggal_selesai' => 'required',
-    ];
+    public $tipePerjanjian, $jenis_dokumen_id, $no_surat, $tgl_permohonan, $judul, $obyek, $ruang_lingkup, $path_surat_permohonan, $path_studi_kak;
+    public $listNoSurat = [], $noSuratString;
+
     public function simpan()
     {
-        $this->validate();
-        Perjanjian::insert(
+        if ($this->listNoSurat == []) {
+            $this->validate([
+                'urutan.no_surat' => 'required'
+            ]);
+        }
+        $this->validate([
+            'jenis_dokumen_id' => 'required',
+            'tgl_permohonan' => 'required',
+            'judul' => 'required',
+            'obyek' => 'required',
+            'ruang_lingkup' => 'required',
+            'path_surat_permohonan' => 'required',
+            'path_studi_kak' => 'required',
+        ]);
+        $noSuratValues = '';
+        foreach ($this->listNoSurat as $item) {
+            if (isset($item['no_surat'])) {
+                $noSuratValues = $item['no_surat'] . ',' . $noSuratValues;
+            }
+        }
+        ModelPengajuan::create(
             [
-                'status' => 'open',
                 'jenis_dokumen_id' => $this->jenis_dokumen_id,
-                'no_pemkot' => $this->no_pemkot,
-                'no_penyedia' => $this->no_penyedia,
+                'no_surat' => $noSuratValues,
+                'tgl_permohonan' => $this->tgl_permohonan,
                 'judul' => $this->judul,
-                'pihak_1' => $this->pihak_1,
-                'pihak_2' => $this->pihak_2,
-                'tentang' => $this->tentang,
+                'obyek' => $this->obyek,
                 'ruang_lingkup' => $this->ruang_lingkup,
-                'tanggal_mulai' => $this->tanggal_mulai,
-                'tanggal_selesai' => $this->tanggal_selesai,
-                'pemohon_id' => Auth()->user()->id,
+                'path_surat_permohonan' => $this->path_surat_permohonan,
+                'path_studi_kak' => $this->path_studi_kak,
+                'pemohon_id' => Auth()->user()->id
             ]
         );
         $this->clearfield();
         $this->dispatchBrowserEvent('Success');
     }
+
+    public $urutan = [
+        'no_surat' => ''
+
+    ];
+    public function tambahNomor()
+    {
+        $this->validate([
+            'urutan.no_surat' => 'required'
+        ]);
+        array_push($this->listNoSurat, $this->urutan);
+        $this->urutan = [
+            'no_surat' => ''
+        ];
+    }
     public function clearfield()
     {
         $this->jenis_dokumen_id = '';
-        $this->no_pemkot = '';
-        $this->no_penyedia = '';
+        $this->tgl_permohonan = '';
         $this->judul = '';
-        $this->pihak_1 = '';
-        $this->pihak_2 = '';
-        $this->tentang = '';
+        $this->obyek = '';
         $this->ruang_lingkup = '';
-        $this->tanggal_mulai = '';
-        $this->tanggal_selesai = '';
+        $this->path_surat_permohonan = '';
+        $this->path_studi_kak = '';
+        $this->listNoSurat = [];
     }
     public function mount()
     {

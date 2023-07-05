@@ -11,26 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perjanjians', function (Blueprint $table) {
+        Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jenis_dokumen_id');
-            $table->enum('status', ['Pengajuan', 'Diterima', 'Diproses', 'Selesai']);
+            $table->enum('status', ['Pengajuan', 'Ditinjau', 'Diproses', 'Selesai', 'Ditolak']);
             $table->string('no_surat');
             $table->string('tgl_permohonan');
-            $table->string('no_pemkot')->nullable();//di admin
             $table->text('judul');
             $table->string('obyek');
             $table->longText('ruang_lingkup');
             $table->string('path_surat_permohonan');
-            $table->string('path_surat_kak');
-            $table->string('path_surat_perjanjian_kerja')->nullable(); //di admin
-            $table->date('tanggal_mulai')->nullable();//di admin
-            $table->date('tanggal_selesai')->nullable();//di admin
+            $table->string('path_studi_kak');
             $table->string('pemohon_id');
-            $table->timestamps();
             $table->foreign('jenis_dokumen_id')->references('id')->on('jenis_dokumens')
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
+            $table->timestamps();
         });
     }
 
@@ -39,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perjanjians');
+        Schema::dropIfExists('pengajuans');
     }
 };

@@ -10,9 +10,12 @@
 
     <!--plugins-->
     <link href="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+    
     <link href="{{ asset('snacked/ltr/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('snacked/ltr/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    
     <!-- Bootstrap CSS -->
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap-extended.css') }}" rel="stylesheet" />
@@ -30,14 +33,14 @@
     <link href="{{ asset('snacked/ltr/assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/header-colors.css') }}" rel="stylesheet" />
 
-<!-- Or for RTL support -->
+    <!-- Or for RTL support -->
 
     <!-- Scripts -->
 
     <link href="{{ asset('snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-   @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <livewire:styles />
     @stack('css')
@@ -269,15 +272,17 @@
     <script src="{{ asset('snacked/ltr/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('snacked/ltr/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/js/pace.min.js') }}"></script>
+
     <script src="{{ asset('snacked/ltr/assets/plugins/chartjs/js/Chart.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
     <!-- Vector map JavaScript -->
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-
+    
     {{-- <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script> --}}
 
 
