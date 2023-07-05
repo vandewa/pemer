@@ -25,7 +25,7 @@ use App\Http\Livewire\Pages\User\PermissionRole;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', Home::class)->name('home');
 
 Route::get('/login', function () {
     return view('auth.login');
