@@ -64,7 +64,7 @@ class PengajuanList extends DataTableComponent
                                 return ' <span class="badge bg-warning">Di terima</span>';
                                 break;
                             case ('Diproses'):
-                                return ' <span class="badge bg-warning">Di Proses</span>';
+                                return ' <div class="chip chip-md bg-warning">Di Proses</div>';
                                 break;
                             case ('Selesai'):
                                 return ' <span class="badge bg-success">Selesai</span>';

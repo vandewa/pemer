@@ -5,7 +5,7 @@
             <img src="{{ asset('snacked/ltr/assets/images/favicon/android-chrome-512x512.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text" style="color:black;">LAKON</h4>
+            <h4 class="logo-text">ASIK SOBO</h4>
         </div>
         <div class="toggle-icon ms-auto"> <i class="bi bi-list"></i>
         </div>

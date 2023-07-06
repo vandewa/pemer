@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('ruang_lingkup');
             $table->string('path_surat_permohonan');
             $table->string('path_studi_kak');
+            $table->string('keterangan')->nullable();
             $table->string('pemohon_id');
             $table->foreign('jenis_dokumen_id')->references('id')->on('jenis_dokumens')
                 ->onUpdate('cascade')

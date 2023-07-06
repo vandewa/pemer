@@ -10,12 +10,12 @@
 
     <!--plugins-->
     <link href="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
-    
+
     <link href="{{ asset('snacked/ltr/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-    
+
     <!-- Bootstrap CSS -->
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap-extended.css') }}" rel="stylesheet" />
@@ -49,7 +49,7 @@
 
     {{-- <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script> --}}
 
-    <title>LAKON</title>
+    <title>Asik Sobo</title>
 </head>
 
 <body>
@@ -282,7 +282,7 @@
     <!-- Vector map JavaScript -->
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-    
+
     {{-- <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script> --}}
 
 
@@ -301,13 +301,13 @@
     <script>
         window.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
-                title: 'Are you sure?'
-                , text: " You won't be able to revert this!"
-                , icon: 'warning'
-                , showCancelButton: true
-                , confirmButtonColor: '#3085d6'
-                , cancelButtonColor: '#d33'
-                , confirmButtonText: 'Yes, Delete'
+                title: 'Are you sure?',
+                text: " You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Delete'
             }).then((result) => {
                 if (result.isConfirmed) {
                     Livewire.emit('deleteConfirmed')
@@ -316,40 +316,30 @@
         });
         window.addEventListener('Delete', event => {
             Swal.fire(
-                'Deleted!'
-                , 'Data has been deleted.'
-                , 'success'
+                'Deleted!', 'Data has been deleted.', 'success'
             )
         });
         window.addEventListener('Success', event => {
             Swal.fire(
-                'Good job!'
-                , 'Data has been added.'
-                , 'success'
+                'Good job!', 'Data has been added.', 'success'
             )
         });
         window.addEventListener('Update', event => {
             Swal.fire(
-                'Good job!'
-                , 'Data has been updated.'
-                , 'success'
+                'Good job!', 'Data has been updated.', 'success'
             )
         });
-
     </script>
     <script type="text/javascript">
         function sweetAlert2() {
             Swal.fire(
-                'Berhasil!'
-                , 'Mengedit data.'
-                , 'success'
+                'Berhasil!', 'Mengedit data.', 'success'
             )
         }
 
         @if(session('edit'))
         sweetAlert2();
         @endif
-
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -369,13 +359,13 @@
         $(document).on('click', '.delete-data-table', function(a) {
             a.preventDefault();
             Swal.fire({
-                title: 'Are you sure?'
-                , text: "Do you realy want to delete this records? This process cannot be undone."
-                , type: 'warning'
-                , showCancelButton: true
-                , confirmButtonColor: '#3085d6'
-                , cancelButtonColor: '#d33'
-                , confirmButtonText: 'Delete!'
+                title: 'Are you sure?',
+                text: "Do you realy want to delete this records? This process cannot be undone.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Delete!'
             }).then((result) => {
                 if (result.value) {
                     a.preventDefault();
@@ -387,13 +377,11 @@
                     });
 
                     $.ajax({
-                        url: url
-                        , method: 'delete'
-                        , success: function() {
+                        url: url,
+                        method: 'delete',
+                        success: function() {
                             Swal.fire(
-                                'Dihapus!'
-                                , 'Data berhasil di hapus.'
-                                , 'success'
+                                'Dihapus!', 'Data berhasil di hapus.', 'success'
                             )
                             if (typeof table) {
                                 $('#devan').DataTable().ajax.reload();
@@ -403,35 +391,28 @@
                 }
             })
         });
-
     </script>
     <script type="text/javascript">
         function sweetAlert() {
             Swal.fire(
-                'Berhasil!'
-                , 'Menambahkan data.'
-                , 'success'
+                'Berhasil!', 'Menambahkan data.', 'success'
             )
         }
 
         @if(session('store'))
         sweetAlert();
         @endif
-
     </script>
     <script type="text/javascript">
         function sweetAlert2() {
             Swal.fire(
-                'Berhasil!'
-                , 'Mengedit data.'
-                , 'success'
+                'Berhasil!', 'Mengedit data.', 'success'
             )
         }
 
         @if(session('edit'))
         sweetAlert2();
         @endif
-
     </script>
 
 
