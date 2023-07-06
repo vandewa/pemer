@@ -36,8 +36,8 @@ class Pengajuan extends Component
                 $noSuratValues = $item['no_surat'] . ',' . $noSuratValues;
             }
         }
-        $file1 = $this->path_surat_permohonan->store('surat_permohonan');
-        $file2 = $this->path_studi_kak->store('surat_studi_kelayakan');
+        $file1 = $this->path_surat_permohonan->store('asiksobo/surat_permohonan');
+        $file2 = $this->path_studi_kak->store('asiksobo/surat_studi_kelayakan');
         ModelPengajuan::create(
             [
                 'jenis_dokumen_id' => $this->jenis_dokumen_id,
@@ -76,11 +76,11 @@ class Pengajuan extends Component
         $this->judul = '';
         $this->obyek = '';
         $this->ruang_lingkup = '';
-        $this->path_surat_permohonan = '';
-        $this->path_studi_kak = '';
+        $this->path_surat_permohonan = [];
+        $this->path_studi_kak = [];
         $this->listNoSurat = [];
     }
-    
+
     public function mount()
     {
         $this->tipePerjanjian = JenisDokumen::all();

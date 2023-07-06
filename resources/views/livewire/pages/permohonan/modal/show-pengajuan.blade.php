@@ -1,5 +1,5 @@
 <div wire:ignore.self class="modal fade" id="show_pengajuan" tabindex="-1" aria-labelledby="show_pengajuan" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">{{ $jenis }}</h5>
@@ -15,31 +15,31 @@
                                     Judul
                                 </div>
                                 <div class="col-8">
-                                    : {{ $judul}}
+                                    : {{ $judul }}
                                 </div>
                                 <div class="col-4">
                                     Nomor Surat
                                 </div>
                                 <div class="col-8">
-                                    : {{ $judul}}
+                                    : {{ $no_surat }}
                                 </div>
                                 <div class="col-4">
                                     Tanggal Permohonan
                                 </div>
                                 <div class="col-8">
-                                    : {{ $judul}}
+                                    : {{ $tgl_permohonan }}
                                 </div>
                                 <div class="col-4">
                                     Obyek
                                 </div>
                                 <div class="col-8">
-                                    : {{ $judul}}
+                                    : {{ $obyek }}
                                 </div>
                                 <div class="col-4">
                                     Ruang Lingkup
                                 </div>
                                 <div class="col-8">
-                                    : {{ $judul}}
+                                    : {{ $ruang_lingkup }}
                                 </div>
                             </div>
                         </div>
@@ -61,6 +61,5 @@
             tampung_id: terima_id
         });
     });
-
 </script>
 @endpush

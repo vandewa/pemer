@@ -1,5 +1,5 @@
  <div wire:ignore.self class="modal fade" id="viewModalSuratPermohonan" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-     <div class="modal-dialog modal-full" role="document">
+     <div class="modal-dialog modal-xl">
          <div class="modal-content">
              <div class="modal-header">
                  <h5 class="modal-title">Informasi Detail</h5>

@@ -116,8 +116,9 @@ class PengajuanList extends DataTableComponent
                           <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle " data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
                           </button>
                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	
-                            <a wire:click="getID(' . $row->id . ')" class="dropdown-item" href="javascript:;">Lihat Data</a>                           
-                            <a class="dropdown-item" href="javascript:;">Proses</a>                       
+                            <a class="dropdown-item" wire:click="getID(' . $row->id . ')" href="javascript:;">Lihat Data</a>
+                                                       
+                            <a class="dropdown-item" href="' . route("pengajuan.proses", ["id" => $row->id]) . '">Proses</a>                       
                           </div>
                         </div>
                       </div>';
