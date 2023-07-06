@@ -10,12 +10,10 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 class PengajuanList extends DataTableComponent
 {
     protected $model = Pengajuan::class;
-    public $no;
+    public $no = 0;
+    protected $listeners = ['path_surat_permohonan', 'path_surat_studi_kelayakan'];
 
-    public function mount()
-    {
-        $this->no;
-    }
+
     public function configure(): void
     {
         $this->setPrimaryKey('id');
@@ -23,8 +21,26 @@ class PengajuanList extends DataTableComponent
     }
     public function builder(): Builder
     {
-        return Pengajuan::where('pemohon_id', Auth()->user()->id);
+        if (!auth()->user()->hasRole('admin')) {
+            return Pengajuan::where('pemohon_id', auth()->user()->id);
+        }
+        return Pengajuan::query();
     }
+    public function path_surat_studi_kelayakan($path_surat_studi_kak)
+    {
+        $this->dispatchBrowserEvent('path_surat_studi_kak', [
+            'path_surat_studi_kak' => $path_surat_studi_kak
+        ]);
+        $this->dispatchBrowserEvent('show-view-modal-path-surat-studi-kelayakan');
+    }
+    public function path_surat_permohonan($path_surat_permohonan)
+    {
+        $this->dispatchBrowserEvent('path_surat_permohonan', [
+            'path_surat_permohonan' => $path_surat_permohonan
+        ]);
+        $this->dispatchBrowserEvent('show-view-modal-path-surat-permohonan');
+    }
+
     public function getID($terima_id)
     {
         $this->dispatchBrowserEvent('kirim_id', [
@@ -34,8 +50,9 @@ class PengajuanList extends DataTableComponent
     }
     public function columns(): array
     {
+        $this->no = $this->page > 1 ? ($this->page - 1) * $this->perPage : 0;
         return [
-            Column::make("No", "id")->format(fn () => ++$this->no +  ($this->page - 1) * $this->perPage),
+            Column::make("No", "id")->format(fn () => ++$this->no),
             Column::make("Status Pengajuan", "status")
                 ->format(
                     function ($value, $row, Column $column) {
@@ -67,36 +84,43 @@ class PengajuanList extends DataTableComponent
             Column::make("Surat Permohonan", "path_surat_permohonan")
                 ->format(
                     function ($value, $row, Column $column) {
-                        return '<div>
-                    <div class="list-icons">
-                        <div class="dropdown">
-                        <a  href="' . $row->path_surat_permohonan . '" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Views" target="_blank">Lihat File</a>
-                        </div>
-                    </div>';
+                        return '<button class="btn btn-sm btn-info" wire:click="$emit(\'path_surat_permohonan\',\'' . $row->path_surat_permohonan . '\')">View</button>';
                     }
                 )
                 ->html(),
-            Column::make("Studi Kelayakan / KAK", "tgl_permohonan")
+            Column::make("Studi Kelayakan / KAK", "path_studi_kak")
                 ->format(
                     function ($value, $row, Column $column) {
-                        return '<div>
-                <div class="list-icons">
-                    <div class="dropdown">
-                    <a  href="' . $row->tgl_permohonan . '" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Views" target="_blank">Lihat File</a>
-                    </div>
-                </div>';
+                        return '<button class="btn btn-sm btn-info" wire:click="$emit(\'path_surat_studi_kelayakan\',\'' . $row->path_studi_kak . '\')">View</button>';
                     }
                 )
                 ->html(),
             Column::make('Action', 'id')
                 ->format(
                     function ($value, $row, Column $column) {
-                        return '<div>
-                        <div class="list-icons">
-                            <div class="dropdown">
-                            <a wire:click="getID(' . $row->id . ')" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Views"><i class="bi bi-eye-fill"></i></a>
+                        if (!auth()->user()->hasRole("admin")) {
+                            return '
+                            <div class="ms-auto">
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle " data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	
+                                <a wire:click="getID(' . $row->id . ')" class="dropdown-item" href="javascript:;">Lihat Data</a>                      
+                              </div>
                             </div>
-                        </div>';
+                          </div>';
+                        }
+                        return '
+                        <div class="ms-auto">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle " data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	
+                            <a wire:click="getID(' . $row->id . ')" class="dropdown-item" href="javascript:;">Lihat Data</a>                           
+                            <a class="dropdown-item" href="javascript:;">Proses</a>                       
+                          </div>
+                        </div>
+                      </div>';
                     }
                 )
                 ->html(),

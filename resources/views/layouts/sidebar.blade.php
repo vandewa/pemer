@@ -66,10 +66,17 @@
             </ul>
         </li>
         <li>
-            <a href="{{ route('pengajuan.daftar') }}">
+            <a href="{{ route('pengajuan') }}">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
                 </div>
                 <div class="menu-title">Pengajuan</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('pengajuan.daftar') }}">
+                <div class="parent-icon"><i class="lni lni-archive"></i>
+                </div>
+                <div class="menu-title">List Pengajuan</div>
             </a>
         </li>
         @can('master data')

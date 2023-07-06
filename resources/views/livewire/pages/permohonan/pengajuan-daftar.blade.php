@@ -22,15 +22,27 @@
         <div class="card">
             <div class="card-body">
                 <livewire:pages.permohonan.pengajuan-list />
+
             </div>
         </div>
         <livewire:pages.permohonan.modal.show-pengajuan>
+            <livewire:pages.permohonan.modal.show-surat-permohonan>
+              <livewire:pages.permohonan.modal.show-surat-studi-kelayakan>
+
     </main>
+
 </div>
 @push('script')
 <script>
     window.addEventListener('show-modal-pengajuan', event => {
         $('#show_pengajuan').modal('show');
     })
+    window.addEventListener('show-view-modal-path-surat-permohonan', event => {
+        $('#viewModalSuratPermohonan').modal('show');
+    });
+      window.addEventListener('show-view-modal-path-surat-studi-kelayakan', event => {
+        $('#viewModalSuratStudiKelayakan').modal('show');
+    });
+
 </script>
 @endpush

@@ -18,8 +18,9 @@
                     <div class="card-body">
                         <div class="p-4 border rounded">
                             <form class="row g-3 needs-validation" wire:submit.prevent="simpan" method="POST">
+                                @csrf
                                 <div class="col-md-12">
-                                    <label for="validationCustom01" class="form-label">Jenis Pengajuan</label>
+                                    <label class="form-label">Jenis Pengajuan</label>
                                     <select class="form-select" wire:model.lazy="jenis_dokumen_id">
                                         <option value>Pilih Jenis Kerjasama</option>
                                         @foreach($tipePerjanjian as $row)
@@ -28,7 +29,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="validationCustom02" class="form-label">No. Surat Permohonan</label>
+                                    <label class="form-label">No. Surat Permohonan</label>
                                     {{ Form::text(null, null, [
                             'class' => 'form-control' .
                             ($errors->has('urutan.no_surat') ? '
@@ -55,7 +56,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label for="validationCustom02" class="form-label">Tangal Permohonan</label>
+                                    <label class="form-label">Tangal Permohonan</label>
                                     {{ Form::date(null, null, [
                             'class' => 'form-control' .
                             ($errors->has('tgl_permohonan') ? '
@@ -64,7 +65,7 @@
                             ]) }}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="validationCustom02" class="form-label">Maksud dan Tujuan Kerjasama</label>
+                                    <label class="form-label">Maksud dan Tujuan Kerjasama</label>
                                     {{ Form::text(null, null, [
                             'class' => 'form-control' .
                             ($errors->has('judul') ? '
@@ -74,7 +75,7 @@
                             ]) }}
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">Obyek</label>
+                                    <label class="form-label">Obyek</label>
                                     {{ Form::text(null, null, [
                             'class' => 'form-control' .
                             ($errors->has('obyek') ? '
@@ -84,7 +85,7 @@
                             ]) }}
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">Ruang Lingkup</label>
+                                    <label class="form-label">Ruang Lingkup</label>
                                     {{ Form::text(null, null, [
                             'class' => 'form-control' .
                             ($errors->has('ruang_lingkup') ? '
@@ -93,25 +94,14 @@
                             'wire:model.lazy' => 'ruang_lingkup',
                             ]) }}
                                 </div>
+
                                 <div class="col-md-12">
-                                    <label for="validationCustom02" class="form-label">File Surat Permohonan</label>
-                                    {{ Form::text(null, null, [
-                            'class' => 'form-control' .
-                            ($errors->has('path_surat_permohonan') ? '
-                            border-danger' : null),
-                            'placeholder' => '',
-                            'wire:model.lazy' => 'path_surat_permohonan',
-                            ]) }}
+                                    <label class="form-label">File Surat Permohonan</label>
+                                    <input class="form-control" type="file" wire:model="path_surat_permohonan">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="validationCustom02" class="form-label">File Surat Studi Kelayakan / KAK</label>
-                                    {{ Form::text(null, null, [
-                            'class' => 'form-control' .
-                            ($errors->has('path_studi_kak') ? '
-                            border-danger' : null),
-                            'placeholder' => '',
-                            'wire:model.lazy' => 'path_studi_kak',
-                            ]) }}
+                                    <label class="form-label">File Surat Studi Kelayakan / KAK</label>
+                                    <input class="form-control" type="file" wire:model="path_studi_kak">
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary" type="submit">Ajukan</button>
@@ -122,5 +112,6 @@
                 </div>
             </div>
         </div>
+        
     </main>
 </div>

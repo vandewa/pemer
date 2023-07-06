@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Pages\Permohonan;
 
 use Livewire\Component;
 
-class PengajuanDaftar extends Component
+class PengajuanProses extends Component
 {
     public function render()
     {
-        return view('livewire.pages.permohonan.pengajuan-daftar');
+        return view('livewire.pages.permohonan.pengajuan-proses');
     }
 }

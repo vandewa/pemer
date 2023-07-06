@@ -6,10 +6,11 @@ use Livewire\Component;
 use App\Models\Pengajuan as ModelPengajuan;
 use App\Models\Perjanjian;
 use App\Models\JenisDokumen;
-
+use Livewire\WithFileUploads;
 
 class Pengajuan extends Component
 {
+    use WithFileUploads;
     public $tipePerjanjian, $jenis_dokumen_id, $no_surat, $tgl_permohonan, $judul, $obyek, $ruang_lingkup, $path_surat_permohonan, $path_studi_kak;
     public $listNoSurat = [], $noSuratString;
 
@@ -35,6 +36,8 @@ class Pengajuan extends Component
                 $noSuratValues = $item['no_surat'] . ',' . $noSuratValues;
             }
         }
+        $file1 = $this->path_surat_permohonan->store('surat_permohonan');
+        $file2 = $this->path_studi_kak->store('surat_studi_kelayakan');
         ModelPengajuan::create(
             [
                 'jenis_dokumen_id' => $this->jenis_dokumen_id,
@@ -43,8 +46,8 @@ class Pengajuan extends Component
                 'judul' => $this->judul,
                 'obyek' => $this->obyek,
                 'ruang_lingkup' => $this->ruang_lingkup,
-                'path_surat_permohonan' => $this->path_surat_permohonan,
-                'path_studi_kak' => $this->path_studi_kak,
+                'path_surat_permohonan' => $file1,
+                'path_studi_kak' => $file2,
                 'pemohon_id' => Auth()->user()->id
             ]
         );
@@ -77,6 +80,7 @@ class Pengajuan extends Component
         $this->path_studi_kak = '';
         $this->listNoSurat = [];
     }
+    
     public function mount()
     {
         $this->tipePerjanjian = JenisDokumen::all();

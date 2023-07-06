@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="ms-auto widget-icon bg-primary text-white">
                                     <p class="mb-0 mt-2 font-13">
-                                        {{ App\Models\perjanjian::where('jenis_dokumen_id', $row->id)->count() }}</>
+                                        {{ App\Models\publish::with('pengajuanNya')->count() }}</>
                                     </p>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
         <!--end row-->
         <div class="card">
             <div class="card-body">
-                <livewire:pages.permohonan.pengajuan-list :data_id=null />
+                <livewire:pages.publish-list/>
             </div>
         </div>
     </main>

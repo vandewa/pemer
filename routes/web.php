@@ -10,6 +10,7 @@ use App\Http\Livewire\Pages\User\UserPage;
 use App\Http\Livewire\Master\PerjanjianTipe;
 use App\Http\Livewire\Pages\User\DaftarUser;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ShowPictureHelperController;
 use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Pages\Permohonan\PengajuanDaftar;
 use App\Http\Livewire\Pages\User\PermissionRole;
@@ -41,8 +42,9 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::group(['middleware' => 'profile.completed'], function () {
+        Route::get('show-picture}', [ShowPictureHelperController::class, 'showPicture'])->name('helper.show-picture');
         Route::get('pengajuan', Pengajuan::class)->name('pengajuan');
-        Route::get('daftarpengajuan', PengajuanDaftar::class)->name('pengajuan.daftar');
+        Route::get('pengajuan.user', PengajuanDaftar::class)->name('pengajuan.daftar');
         Route::get('master/tipe-perjanjian', PerjanjianTipe::class)->name('tipe.perijinan');
         Route::get('master/jenis-perjanjian', DokumenJenis::class)->name('jenis.perijinan');
         Route::get('master/instansi', Instansi::class)->name('master.instansi');
