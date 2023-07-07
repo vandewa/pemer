@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jenis_dokumen_id');
-            $table->enum('status', ['Pengajuan', 'Ditinjau', 'Diproses', 'Selesai', 'Ditolak']);
+            $table->enum('status', ['Pengajuan', 'Diterima', 'Diproses', 'Selesai', 'Ditolak']);
             $table->string('no_surat');
             $table->string('tgl_permohonan');
             $table->text('judul');

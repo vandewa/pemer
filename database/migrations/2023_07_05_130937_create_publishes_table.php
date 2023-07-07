@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('publishes', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('jenis_dokumen_id');
             $table->integer('pengajuan_id');
             $table->string('no_pemkot');
             $table->string('path_surat_perjanjian_kerja');

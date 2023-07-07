@@ -64,20 +64,32 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if($data->status == 'Pengajuan' || $data->status == 'Ditinjau')
+                        @if($data->status == 'Pengajuan' || $data->status == 'Diterima')
                         <div class="border p-4 rounded">
 
                             <div class="row mb-3">
-                                <label for="inputAddress4" class="col-sm-3 col-form-label">Address</label>
+                                <label for="inputAddress4" class="col-sm-3 col-form-label">Keterangan</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" id="inputAddress4" rows="3" placeholder="Address"></textarea>
+                                    {{ Form::textarea(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('keterangan') ? '
+                            border-danger' : null),
+                            'rows' => '3',
+                            'wire:model.lazy' => 'keterangan',
+                            ]) }}
                                 </div>
                             </div>
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
+                                @if($data->status == 'Pengajuan')
                                 <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-primary px-5">Simpan</button>
+                                    <button type="submit" class="btn btn-primary px-5" wire:click="diterima">Di terima</button>
                                 </div>
+                                @else
+                                <div class="col-sm-9">
+                                    <button type="submit" class="btn btn-primary px-5" wire:click="diproses">Di Proses</button>
+                                </div>
+                                @endif
                             </div>
                         </div>
                         @elseif($data->status == 'Diproses')
@@ -85,50 +97,87 @@
                             <div class="row mb-3">
                                 <label for="inputEnterYourName" class="col-sm-3 col-form-label">Nomor Pemkot</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="inputEnterYourName" placeholder="Enter Your Name">
+                                    {{ Form::text(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('urutan.no_pemkot') ? '
+                            border-danger' : null),
+                            'placeholder' => 'Masukan No Surat',
+                            'wire:model.lazy' => 'urutan.no_pemkot',
+                            ]) }}
                                 </div>
                             </div>
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-primary px-5">Tambah Nomor</button>
+                                    <button type="submit" class="btn btn-primary px-5" wire:click="tambahNomor">Tambah Nomor</button>
                                 </div>
+                                @if($listNoSurat)
+                                <hr>
+                                <table class="table table-strip text-center">
+                                    <thead>
+                                        <th>No Surat</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($listNoSurat as $index => $item)
+                                        <tr>
+                                            <td>{{ $item['no_pemkot'] }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                @endif
                                 <label class="col-sm-3 col-form-label"></label>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputPhoneNo2" class="col-sm-3 col-form-label">Phone No</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="inputPhoneNo2" placeholder="Phone No">
+                                <label for="inputPhoneNo2" class="col-sm-3 col-form-label">Tanggal Mulai</label>
+                                <div class="col-sm-3">
+                                    {{ Form::date(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('tgl_mulai') ? '
+                            border-danger' : null),
+                            'wire:model.lazy' => 'tgl_mulai',
+                            ]) }}
+                                </div>
+                                <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Tanggal Berakhir</label>
+                                <div class="col-sm-3">
+                                    {{ Form::date(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('tgl_berakhir') ? '
+                            border-danger' : null),
+                            'wire:model.lazy' => 'tgl_berakhir',
+                            ]) }}
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputEmailAddress2" class="col-sm-3 col-form-label">Email Address</label>
+                                <label for="inputAddress4" class="col-sm-3 col-form-label">Para Pihak Yang Bekerjasama</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="inputEmailAddress2" placeholder="Email Address">
+                                    {{ Form::textarea(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('para_pihak') ? '
+                            border-danger' : null),
+                            'rows' => '3',
+                            'wire:model.lazy' => 'para_pihak',
+                            ]) }}
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="inputChoosePassword2" class="col-sm-3 col-form-label">Choose Password</label>
+                                <label for="inputAddress4" class="col-sm-3 col-form-label">File Surat Perjanjian Kerja</label>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="inputChoosePassword2" placeholder="Choose Password">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputConfirmPassword2" class="col-sm-3 col-form-label">Confirm Password</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="inputConfirmPassword2" placeholder="Confirm Password">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="inputAddress4" class="col-sm-3 col-form-label">Address</label>
-                                <div class="col-sm-9">
-                                    <textarea class="form-control" id="inputAddress4" rows="3" placeholder="Address"></textarea>
+                                    {{ Form::file(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('path_perjanjian') ? '
+                            border-danger' : null),
+                            'wire:model.lazy' => 'path_perjanjian',
+                            ]) }}
+                                    @error('path_perjanjian')
+                                    <span class="form-text text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-primary px-5">Simpan</button>
+                                    <button type="submit" class="btn btn-primary px-5" wire:click="publish">Publish</button>
                                 </div>
                             </div>
                         </div>
@@ -151,5 +200,6 @@
     window.addEventListener('show-view-modal-path-surat-studi-kelayakan', event => {
         $('#viewModalSuratStudiKelayakan').modal('show');
     });
+
 </script>
 @endpush

@@ -58,19 +58,19 @@ class PengajuanList extends DataTableComponent
                     function ($value, $row, Column $column) {
                         switch ($row->status) {
                             case ('Pengajuan'):
-                                return ' <span class="badge bg-info">Pengajuan</span>';
+                                return ' <div class="chip chip-md bg-info">Pengajuan</div>';
                                 break;
                             case ('Ditinjau'):
-                                return ' <span class="badge bg-warning">Di terima</span>';
+                                return ' <div class="chip chip-md bg-warning">Di Terima</div>';
                                 break;
                             case ('Diproses'):
                                 return ' <div class="chip chip-md bg-warning">Di Proses</div>';
                                 break;
                             case ('Selesai'):
-                                return ' <span class="badge bg-success">Selesai</span>';
+                                return ' <div class="chip chip-md bg-Success">Selesai</div>';
                                 break;
                             case ('Ditolak'):
-                                return ' <span class="badge bg-danger">Di Tolak</span>';
+                                return ' <div class="chip chip-md bg-danger">Di Tolak</div>';
                                 break;
                         }
                     }

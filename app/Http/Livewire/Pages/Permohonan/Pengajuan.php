@@ -27,8 +27,10 @@ class Pengajuan extends Component
             'judul' => 'required',
             'obyek' => 'required',
             'ruang_lingkup' => 'required',
-            'path_surat_permohonan' => 'required',
-            'path_studi_kak' => 'required',
+            'path_surat_permohonan' => 'required|mimes:application/pdf, application/x-pdf,application/acrobat,
+            applications/vnd.pdf, text/pdf, text/x-pdf|image|size:max:20000',
+            'path_studi_kak' => 'required|mimes:application/pdf, application/x-pdf,application/acrobat,
+            applications/vnd.pdf, text/pdf, text/x-pdf|image|size:max:20000',
         ]);
         $noSuratValues = '';
         foreach ($this->listNoSurat as $item) {
