@@ -1136,6 +1136,16 @@ a {
 
 }
 
+.tri-cover {
+    background-image: linear-gradient(to bottom right, rgb(26 30 33 / 50%), rgb(0 0 0 / 50%)), url(../images/wonosobospesial.jpg);
+    background-size: cover;
+    height: 13rem;
+    background-position: center;
+    margin: -4.0rem -1.5rem -5.5rem -1.5rem;
+    padding: 1.5rem 1.5rem 6.5rem 1.5rem;
+
+}
+
 
 /* Email */
 

@@ -21,17 +21,25 @@ class Pengajuan extends Component
                 'urutan.no_surat' => 'required'
             ]);
         }
-        $this->validate([
-            'jenis_dokumen_id' => 'required',
-            'tgl_permohonan' => 'required',
-            'judul' => 'required',
-            'obyek' => 'required',
-            'ruang_lingkup' => 'required',
-            'path_surat_permohonan' => 'required|mimes:application/pdf, application/x-pdf,application/acrobat,
-            applications/vnd.pdf, text/pdf, text/x-pdf|image|size:max:20000',
-            'path_studi_kak' => 'required|mimes:application/pdf, application/x-pdf,application/acrobat,
-            applications/vnd.pdf, text/pdf, text/x-pdf|image|size:max:20000',
-        ]);
+        $this->validate(
+            [
+                'jenis_dokumen_id' => 'required',
+                'tgl_permohonan' => 'required',
+                'judul' => 'required',
+                'obyek' => 'required',
+                'ruang_lingkup' => 'required',
+                'path_surat_permohonan' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
+                'path_studi_kak' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
+            ],
+            [
+                'path_surat_permohonan.required' => 'Wajib upload File',
+                'path_surat_permohonan.mimes' => 'Hanya format gambar(jpg, png, jpeg) Dan pdf',
+                'path_surat_permohonan.max' => 'Maksimal upload 20 Mb',
+                'path_studi_kak.required' => 'Wajib upload File',
+                'path_studi_kak.mimes' => 'Hanya format gambar(jpg, png, jpeg) Dan pdf',
+                'path_studi_kak.max' => 'Maksimal upload 20 Mb',
+            ]
+        );
         $noSuratValues = '';
         foreach ($this->listNoSurat as $item) {
             if (isset($item['no_surat'])) {
@@ -55,6 +63,7 @@ class Pengajuan extends Component
         );
         $this->clearfield();
         $this->dispatchBrowserEvent('Success');
+        return redirect()->route('pengajuan');
     }
 
     public $urutan = [

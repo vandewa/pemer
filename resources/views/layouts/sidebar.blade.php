@@ -65,6 +65,7 @@
                 </ul>
             </ul>
         </li>
+        @can('pengajuan')
         <li>
             <a href="{{ route('pengajuan') }}">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -79,6 +80,8 @@
                 <div class="menu-title">List Pengajuan</div>
             </a>
         </li>
+        @endcan
+
         @can('master data')
         <li>
             <a class="has-arrow">

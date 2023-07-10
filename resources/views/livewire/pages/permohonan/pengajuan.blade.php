@@ -56,7 +56,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label class="form-label">Tangal Permohonan</label>
+                                    <label class="form-label">Tanggal Permohonan</label>
                                     {{ Form::date(null, null, [
                             'class' => 'form-control' .
                             ($errors->has('tgl_permohonan') ? '
@@ -112,6 +112,6 @@
                 </div>
             </div>
         </div>
-        
+
     </main>
 </div>

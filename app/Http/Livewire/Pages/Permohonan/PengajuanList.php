@@ -67,7 +67,7 @@ class PengajuanList extends DataTableComponent
                                 return ' <div class="chip chip-md bg-warning">Di Proses</div>';
                                 break;
                             case ('Selesai'):
-                                return ' <div class="chip chip-md bg-Success">Selesai</div>';
+                                return ' <div class="chip chip-md bg-success">Selesai</div>';
                                 break;
                             case ('Ditolak'):
                                 return ' <div class="chip chip-md bg-danger">Di Tolak</div>';
