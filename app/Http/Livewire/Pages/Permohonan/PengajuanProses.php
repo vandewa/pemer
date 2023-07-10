@@ -51,7 +51,7 @@ class PengajuanProses extends Component
                 'para_pihak' => $this->para_pihak,
                 'path_surat_perjanjian_kerja' => $file,
                 'tanggal_mulai' => $this->tgl_mulai,
-                'tanggal_selesai' => $this->tgl_berakhir
+                'tanggal_selesai' => $this->tgl_berakhir,
             ]
         );
         $this->dispatchBrowserEvent('Success');

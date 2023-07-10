@@ -2,41 +2,24 @@
 
 namespace App\Http\Livewire\Pages;
 
-use DateTime;
 use App\Models\Publish;
-use Illuminate\Database\Eloquent\Builder;
-use Rappasoft\LaravelLivewireTables\Views\Column;
-use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Livewire\Component;
 
-class PublishList extends DataTableComponent
+class PublishList extends Component
 {
-    protected $model = Publish::class;
-    public $no = 0, $data;
-    public function configure(): void
-    {
-        $this->setPrimaryKey('id');
-    }
+    public $kode, $data, $a, $b;
+    protected $queryString = ['kode' => ['except' => '', 'as' => 'jenis_id']];
 
-    public function columns(): array
+    public function mount()
     {
-        $this->no = $this->page > 1 ? ($this->page - 1) * $this->perPage : 0;
-        return [
-            Column::make("No", "id")->format(fn () => ++$this->no),
-            Column::make("Nomor Dokumen", "no_pemkot")
-                ->sortable(),
-            Column::make("Pihak Kerjasama", "para_pihak")
-                ->sortable(),
-            Column::make("Tentang", "pengajuanNya.judul")
-                ->sortable(),
-            Column::make('Jangka Waktu', 'jangka_waktu')
-                ->sortable(),
-            Column::make('Selisih Waktu')
-                ->format(function ($value, $row) {
-                    $mulai = new DateTime($row->tanggal_mulai);
-                    $selesai = new DateTime($row->tanggal_selesai);
-                    $selisih = $mulai->diff($selesai);
-                    return $selisih->format('%y');
-                }),
-        ];
+        $this->data = Publish::where('jenis_dokumen_id', $this->kode)->get();
+        foreach ($this->data as $row) {
+            $this->b = $row->jenisDokumen->name;
+            $this->a = $row->jenisDokumen->perjanjianTipe->name;
+        }
+    }
+    public function render()
+    {
+        return view('livewire.pages.publish-list');
     }
 }

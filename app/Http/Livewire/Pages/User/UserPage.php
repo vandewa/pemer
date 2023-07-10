@@ -74,19 +74,17 @@ class UserPage extends Component
         $this->dispatchBrowserEvent('Update');
     }
 
-    public function mount($id = "")
+    public function mount()
     {
-        if ($id != "") {
-            $data = User::find($id);
-            $this->name = $data->name;
-            $this->email = $data->email;
-            $this->no_hp = $data->no_hp;
-            $this->instansi_id = $data->instansi_id;
-            $this->role_user = $data->getRoleNames();
-        }
+        $data = User::find(auth()->user()->id);
+        $this->name = $data->name;
+        $this->email = $data->email;
+        $this->no_hp = $data->no_hp;
+        $this->instansi_id = $data->instansi_id;
+        $this->role_user = $data->getRoleNames();
 
         $this->role = Role::get();
-        $this->idnya = $id;
+        $this->idnya = $data->id;
     }
 
     public function render()

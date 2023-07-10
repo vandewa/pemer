@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('path_surat_perjanjian_kerja');
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
+            $table->string('batas_akhir');
             $table->timestamps();
         });
     }

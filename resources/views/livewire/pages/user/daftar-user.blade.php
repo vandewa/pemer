@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="mt-4 mb-3">
-            <a href="{{ route('user') }}"><button class="px-5 btn btn-primary radius-30"><i class="mr-1 bx bx-plus-circle"></i>Add Data</button></a>
+            <a wire:click="modalUser"><button class="px-5 btn btn-primary radius-30"><i class="mr-1 bx bx-plus-circle"></i>Add Data</button></a>
         </div>
         <!--end breadcrumb-->
         <div class="card">
@@ -25,4 +25,16 @@
             </div>
         </div>
     </main>
+    <livewire:pages.user.modal.modal-user>
 </div>
+@push('script')
+<script>
+    window.addEventListener('show-view-modal-user', event => {
+        $('#show-view-modal-user').modal('show');
+    })
+    window.addEventListener('closeModalUser', event => {
+        $('#show-view-modal-user').modal('hide');
+    })
+
+</script>
+@endpush

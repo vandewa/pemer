@@ -50,22 +50,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-3 row">
-                                    <div class="col-md-6">
-                                        <div class="col-12">
-                                            <label class="form-label">Role</label>
-                                            <select name="" id="" class="form-control" wire:model.lazy="role_user">
-                                                <option value="">Pilih Role</option>
-                                                @foreach ($role as $item)
-                                                <option value="{{ $item->name }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('role')
-                                            <span class="form-text text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label"></label>
                                     <div class="col-sm-12 text-end">

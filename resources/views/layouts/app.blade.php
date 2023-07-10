@@ -126,7 +126,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href=" {{route('user', Auth()->user()->id) }}">
+                                    <a class="dropdown-item" href=" {{route('profile') }}">
                                         <div class="d-flex align-items-center">
                                             <div class=""><i class="bi bi-person-fill"></i></div>
                                             <div class="ms-3"><span>Profile</span></div>
@@ -301,13 +301,13 @@
     <script>
         window.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
-                title: 'Are you sure?',
-                text: " You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Delete'
+                title: 'Are you sure?'
+                , text: " You won't be able to revert this!"
+                , icon: 'warning'
+                , showCancelButton: true
+                , confirmButtonColor: '#3085d6'
+                , cancelButtonColor: '#d33'
+                , confirmButtonText: 'Yes, Delete'
             }).then((result) => {
                 if (result.isConfirmed) {
                     Livewire.emit('deleteConfirmed')
@@ -329,6 +329,7 @@
                 'Good job!', 'Data has been updated.', 'success'
             )
         });
+
     </script>
     <script type="text/javascript">
         function sweetAlert2() {
@@ -340,6 +341,7 @@
         @if(session('edit'))
         sweetAlert2();
         @endif
+
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -359,13 +361,13 @@
         $(document).on('click', '.delete-data-table', function(a) {
             a.preventDefault();
             Swal.fire({
-                title: 'Are you sure?',
-                text: "Do you realy want to delete this records? This process cannot be undone.",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Delete!'
+                title: 'Are you sure?'
+                , text: "Do you realy want to delete this records? This process cannot be undone."
+                , type: 'warning'
+                , showCancelButton: true
+                , confirmButtonColor: '#3085d6'
+                , cancelButtonColor: '#d33'
+                , confirmButtonText: 'Delete!'
             }).then((result) => {
                 if (result.value) {
                     a.preventDefault();
@@ -377,9 +379,9 @@
                     });
 
                     $.ajax({
-                        url: url,
-                        method: 'delete',
-                        success: function() {
+                        url: url
+                        , method: 'delete'
+                        , success: function() {
                             Swal.fire(
                                 'Dihapus!', 'Data berhasil di hapus.', 'success'
                             )
@@ -391,6 +393,7 @@
                 }
             })
         });
+
     </script>
     <script type="text/javascript">
         function sweetAlert() {
@@ -402,6 +405,7 @@
         @if(session('store'))
         sweetAlert();
         @endif
+
     </script>
     <script type="text/javascript">
         function sweetAlert2() {
@@ -413,6 +417,7 @@
         @if(session('edit'))
         sweetAlert2();
         @endif
+
     </script>
 
 

@@ -28,16 +28,19 @@
             <ul>
                 <ul>
                     <li>
-                        <a href="{{ route('pengajuan.daftar', ['id' => '1']) }}"><i class="bi bi-circle"></i>Antar
+                        <a href="{{ route('publish', ['jenis_id' => '1']) }}"><i class="bi bi-circle"></i>Antar
                             Daerah</a>
                     </li>
                     <li>
-                        <a href="{{ route('pengajuan.daftar', ['id' => '2']) }}"><i class="bi bi-circle"></i>Luar
+                        <a href="{{ route('publish', ['jenis_id' => '2']) }}"><i class="bi bi-circle"></i>Luar
                             Negri</a>
                     </li>
                     <li>
-                        <a href="{{ route('pengajuan.daftar', ['id' => '3']) }}"><i class="bi bi-circle"></i>Pihak
+                        <a href="{{ route('publish', ['jenis_id' => '3']) }}"><i class="bi bi-circle"></i>Pihak
                             Ketiga</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('publish', ['jenis_id' => '4']) }}"><i class="bi bi-circle"></i>Sinergi</a>
                     </li>
                 </ul>
             </ul>
@@ -51,15 +54,15 @@
             <ul>
                 <ul>
                     <li>
-                        <a href="{{ route('pengajuan.daftar', ['id' => '4']) }}"><i class="bi bi-circle"></i>Antar
+                        <a href="{{ route('publish', ['jenis_id' => '5']) }}"><i class="bi bi-circle"></i>Antar
                             Daerah</a>
                     </li>
                     <li>
-                        <a href="{{ route('pengajuan.daftar', ['id' => '5']) }}"><i class="bi bi-circle"></i>Luar
+                        <a href="{{ route('publish', ['jenis_id' => '6']) }}"><i class="bi bi-circle"></i>Luar
                             Negri</a>
                     </li>
                     <li>
-                        <a href="{{ route('pengajuan.daftar', ['id' => '6']) }}"><i class="bi bi-circle"></i>Pihak
+                        <a href="{{ route('publish', ['jenis_id' => '7']) }}"><i class="bi bi-circle"></i>Pihak
                             Ketiga</a>
                     </li>
                 </ul>

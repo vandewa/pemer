@@ -14,6 +14,7 @@ use App\Http\Controllers\ShowPictureHelperController;
 use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Pages\Permohonan\PengajuanDaftar;
 use App\Http\Livewire\Pages\Permohonan\PengajuanProses;
+use App\Http\Livewire\Pages\PublishList;
 use App\Http\Livewire\Pages\User\PermissionRole;
 
 /*
@@ -54,9 +55,8 @@ Route::middleware([
         Route::post('/ganti-password', [DashboardController::class, 'gantiPassword'])->name('ganti.password');
         Route::get('user-index', DaftarUser::class)->name('user.index');
     });
-    Route::get('user/{id?}', UserPage::class)->name('user');
+    Route::get('user', UserPage::class)->name('profile');
 });
 Route::get('home', Home::class)->name('home');
-
-
+Route::get('publish', PublishList::class)->name('publish');
 Route::get('cekWA', [Controller::class, 'cekWA'])->name('cekWA');
