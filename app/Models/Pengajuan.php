@@ -13,4 +13,9 @@ class Pengajuan extends Model
     {
         return $this->belongsTo(JenisDokumen::class, 'jenis_dokumen_id');
     }
+
+    public function pemohon()
+    {
+        return $this->belongsTo(User::class, 'pemohon_id');
+    }
 }

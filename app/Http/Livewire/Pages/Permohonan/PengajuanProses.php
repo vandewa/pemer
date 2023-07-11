@@ -6,6 +6,7 @@ use App\Models\Pengajuan;
 use App\Models\Publish;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Http;
 
 class PengajuanProses extends Component
 {
@@ -14,6 +15,50 @@ class PengajuanProses extends Component
     public $listNoSurat = [], $noSuratString;
     protected $queryString = ['kode' => ['except' => '', 'as' => 'id'],];
 
+    public function diterima()
+    {
+        $pengajuan = pengajuan::find($this->kode);
+        $pengajuan->update([
+            'status' => 'Diterima',
+            'keterangan' => $this->keterangan,
+        ]);
+        $judul = $pengajuan->jenisDokument->perjanjianTipe->name . ' ' . $pengajuan->jenisDokument->name;
+        $message = "* $judul*" . urldecode('%0D%0A%0D%0A') .
+            "Pengajuan Anda telah Di Terima oleh pihak Pemerintahan Sekretariat Daerah Wonosobo dengan keterangan : $pengajuan->keterangan." . urldecode('%0D%0A%0D%0A%0D%0A') .
+            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo  *" . urldecode('%0D%0A') .
+            "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
+        Http::withHeaders([
+            'Authorization' => config('app.token_wa'),
+        ])->withoutVerifying()->post(config('app.wa_url') . "/send-message", [
+            'phone' => $pengajuan->pemohon->no_hp,
+            'message' =>  $message,
+        ]);
+        $this->dispatchBrowserEvent('Success');
+        return redirect()->route('pengajuan.daftar');
+    }
+
+
+    public function diproses()
+    {
+        $pengajuan = pengajuan::find($this->kode);
+        $pengajuan->update([
+            'status' => 'Diproses',
+            'keterangan' => $this->keterangan,
+        ]);
+        $judul = $pengajuan->jenisDokument->perjanjianTipe->name . ' ' . $pengajuan->jenisDokument->name;
+        $message = "* $judul*" . urldecode('%0D%0A%0D%0A') .
+            "Pengajuan Anda telah Di Proses oleh pihak Pemerintahan Sekretariat Daerah Wonosobo dengan keterangan : $pengajuan->keterangan." . urldecode('%0D%0A%0D%0A%0D%0A') .
+            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo  *" . urldecode('%0D%0A') .
+            "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
+        Http::withHeaders([
+            'Authorization' => config('app.token_wa'),
+        ])->withoutVerifying()->post(config('app.wa_url') . "/send-message", [
+            'phone' => $pengajuan->pemohon->no_hp,
+            'message' =>  $message,
+        ]);
+        $this->dispatchBrowserEvent('Success');
+        return redirect()->route('pengajuan.daftar');
+    }
     public function publish()
     {
         if ($this->listNoSurat == []) {
@@ -43,7 +88,7 @@ class PengajuanProses extends Component
             }
         }
         $file = $this->path_perjanjian->store('asiksobo/surat_perjanjian');
-        Publish::create(
+        $publish = Publish::create(
             [
                 'jenis_dokumen_id' => $this->data->jenis_dokumen_id,
                 'pengajuan_id' => $this->data->id,
@@ -54,6 +99,27 @@ class PengajuanProses extends Component
                 'tanggal_selesai' => $this->tgl_berakhir,
             ]
         );
+        $judul =  $publish->jenisDokumen->perjanjianTipe->name . ' ' . $publish->jenisDokumen->name;
+        $pemohon = $publish->pengajuanNya->pemohon->name;
+        $lembaga =  $publish->pengajuanNya->pemohon->lembagaNya->name;
+        $jangka_waktu = $publish->tanggal_mulai . ' s.d ' . $publish->tanggal_selesai;
+        $message = "Kepada Yth," . urldecode('%0D%0A') .
+            "Bapak/Ibu/ Saudara di tempat" . urldecode('%0D%0A') .
+            "Diberitahukan bahwa pengajuan Bapak/Ibu sebagai berikut:" . urldecode('%0D%0A') .
+            "Nama Pengajuan :  $judul" . urldecode('%0D%0A') .
+            "Nama Pemohon : $pemohon" . urldecode('%0D%0A') .
+            "Lembaga : $lembaga" . urldecode('%0D%0A') .
+            "Jangka Waktu : $jangka_waktu" . urldecode('%0D%0A%0D%0A') .
+            "Telah Selesai dan di publish di Web ASIK Wonosobo, klik link berikut untuk detail:" . urldecode('%0D%0A%0D%0A') .
+            "https://asik.wonosobokab.go.id/pengajuan/publish?jenis_id=$publish->jenis_dokumen_id" . urldecode('%0D%0A%0D%0A%0D%0A') .
+            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo*" . urldecode('%0D%0A%0D%0A%0D%0A') .
+            "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
+        Http::withHeaders([
+            'Authorization' => config('app.token_wa'),
+        ])->withoutVerifying()->post(config('app.wa_url') . "/send-message", [
+            'phone' => $publish->pengajuanNya->pemohon->no_hp,
+            'message' =>  $message,
+        ]);
         $this->dispatchBrowserEvent('Success');
         return redirect()->route('pengajuan.daftar');
     }

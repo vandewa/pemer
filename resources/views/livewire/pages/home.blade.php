@@ -28,18 +28,21 @@
             <div class="col">
                 <div class="card rounded-4">
                     <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="">
-                                <h4 class="mb-0">{{ $row->perjanjianTipe->name }}</h4>
-                                <p class="mb-1">{{ $row->name }}</p>
+                        <a href="{{ route('publish', ['jenis_id' => $row->id]) }}">
+                            <div class="d-flex align-items-center">
+                                <div class="ms-auto text-white">
+                                    <h4 class="mb-0">{{ $row->perjanjianTipe->name }}</h4>
+                                    <p class="mb-1">{{ $row->name }}</p>
+                                </div>
+                                <div class="ms-auto widget-icon bg-primary text-white">
+                                    <p class="mb-0 mt-2 font-13">
+                                        {{ App\Models\publish::where('jenis_dokumen_id', $row->id)->count() }}</>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="ms-auto widget-icon bg-primary text-white">
-                                <p class="mb-0 mt-2 font-13">
-                                    {{ App\Models\publish::where('jenis_dokumen_id', $row->id)->count() }}</>
-                                </p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
+
                 </div>
             </div>
             @endforeach

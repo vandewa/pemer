@@ -104,6 +104,12 @@
                                     <input class="form-control" type="file" wire:model="path_studi_kak">
                                 </div>
                                 <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" required>
+                                        <label class="form-check-label" for="invalidCheck2">Saya Menyatakan bahwa yang saya isi adalah benar.</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
                                     <button class="btn btn-primary" type="submit">Ajukan</button>
                                 </div>
                             </form>

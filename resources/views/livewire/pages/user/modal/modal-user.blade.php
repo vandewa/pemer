@@ -27,6 +27,11 @@
 </div>
 @push('script')
 <script>
-
+    window.addEventListener('kirim_id', event => {
+        var terima_id = event.detail.kirim_id;
+        Livewire.emitTo('pages.user.modal.modal-user', 'triggerEvent', {
+            tampung_id: terima_id
+        });
+    });
 </script>
 @endpush
