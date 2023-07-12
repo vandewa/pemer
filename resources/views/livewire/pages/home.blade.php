@@ -26,11 +26,11 @@
         <div class="row row-cols-1 row-cols-lg-3 row-cols-xl-3">
             @foreach ($data as $row)
             <div class="col">
-                <div class="card rounded-4">
+                <div class="card rounded-2">
                     <div class="card-body">
                         <a href="{{ route('publish', ['jenis_id' => $row->id]) }}">
                             <div class="d-flex align-items-center">
-                                <div class="ms-auto text-white">
+                                <div class="text-white">
                                     <h4 class="mb-0">{{ $row->perjanjianTipe->name }}</h4>
                                     <p class="mb-1">{{ $row->name }}</p>
                                 </div>
