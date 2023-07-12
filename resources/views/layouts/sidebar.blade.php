@@ -21,7 +21,8 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="lni lni-archive"></i>
+                <div class="parent-icon">
+                    <i class="lni lni-database"></i>
                 </div>
                 <div class="menu-title">Kesepakatan Bersama</div>
             </a>
@@ -47,7 +48,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="lni lni-archive"></i>
+                <div class="parent-icon"><i class="lni lni-database"></i>
                 </div>
                 <div class="menu-title">Perjanjian Kerja Sama</div>
             </a>
@@ -71,14 +72,14 @@
         @can('pengajuan')
         <li>
             <a href="{{ route('pengajuan') }}">
-                <div class="parent-icon"><i class="lni lni-archive"></i>
+                <div class="parent-icon"><i class="lni lni-upload"></i>
                 </div>
                 <div class="menu-title">Pengajuan</div>
             </a>
         </li>
         <li>
             <a href="{{ route('pengajuan.daftar') }}">
-                <div class="parent-icon"><i class="lni lni-archive"></i>
+                <div class="parent-icon"><i class="lni lni-indent-increase"></i>
                 </div>
                 <div class="menu-title">List Pengajuan</div>
             </a>
