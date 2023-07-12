@@ -10,9 +10,12 @@
 
     <!--plugins-->
     <link href="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('snacked/ltr/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('snacked/ltr/assets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+
     <!-- Bootstrap CSS -->
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap-extended.css') }}" rel="stylesheet" />
@@ -30,14 +33,14 @@
     <link href="{{ asset('snacked/ltr/assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/header-colors.css') }}" rel="stylesheet" />
 
-<!-- Or for RTL support -->
+    <!-- Or for RTL support -->
 
     <!-- Scripts -->
 
     <link href="{{ asset('snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-   @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <livewire:styles />
     @stack('css')
@@ -46,7 +49,7 @@
 
     {{-- <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script> --}}
 
-    <title>LAKON</title>
+    <title>Asik Sobo</title>
 </head>
 
 <body>
@@ -123,7 +126,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href=" {{route('user', Auth()->user()->id) }}">
+                                    <a class="dropdown-item" href=" {{route('profile') }}">
                                         <div class="d-flex align-items-center">
                                             <div class=""><i class="bi bi-person-fill"></i></div>
                                             <div class="ms-3"><span>Profile</span></div>
@@ -269,8 +272,10 @@
     <script src="{{ asset('snacked/ltr/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('snacked/ltr/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/js/pace.min.js') }}"></script>
+
     <script src="{{ asset('snacked/ltr/assets/plugins/chartjs/js/Chart.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
@@ -311,23 +316,17 @@
         });
         window.addEventListener('Delete', event => {
             Swal.fire(
-                'Deleted!'
-                , 'Data has been deleted.'
-                , 'success'
+                'Deleted!', 'Data has been deleted.', 'success'
             )
         });
         window.addEventListener('Success', event => {
             Swal.fire(
-                'Good job!'
-                , 'Data has been added.'
-                , 'success'
+                'Good job!', 'Data has been added.', 'success'
             )
         });
         window.addEventListener('Update', event => {
             Swal.fire(
-                'Good job!'
-                , 'Data has been updated.'
-                , 'success'
+                'Good job!', 'Data has been updated.', 'success'
             )
         });
 
@@ -335,9 +334,7 @@
     <script type="text/javascript">
         function sweetAlert2() {
             Swal.fire(
-                'Berhasil!'
-                , 'Mengedit data.'
-                , 'success'
+                'Berhasil!', 'Mengedit data.', 'success'
             )
         }
 
@@ -386,9 +383,7 @@
                         , method: 'delete'
                         , success: function() {
                             Swal.fire(
-                                'Dihapus!'
-                                , 'Data berhasil di hapus.'
-                                , 'success'
+                                'Dihapus!', 'Data berhasil di hapus.', 'success'
                             )
                             if (typeof table) {
                                 $('#devan').DataTable().ajax.reload();
@@ -403,9 +398,7 @@
     <script type="text/javascript">
         function sweetAlert() {
             Swal.fire(
-                'Berhasil!'
-                , 'Menambahkan data.'
-                , 'success'
+                'Berhasil!', 'Menambahkan data.', 'success'
             )
         }
 
@@ -417,9 +410,7 @@
     <script type="text/javascript">
         function sweetAlert2() {
             Swal.fire(
-                'Berhasil!'
-                , 'Mengedit data.'
-                , 'success'
+                'Berhasil!', 'Mengedit data.', 'success'
             )
         }
 

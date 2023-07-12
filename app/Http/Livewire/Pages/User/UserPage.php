@@ -31,11 +31,17 @@ class UserPage extends Component
                 'password' => 'required|same:password_confirmation',
                 'password_confirmation' => 'same:password'
             ]);
+            $phoneNumber = $this->no_hp;
 
+            if (substr($phoneNumber, 0, 2) === '62') {
+                $modifiedPhoneNumber = $phoneNumber;
+            } else {
+                $modifiedPhoneNumber = substr_replace($phoneNumber, '62', 0, 1);
+            }
             User::create([
                 'name' => $this->name,
                 'email' => $this->email,
-                'no_hp' => $this->no_hp,
+                'no_hp' =>  $modifiedPhoneNumber,
                 'intansi_id' => $this->intansi_id,
                 'password' => Hash::make($this->password),
             ])->assignRole($this->role_user);
@@ -53,12 +59,18 @@ class UserPage extends Component
             'password' => 'same:password_confirmation',
             'password_confirmation' => 'same:password'
         ]);
+        $phoneNumber = $this->no_hp;
 
+        if (substr($phoneNumber, 0, 2) === '62') {
+            $modifiedPhoneNumber = $phoneNumber;
+        } else {
+            $modifiedPhoneNumber = substr_replace($phoneNumber, '62', 0, 1);
+        }
         $user = User::find($this->idnya);
         $user->update([
             'name' => $this->name,
             'email' => $this->email,
-            'no_hp' => $this->no_hp,
+            'no_hp' => $modifiedPhoneNumber,
             'instansi_id' => $this->instansi_id,
         ]);
 
@@ -74,19 +86,17 @@ class UserPage extends Component
         $this->dispatchBrowserEvent('Update');
     }
 
-    public function mount($id = "")
+    public function mount()
     {
-        if ($id != "") {
-            $data = User::find($id);
-            $this->name = $data->name;
-            $this->email = $data->email;
-            $this->no_hp = $data->no_hp;
-            $this->instansi_id = $data->instansi_id;
-            $this->role_user = $data->getRoleNames();
-        }
+        $data = User::find(auth()->user()->id);
+        $this->name = $data->name;
+        $this->email = $data->email;
+        $this->no_hp = $data->no_hp;
+        $this->instansi_id = $data->instansi_id;
+        $this->role_user = $data->getRoleNames();
 
         $this->role = Role::get();
-        $this->idnya = $id;
+        $this->idnya = $data->id;
     }
 
     public function render()

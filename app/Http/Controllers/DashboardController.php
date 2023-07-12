@@ -18,7 +18,7 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        return view('dashboard.index');
+        return redirect('/home');
     }
 
     /**
@@ -76,7 +76,7 @@ class DashboardController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/home');
     }
 
     public function gantiPassword(Request $request)

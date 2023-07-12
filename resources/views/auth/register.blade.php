@@ -10,7 +10,7 @@
      <meta name="author" content="Diskominfo Wonosobo">
      <meta name="keyword" content="Sistem Informasi Laporan Kegiatan Harian">
      <link rel="icon" href="{{ asset('snacked/ltr/assets/images/favicon/favicon-32x32.png') }}" type="image/png" />
-     <title>Register LAKON</title>
+     <title>Register Asik Sobo</title>
      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
@@ -25,11 +25,11 @@
                  <div class="mt-4 mb-0 text-center col-md-6">
                      <img src="{{ asset('pemda.png') }}" style="width: 80px;">
                      <h2 class="heading-section">
-                        <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 50pt">P
-                           <i class="fa fa-etsy" aria-hidden="true"></i></i> M E R</span>
-                    </h2>
-                    <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
-                        Perjanjian Kerja Online )</span>
+                         <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 50pt">A
+                             <i class="fa fa-scribd" aria-hidden="true"></i> I K</span>
+                     </h2>
+                     <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
+                         Aplikasi Sistem Informasi Kerjasama )</span>
                  </div>
              </div>
              <div class="mt-4 row justify-content-center">

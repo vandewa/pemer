@@ -27,6 +27,10 @@ class JenisDokumenSeeder extends Seeder
                 'name' => 'Pihak Ketiga'
             ],
             [
+                'tipe_perjanjian_id' => '1',
+                'name' => 'Sinergi'
+            ],
+            [
                 'tipe_perjanjian_id' => '2',
                 'name' => 'Antar Daerah'
             ],

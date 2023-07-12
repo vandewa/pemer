@@ -14,56 +14,100 @@
         </div>
         <div class="row">
             <div class="col-xl-12 mx-auto">
-                <h6 class="mb-0 text-uppercase">Pengajuan</h6>
-                <hr />
                 <div class="card">
                     <div class="card-body">
                         <div class="p-4 border rounded">
                             <form class="row g-3 needs-validation" wire:submit.prevent="simpan" method="POST">
+                                @csrf
                                 <div class="col-md-12">
-                                    <label for="validationCustom01" class="form-label">Jenis Pengajuan</label>
+                                    <label class="form-label">Jenis Pengajuan</label>
                                     <select class="form-select" wire:model.lazy="jenis_dokumen_id">
-                                        <option value>Pilih Jenis Perizinan</option>
+                                        <option value>Pilih Jenis Kerjasama</option>
                                         @foreach($tipePerjanjian as $row)
                                         <option value={{ $row->id }}> {{$row->perjanjianTipe->name. ' - ' . $row->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">No. Dokumen Pemkot</label>
-                                    <input type="text" class="form-control" wire:model="no_pemkot" placeholder="Masukan Nomor" required>
+                                <div class="col-md-12">
+                                    <label class="form-label">No. Surat Permohonan</label>
+                                    {{ Form::text(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('urutan.no_surat') ? '
+                            border-danger' : null),
+                            'placeholder' => 'Masukan No Surat',
+                            'wire:model.lazy' => 'urutan.no_surat',
+                            ]) }}
+                                    <button class="btn btn-primary" type="button" wire:click="tambahNomor">Tambah No Surat</button>
+                                    @if($listNoSurat)
+                                    <hr>
+                                    <table class="table table-strip text-center">
+                                        <thead>
+                                            <th>No Surat</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($listNoSurat as $index => $item)
+                                            <tr>
+                                                <td>{{ $item['no_surat'] }}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    @endif
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">Tanggal Permohonan</label>
+                                    {{ Form::date(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('tgl_permohonan') ? '
+                            border-danger' : null),
+                            'wire:model.lazy' => 'tgl_permohonan',
+                            ]) }}
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label">Maksud dan Tujuan Kerjasama</label>
+                                    {{ Form::text(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('judul') ? '
+                            border-danger' : null),
+                            'placeholder' => '',
+                            'wire:model.lazy' => 'judul',
+                            ]) }}
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">No. Dokumen Penyedia</label>
-                                    <input type="text" class="form-control" wire:model="no_penyedia" placeholder="Masukan Nomor" required>
+                                    <label class="form-label">Obyek</label>
+                                    {{ Form::text(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('obyek') ? '
+                            border-danger' : null),
+                            'placeholder' => '',
+                            'wire:model.lazy' => 'obyek',
+                            ]) }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Ruang Lingkup</label>
+                                    {{ Form::text(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('ruang_lingkup') ? '
+                            border-danger' : null),
+                            'placeholder' => '',
+                            'wire:model.lazy' => 'ruang_lingkup',
+                            ]) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label">File Surat Permohonan</label>
+                                    <input class="form-control" type="file" wire:model="path_surat_permohonan">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="validationCustom02" class="form-label">Judul Perjanjian Kerjasama</label>
-                                    <input type="text" class="form-control" wire:model="judul" placeholder="" required>
+                                    <label class="form-label">File Surat Studi Kelayakan / KAK</label>
+                                    <input class="form-control" type="file" wire:model="path_studi_kak">
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">Pihak Pertama</label>
-                                    <input type="text" class="form-control" wire:model="pihak_1" placeholder="" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">Pihak Kedua</label>
-                                    <input type="text" class="form-control" wire:model="pihak_2" placeholder="" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="validationCustom02" class="form-label">Tentang</label>
-                                    <input type="text" class="form-control" wire:model="tentang" placeholder="" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="validationCustom02" class="form-label">Ruang Lingkup</label>
-                                    <textarea class="form-control" wire:model="ruang_lingkup"> </textarea>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">Tanggal Mulai</label>
-                                    <input type="date" class="form-control" wire:model="tanggal_mulai" placeholder="" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="validationCustom02" class="form-label">Tanggal Selesai</label>
-                                    <input type="date" class="form-control" wire:model="tanggal_selesai" placeholder="" required>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" required>
+                                        <label class="form-check-label" for="invalidCheck2">Saya Menyatakan bahwa yang saya isi adalah benar.</label>
+                                    </div>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary" type="submit">Ajukan</button>
@@ -74,5 +118,6 @@
                 </div>
             </div>
         </div>
+
     </main>
 </div>

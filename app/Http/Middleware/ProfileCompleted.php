@@ -19,7 +19,7 @@ class ProfileCompleted
         $user = $request->user();
 
         if ($user->hasRole('user') && !$user->isProfileComplete()) {
-            return redirect()->route('user', Auth()->user()->id);
+            return redirect()->route('profile');
         }
 
         return $next($request);

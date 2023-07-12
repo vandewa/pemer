@@ -26,7 +26,13 @@ class ListUser extends DataTableComponent
         $this->delete_id = $var;
         $this->dispatchBrowserEvent('show-delete-confirmation');
     }
-
+    public function getID($terima_id)
+    {
+        $this->dispatchBrowserEvent('kirim_id', [
+            'kirim_id' => $terima_id
+        ]);
+        $this->dispatchBrowserEvent('show-view-modal-user');
+    }
     public function rowsDeleted()
     {
         User::where('id', $this->delete_id)->first()->delete();
@@ -58,8 +64,7 @@ class ListUser extends DataTableComponent
                     function ($value, $row, Column $column) {
                         return '
                              <div class="gap-3 table-actions d-flex align-items-center fs-6">
-                             <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="lni lni-cog"></i></a>
-                               <a href="' . route('user', $row->id) . '" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit" type="button"><i class="bi bi-pencil-fill"></i>
+                               <a wire:click="getID(' . $row->id . ')" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit" type="button"><i class="bi bi-pencil-fill"></i>
                                </a>
                                <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" wire:click.prevent="hapus(' . $row->id . ')" type="button"><i class="bi bi-trash-fill"></i></a>
                              </div>
