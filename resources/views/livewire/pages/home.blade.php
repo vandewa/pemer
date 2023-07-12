@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="ms-auto widget-icon bg-primary text-white">
                                     <p class="mb-0 mt-2 font-13">
-                                        {{ App\Models\publish::where('jenis_dokumen_id', $row->id)->count() }}</>
+                                        {{ App\Models\Publish::where('jenis_dokumen_id', $row->id)->count() }}</>
                                     </p>
                                 </div>
                             </div>
