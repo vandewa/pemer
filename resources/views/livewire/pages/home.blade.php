@@ -30,12 +30,16 @@
                     <div class="card-body">
                         <a href="{{ route('publish', ['jenis_id' => $row->id]) }}">
                             <div class="d-flex align-items-center">
-                                <div class="text-white">
+
+                                <img src="https://asik.kemenpora.go.id/assets/backendtheme/assets/css/2.png" style="width: 20%;padding-bottom: 0;">
+
+                                <div class="ms-auto menu-title">
                                     <h4 class="mb-0">{{ $row->perjanjianTipe->name }}</h4>
                                     <p class="mb-1">{{ $row->name }}</p>
                                 </div>
+
                                 <div class="ms-auto widget-icon bg-primary text-white">
-                                    <p class="mb-0 mt-2 font-13">
+                                    <p class="mb-0 mt-1 font-13">
                                         {{ App\Models\Publish::where('jenis_dokumen_id', $row->id)->count() }}</>
                                     </p>
                                 </div>
