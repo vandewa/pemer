@@ -18,7 +18,7 @@
                 <td>{{ $loop->iteration ?? '' }}</td>
                 <td>{{ $row->no_pemkot ?? '' }}</td>
                 <td>{{ $row->para_pihak ?? ''}}</td>
-                <td>{{ $row->pengajuanNya->judul ?? ''}}</td>
+                <td>{{ $row->pengajuanNya->judul ?? $row->tentang }}</td>
                 <td>{{ \Carbon\Carbon::parse($row->tanggal_mulai)->locale('id')->isoFormat('LL') }} s.d {{ \Carbon\Carbon::parse($row->tanggal_selesai)->locale('id')->isoFormat('LL') }}</td>
                 @php
                 $tanggalAwal = \Carbon\Carbon::now();

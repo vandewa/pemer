@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="p-4 border rounded">
-                            <form class="row g-3 needs-validation" wire:submit.prevent="simpan" method="POST">
+                            <div class="row g-3 needs-validation">
                                 @csrf
                                 <div class="col-md-12">
                                     <label class="form-label">Jenis Pengajuan</label>
@@ -96,23 +96,46 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label class="form-label">File Surat Permohonan</label>
-                                    <input class="form-control" type="file" wire:model="path_surat_permohonan">
+                                    <label class="form-label col-md-3">File Surat Permohonan</label>
+                                    <input class="form col-md-4" type="file" wire:model="path_surat_permohonan">
+                                    <div wire:loading wire:target="path_surat_permohonan">Uploading...<i class="spinner-border spinner-border-sm" role="status"></i></div>
+                                    @if ($path_surat_permohonan)
+                                    <i class="fadeIn animated bx bx-check"></i>
+                                    @else
+                                    @endif
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="form-label">File Surat Studi Kelayakan / KAK</label>
-                                    <input class="form-control" type="file" wire:model="path_studi_kak">
+                                    <label class="form-label col-md-3">File Surat Studi Kelayakan / KAK</label>
+                                    <input class="form col-md-4" type="file" wire:model="path_studi_kak">
+                                    <div wire:loading wire:target="path_studi_kak">Uploading...<i class="spinner-border spinner-border-sm" role="status"></i></div>
+                                    @if ($path_studi_kak)
+                                    <i class="fadeIn animated bx bx-check"></i>
+                                    @else
+                                    @endif
+
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" required>
-                                        <label class="form-check-label" for="invalidCheck2">Saya Menyatakan bahwa yang saya isi adalah benar.</label>
+                                        <input class="form-check-input" type="checkbox" value="" wire:model.lazy="submit">
+                                        <label class="form-check-label" for="invalidCheck">Saya menyatakan bahwa semua data /
+                                            informasi yang saya infokan adalah benar.</label>
+                                        <div class="invalid-feedback">You must agree before submitting.</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Ajukan</button>
+                                    @if ($submit)
+                                    <button class="btn btn-primary" wire:click="simpan" wire:loading.attr="disabled">
+                                        <span wire:loading.remove>Simpan</span>
+                                        <span wire:loading.delay wire:target="simpan">
+                                            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-1.647zm10-3.882l3 1.646C19.865 17.825 21 15.043 21 12h-4a7.963 7.963 0 01-2 5.291zM12 20a8 8 0 100-16 8 8 0 000 16z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    @endif
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>

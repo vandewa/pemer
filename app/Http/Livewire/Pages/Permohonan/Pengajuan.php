@@ -14,12 +14,29 @@ use Illuminate\Support\Facades\Lang;
 class Pengajuan extends Component
 {
     use WithFileUploads;
-    public $tipePerjanjian, $jenis_dokumen_id, $no_surat, $tgl_permohonan, $judul, $obyek, $ruang_lingkup, $path_surat_permohonan, $path_studi_kak;
+    public $tipePerjanjian, $jenis_dokumen_id, $no_surat, $tgl_permohonan, $judul, $obyek, $ruang_lingkup, $path_surat_permohonan;
+    public $path_studi_kak, $submit = false;
     public $listNoSurat = [], $noSuratString;
- 
-    
+
+    public function toggleCheckbox()
+    {
+        if ($this->checkbox) {
+            // Checkbox is selected
+            // Perform actions or emit events as needed
+            // For example, you can emit an event to notify other components
+            $this->emit('checkboxSelected');
+        } else {
+            // Checkbox is deselected
+            // Perform actions or emit events as needed
+            // For example, you can emit an event to notify other components
+            $this->emit('checkboxDeselected');
+        }
+    }
+
     public function simpan()
     {
+
+
         if ($this->listNoSurat == []) {
             $this->validate([
                 'urutan.no_surat' => 'required'
@@ -32,15 +49,15 @@ class Pengajuan extends Component
                 'judul' => 'required',
                 'obyek' => 'required',
                 'ruang_lingkup' => 'required',
-                'path_surat_permohonan' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
-                'path_studi_kak' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
+                'path_surat_permohonan' => 'required|mimes:pdf|max:20000',
+                'path_studi_kak' => 'required|mimes:pdf|max:20000'
             ],
             [
                 'path_surat_permohonan.required' => 'Wajib upload File',
-                'path_surat_permohonan.mimes' => 'Hanya format gambar(jpg, png, jpeg) Dan pdf',
+                'path_surat_permohonan.mimes' => 'Hanya format .pdf',
                 'path_surat_permohonan.max' => 'Maksimal upload 20 Mb',
                 'path_studi_kak.required' => 'Wajib upload File',
-                'path_studi_kak.mimes' => 'Hanya format gambar(jpg, png, jpeg) Dan pdf',
+                'path_studi_kak.mimes' => 'Hanya format .pdf',
                 'path_studi_kak.max' => 'Maksimal upload 20 Mb',
             ]
         );
@@ -94,7 +111,7 @@ class Pengajuan extends Component
         Http::withHeaders([
             'Authorization' => config('app.token_wa'),
         ])->withoutVerifying()->post(config('app.wa_url') . "/send-message", [
-            'phone' => $admin->no_hp,
+            'phone' => $admin->no_hp, //6289650352118 admin asik
             'message' =>  $message,
         ]);
 

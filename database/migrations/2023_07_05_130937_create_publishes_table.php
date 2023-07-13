@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('publishes', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('jenis_dokumen_id');
-            $table->integer('pengajuan_id');
+            $table->integer('pengajuan_id')->nullable();
             $table->string('no_pemkot');
+            $table->string('tentang')->nullable();
             $table->string('path_surat_perjanjian_kerja');
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
-            $table->string('batas_akhir');
+            $table->string('para_pihak');
             $table->timestamps();
         });
     }

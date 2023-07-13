@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 class PengajuanProses extends Component
 {
     use WithFileUploads;
-    public $kode, $data, $keterangan, $no_pemkot, $tgl_mulai, $tgl_berakhir, $para_pihak, $path_perjanjian;
+    public $kode, $data, $keterangan, $no_pemkot, $tgl_mulai, $tgl_berakhir, $para_pihak, $path_perjanjian, $tentang;
     public $listNoSurat = [], $noSuratString;
     protected $queryString = ['kode' => ['except' => '', 'as' => 'id'],];
 
@@ -71,12 +71,7 @@ class PengajuanProses extends Component
                 'tgl_mulai' => 'required',
                 'tgl_berakhir' => 'required',
                 'para_pihak' => 'required',
-                'path_perjanjian' => 'required|mimes:pdf,jpg,jpeg,png|max:20000',
-            ],
-            [
-                'path_perjanjian.required' => 'Wajib upload File',
-                'path_perjanjian.mimes' => 'Hanya format gambar(jpg, png, jpeg) Dan pdf',
-                'path_perjanjian.max' => 'Maksimal upload 20 Mb'
+                'path_perjanjian' => 'required',
             ]
         );
         $this->data->status = 'Selesai';
@@ -87,14 +82,14 @@ class PengajuanProses extends Component
                 $noSuratValues = $item['no_pemkot'] . ',' . $noSuratValues;
             }
         }
-        $file = $this->path_perjanjian->store('asiksobo/surat_perjanjian');
         $publish = Publish::create(
             [
                 'jenis_dokumen_id' => $this->data->jenis_dokumen_id,
                 'pengajuan_id' => $this->data->id,
+                'tentang' => $this->tentang,
                 'no_pemkot' => $noSuratValues,
                 'para_pihak' => $this->para_pihak,
-                'path_surat_perjanjian_kerja' => $file,
+                'path_surat_perjanjian_kerja' => $this->path_perjanjian,
                 'tanggal_mulai' => $this->tgl_mulai,
                 'tanggal_selesai' => $this->tgl_berakhir,
             ]
@@ -156,6 +151,7 @@ class PengajuanProses extends Component
     public function mount()
     {
         $this->data = Pengajuan::find($this->kode);
+        $this->tentang = $this->data->judul;
     }
     public function render()
     {

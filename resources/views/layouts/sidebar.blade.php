@@ -85,7 +85,13 @@
             </a>
         </li>
         @endcan
-
+        <li>
+            <a href="{{ route('manual.publish') }}">
+                <div class="parent-icon"><i class="lni lni-indent-increase"></i>
+                </div>
+                <div class="menu-title">Manual Publish</div>
+            </a>
+        </li>
         @can('master data')
         <li>
             <a class="has-arrow">

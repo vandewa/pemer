@@ -18,7 +18,7 @@ class TipePerjanjianSeeder extends Seeder
                 'name' => 'Kesepakatan Bersama',
             ],
             [
-                'name' => 'Perjanjian Kerjasama'
+                'name' => 'Perjanjian Kerja Sama'
             ]
         ];
 
