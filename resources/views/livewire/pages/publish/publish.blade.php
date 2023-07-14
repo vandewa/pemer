@@ -104,13 +104,50 @@
                             'wire:model.lazy' => 'para_pihak',
                             ]) }}
                                 </div>
-                                <iframe src="https://drive.google.com/file/d/130vHxsypp5wSnJHD7mhEA7BxnJZmNMG_/view"></iframe>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputAddress4" class="col-sm-3 col-form-label">File Surat Perjanjian Kerja</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="text" wire:model="path_perjanjian">
+                                <div class="col-sm-7">
 
+                                    {{ Form::text(null, null, [
+                            'class' => 'form-control' .
+                            ($errors->has('path_perjanjian') ? '
+                            border-danger' : null),
+                            'wire:model.lazy' => 'path_perjanjian',
+                            'wire:change' => 'checkAvailability()',
+                            'placeholder' => 'Masukan Link Google Drive'
+                            ]) }}
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-primary" wire:click="checkAvailability" wire:loading.attr="disabled">
+                                        <span wire:loading.remove>cek</span>
+                                        <span wire:loading.delay wire:target="checkAvailability">
+                                            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-1.647zm10-3.882l3 1.646C19.865 17.825 21 15.043 21 12h-4a7.963 7.963 0 01-2 5.291zM12 20a8 8 0 100-16 8 8 0 000 16z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                                <label for="inputAddress4" class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-9">
+                                    <div wire:loading wire:target="checkAvailability">Checking...<i class="spinner-border spinner-border-sm" role="status"></i></div>
+                                    @if ($isAvailable)
+                                    <p>The Google Drive link is available.</p>
+                                    @elseif (isset($isAvailable))
+                                    <p>The Google Drive link is not available.</p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputAddress4" class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-9">
+                                    @if (session()->has('errors'))
+                                    <div class="alert border-0 bg-light-danger alert-dismissible fade show">
+                                        <div class="text-danger">Masukan link Google Drive Yang tersedia</div>
+                                        <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                             <div class="row">
@@ -135,35 +172,3 @@
 
     </main>
 </div>
-
-@push('script')
-<script>
-    function checkDriveLink(driveLink) {
-        return fetch(driveLink, {
-                method: 'HEAD'
-            })
-            .then(response => {
-                if (response.ok) {
-                    // The file exists and can be accessed
-                    return "file ada dan bisa di akses";
-                } else {
-                    // The file does not exist or cannot be accessed
-                    return "file ada tapi tidak bisa di akses";
-                }
-            })
-            .catch(error => {
-                // An error occurred during the request
-                console.error('Error:', error);
-                return false;
-            });
-    }
-
-    // Usage:
-    const driveLink = 'https://drive.google.com/file/d/130vHxsypp5wSnJHD7mhEA7BxnJZmNMG_/view?usp=drive_link';
-    checkDriveLink(driveLink)
-        .then(result => {
-            console.log(result); // true if the file exists and can be accessed, false otherwise
-        });
-
-</script>
-@endpush
