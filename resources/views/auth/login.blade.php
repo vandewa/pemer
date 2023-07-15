@@ -15,6 +15,7 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="{{ asset('style.css') }}">
+
  </head>
 
  <body class="img js-fullheight" style="background-image:url({{ asset('bg1.jpg') }});object-fit:cover">
@@ -22,11 +23,8 @@
          <div class="container">
              <div class="row justify-content-center">
                  <div class="mt-4 mb-0 text-center col-md-6">
-                     <img src="{{ asset('pemda.png') }}" style="width: 80px;">
-                     <h2 class="heading-section">
-                         <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 50pt">A
-                             <i class="fa fa-scribd" aria-hidden="true"></i> I K</span>
-                     </h2>
+                     <img src="{{ asset('chain/assets/images/logo3.png') }}" style=" width: 70%;
+  height: auto;"></br>
                      <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
                          Aplikasi Sistem Informasi Kerjasama )</span>
                  </div>
@@ -74,13 +72,12 @@
                              <div class="col-12 text-center">
                                  <p class="mb-0">or sign up with:</p>
                              </div>
-                             <div class="col-12 text-center">
-                                 <div class="error-social">
-                                     <a href="javascript:;" class="bg-facebook"><i class="bx bxl-facebook"></i></a>
-                                     <a href="javascript:;" class="bg-twitter"><i class="bx bxl-twitter"></i></a>
-                                     <a href="javascript:;" class="bg-google"><i class="bx bxl-google"></i></a>
-                                     <a href="javascript:;" class="bg-linkedin"><i class="bx bxl-linkedin"></i></a>
-                                 </div>
+                             <div class="social_login col-12 text-center">
+                                 <a href="#" class="social_box google">
+                                     <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt"><i class="fa fa-google"></i>
+                                         Connect with Google
+                                     </span>
+                                 </a>
                              </div>
                          </form>
                      </div>
@@ -89,15 +86,14 @@
          </div>
          <div class="pt-3 container-fluid client bg-transparent">
              <div class="container text-center">
-                 <span class="small float-center" style="font-size: 10px; color:#fff;"><b>&copy;2023
+                 <span class="small float-center" style="font-size: 10px; color:#fff;"><b>&copy; 2023
                          <?php if (date('Y') == 2023) {
-                             echo '';
-                         } else {
-                             echo '- ' . date('Y');
-                         }
-                         ?>
-                         Inspektorat Daerah Kabupaten Wonosobo | All Rights Reserved | by Agung - Damar -
-                         Devan</b></span>
+                                echo '';
+                            } else {
+                                echo '- ' . date('Y');
+                            }
+                            ?>
+                         Sekretariat Daerah Kabupaten Wonosobo | by Tri Maryanto</b></span>
              </div>
          </div>
      </section>
@@ -107,7 +103,6 @@
          $(function() {
              $(".alert").delay(3000).slideUp(300);
          });
-
      </script>
      <script type="text/javascript">
          (function($) {
@@ -129,7 +124,6 @@
                  }
              });
          })(jQuery);
-
      </script>
  </body>
 

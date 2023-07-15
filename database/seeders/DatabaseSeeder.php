@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OpdSeeder::class);
         $this->call(TipePerjanjianSeeder::class);
         $this->call(JenisDokumenSeeder::class);
+        $this->call(ProfileOpdSeeder::class);
     }
 }

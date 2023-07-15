@@ -11,6 +11,7 @@ use App\Http\Livewire\Master\PerjanjianTipe;
 use App\Http\Livewire\Pages\User\DaftarUser;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShowPictureHelperController;
+use App\Http\Livewire\Front\Index;
 use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Pages\Permohonan\PengajuanDaftar;
 use App\Http\Livewire\Pages\Permohonan\PengajuanProses;
@@ -29,7 +30,7 @@ use App\Http\Livewire\Pages\User\PermissionRole;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', Index::class)->name('front.index');
 
 Route::get('/login', function () {
     return view('auth.login');

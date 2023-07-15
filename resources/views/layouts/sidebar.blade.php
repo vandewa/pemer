@@ -2,10 +2,7 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('snacked/ltr/assets/images/favicon/android-chrome-512x512.png') }}" class="logo-icon" alt="logo icon">
-        </div>
-        <div>
-            <h4 class="logo-text">ASIK SOBO</h4>
+            <img src="{{ asset('chain/assets/images/logo2.png') }}" class="logo-icon" alt="logo icon" style="width:200px;">
         </div>
         <div class="toggle-icon ms-auto"> <i class="bi bi-list"></i>
         </div>
