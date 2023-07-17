@@ -16,7 +16,11 @@
                         <!-- <li class="scroll-to-section"><a href="#pricing">Pricing</a></li>
                         <li class="scroll-to-section"><a href="#newsletter">Newsletter</a></li> -->
                         <li>
+                            @guest
                             <div class="gradient-button"><a href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div>
+                            @else
+                            <div class="gradient-button"><a href="{{ route('home') }}"><i class="fa fa-sign-in-alt"></i>Dashboard</a></div>
+                            @endguest
                         </li>
                     </ul>
                     <a class='menu-trigger'>
