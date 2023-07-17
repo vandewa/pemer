@@ -74,23 +74,19 @@ class Publish extends Component
                 $noSuratValues = $item['no_pemkot'] . ',' . $noSuratValues;
             }
         }
-        if ($this->isAvailable = true) {
-            ModelPublish::create(
-                [
-                    'jenis_dokumen_id' => $this->jenis_dokumen_id,
-                    'tentang' => $this->tentang,
-                    'no_pemkot' => $noSuratValues,
-                    'para_pihak' => $this->para_pihak,
-                    'path_surat_perjanjian_kerja' => $this->path_perjanjian,
-                    'tanggal_mulai' => $this->tgl_mulai,
-                    'tanggal_selesai' => $this->tgl_berakhir,
-                ]
-            );
-            $this->dispatchBrowserEvent('Success');
-            return redirect()->route('manual.publish');
-        } else {
-            session()->flash('errors', 'Mohon Isi Form Google Drive yang tersedia.');
-        }
+        ModelPublish::create(
+            [
+                'jenis_dokumen_id' => $this->jenis_dokumen_id,
+                'tentang' => $this->tentang,
+                'no_pemkot' => $noSuratValues,
+                'para_pihak' => $this->para_pihak,
+                'path_surat_perjanjian_kerja' => $this->path_perjanjian,
+                'tanggal_mulai' => $this->tgl_mulai,
+                'tanggal_selesai' => $this->tgl_berakhir,
+            ]
+        );
+        $this->dispatchBrowserEvent('Success');
+        return redirect()->route('manual.publish');
     }
 
 

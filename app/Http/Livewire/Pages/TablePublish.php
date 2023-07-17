@@ -18,9 +18,9 @@ class TablePublish extends Component
     public function mount()
     {
         if ($this->jenis_id == null) {
-            $this->publish = Publish::all();
+            $this->publish = Publish::orderBy('id', 'DESC')->get();
         } else {
-            $this->publish = Publish::where('jenis_dokumen_id', $this->jenis_id)->get();
+            $this->publish = Publish::where('jenis_dokumen_id', $this->jenis_id)->orderBy('id', 'DESC')->get();
         }
     }
 

@@ -43,7 +43,7 @@
                 }
                 @endphp
                 <td>{{ $selisih }}</td>
-                <td><button class="btn btn-sm btn-info" wire:click="path_surat_perjanjian('{{ $row->path_surat_perjanjian_kerja }}')">View</button></td>
+                <td><a class="btn btn-sm btn-info" href="{{ $row->path_surat_perjanjian_kerja }}" target="_blank">View</a></td>
             </tr>
             @endforeach
         </tbody>

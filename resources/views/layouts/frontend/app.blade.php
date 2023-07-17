@@ -58,7 +58,7 @@ https://templatemo.com/tm-570-chain-app-dev
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="section-heading">
-                        <h4></h4>
+                        <h4></h4><br>
                     </div>
                 </div>
             </div>
@@ -122,6 +122,7 @@ https://templatemo.com/tm-570-chain-app-dev
             hs.src = ('//s10.histats.com/js15_as.js');
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
         })();
+
     </script>
     <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4784140&101" alt="" border="0"></a></noscript>
     <!-- Histats.com  END  -->

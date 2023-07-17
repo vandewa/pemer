@@ -153,6 +153,7 @@
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
+                                    @if ($isAvailable)
                                     <button class="btn btn-primary" wire:click="simpan" wire:loading.attr="disabled">
                                         <span wire:loading.remove>Simpan</span>
                                         <span wire:loading.delay wire:target="simpan">
@@ -162,6 +163,7 @@
                                             </svg>
                                         </span>
                                     </button>
+                                    @endif
                                 </div>
                             </div>
                         </div>
