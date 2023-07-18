@@ -60,6 +60,7 @@
         <livewire:global.modal-surat-perjanjian>
     </main>
 </div>
+
 @push('script')
 <script>
     window.addEventListener('show-view-modal-path-surat-perjanjian', event => {
