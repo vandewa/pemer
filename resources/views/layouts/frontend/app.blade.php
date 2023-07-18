@@ -47,9 +47,7 @@ https://templatemo.com/tm-570-chain-app-dev
     </div>
     <!-- ***** Preloader End ***** -->
 
-    <!-- ***** Header Area Start ***** -->
-    @include('layouts.frontend.header')
-    <!-- ***** Header Area End ***** -->
+
 
     {{ $slot ?? '' }}
 

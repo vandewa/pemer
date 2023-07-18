@@ -1,12 +1,15 @@
-<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-    <livewire:front.main>
-</div>
+  <!-- ***** Header Area Start ***** -->
+  @include('layouts.frontend.header')
+  <!-- ***** Header Area End ***** -->
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+      <livewire:front.main>
+  </div>
 
-<div id="services" class="services section">
-    <livewire:front.service>
-</div>
+  <div id="services" class="services section">
+      <livewire:front.service>
+  </div>
 
-<!-- <div id="about" class="about-us section">
+  <!-- <div id="about" class="about-us section">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 align-self-center">
@@ -58,21 +61,21 @@
     </div>
 </div> -->
 
-<div id="clients" class="the-clients">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="section-heading">
-                    <h4>Mitra <em>Kerja Sama</em>Daerah</h4>
-                    <img src="{{ asset('chain/assets/images/heading-line-dec.png') }}" alt="">
-                    <p>Dipercaya lebih dari 1.000 rekanan di Seluruh Indonesia</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <div id="clients" class="the-clients">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 offset-lg-2">
+                  <div class="section-heading">
+                      <h4>Mitra <em>Kerja Sama</em>Daerah</h4>
+                      <img src="{{ asset('chain/assets/images/heading-line-dec.png') }}" alt="">
+                      <p>Dipercaya lebih dari 1.000 rekanan di Seluruh Indonesia</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-<!-- <div id="pricing" class="pricing-tables">
+  <!-- <div id="pricing" class="pricing-tables">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">

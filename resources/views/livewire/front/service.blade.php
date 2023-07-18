@@ -25,7 +25,7 @@
                 <div class="icon"></div>
                 <h4>Pengetahuan Kerja Sama Daerah</h4>
                 <div class="text-button">
-                    <a href="#">Klik To Go..<i class="fa fa-arrow-right"></i></a>
+                    <a href="{{ route('front.kerjasama') }}">Klik To Go..<i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

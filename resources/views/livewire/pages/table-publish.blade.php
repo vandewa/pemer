@@ -8,6 +8,7 @@
 
 </style>
 @endpush
+
 <table id="example" class="table table-striped table-bordered">
     <thead>
 
