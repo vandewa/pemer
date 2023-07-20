@@ -55,6 +55,16 @@ class Publish extends Component
         $this->showdiv = true;
     }
 
+    public function edit_data($id)
+    {
+        $this->showdiv = true;
+        $a = ModelPublish::find($id);
+        $c = array_filter(explode(',', $a->no_pemkot));
+        foreach ($c as $d) {
+            array_push($this->listNoSurat, ['no_pemkot' => $d]);
+        }
+    }
+
     public function removeInput($index)
     {
         if (isset($this->lstNoSurat[$index])) {
@@ -105,7 +115,7 @@ class Publish extends Component
                 'jenis_dokumen_id' => $this->jenis_dokumen_id,
                 'tentang' => $this->tentang,
                 'no_pemkot' => $this->listNoSurat,
-                // 'no_pemkot' => json_encode($this->listNoSurat),
+                // 'no_pemkot' => json_encode($this->listNoSurat[1]),
                 'para_pihak' => $this->para_pihak,
                 'path_surat_perjanjian_kerja' => $this->path_perjanjian,
                 'tanggal_mulai' => $this->tgl_mulai,

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
             <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-                <h4>Fasilitas <em>Kerja &amp; Sama</em> Daerah</h4>
+                <h4>Fasilitas <em>Kerja Sama</em> Daerah</h4>
                 <img src="{{ asset('chain/assets/images/heading-line-dec.png') }}" alt="">
                 <p>Silahkan pilih fasilitas di bawah untuk membantu Anda</p>
             </div>

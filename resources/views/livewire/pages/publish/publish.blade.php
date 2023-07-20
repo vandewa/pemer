@@ -224,7 +224,17 @@
                                      @foreach ($publish as $row)
                                      <tr>
                                          <td>{{ $loop->iteration ?? '' }}</td>
-                                         <td>{{ $row->no_pemkot ?? '' }}</td>
+                                         <td>
+                                             @php
+                                             $a = explode(',',$row->no_pemkot);
+                                             $b = array_filter($a);
+                                             $no = 1;
+                                             foreach($b as $c){
+                                             echo $no .". ".$c."<br>";
+                                             $no++;
+                                             }
+                                             @endphp
+                                         </td>
                                          <td>{{ $row->para_pihak ?? ''}}</td>
                                          <td>{{ $row->pengajuanNya->judul ?? $row->tentang }}</td>
                                          <td>{{ \Carbon\Carbon::parse($row->tanggal_mulai)->locale('id')->isoFormat('LL') }} s.d {{ \Carbon\Carbon::parse($row->tanggal_selesai)->locale('id')->isoFormat('LL') }}</td>
@@ -253,7 +263,7 @@
                                          <td>{{ $selisih }}</td>
                                          <td><a class="btn btn-sm btn-info" href="{{ $row->path_surat_perjanjian_kerja }}" target="_blank">View</a></td>
                                          <td>
-                                             {{-- <a href="#" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a> --}}
+                                             <a href="#" wire:click="edit_data({{ $row->id }})" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a>
                                              <a href="#" wire:click="$emit('showModal', {{ $row->id}})" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-trash-fill"></i></a></td>
                                      </tr>
                                      @endforeach
