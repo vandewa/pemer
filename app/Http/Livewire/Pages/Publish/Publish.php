@@ -25,9 +25,7 @@ class Publish extends Component
         $this->para_pihak = '';
         $this->path_perjanjian = '';
         $this->tentang = '';
-        $this->urutan = [
-            'no_pemkot' => ''
-        ];
+        unset($this->listNoSurat);
     }
     public function hapus($id)
     {
@@ -74,34 +72,37 @@ class Publish extends Component
         $a = ModelPublish::find($id);
         $c = array_filter(explode(',', $a->no_pemkot));
         foreach ($c as $d) {
+            if ($this->listNoSurat === null) {
+                $this->listNoSurat = array();
+            }
             array_push($this->listNoSurat, ['no_pemkot' => $d]);
         }
+        $this->idnya = $a->id;
         $this->jenis_dokumen_id = $a->jenis_dokumen_id;
-        $this->tgl_mulai = $a->tgl_mulai;
-        $this->tgl_berakhir = $a->tgl_berakhir;
+        $this->tgl_mulai = $a->tanggal_mulai;
+        $this->tgl_berakhir = $a->tanggal_selesai;
         $this->tentang = $a->tentang;
         $this->path_perjanjian = $a->path_surat_perjanjian_kerja;
         $this->para_pihak = $a->para_pihak;
     }
     public function update()
     {
-
-
+        $noSuratValues = '';
         foreach ($this->listNoSurat as $item) {
 
             if (isset($item['no_pemkot'])) {
-                $noSuratValues = $item['no_pemkot'] . ',';
+                $noSuratValues = $item['no_pemkot'] . ',' . $noSuratValues;
             }
         }
-        $update = ModelPublish::find($this->idnya);
-        $update->no_pemkot = $noSuratValues;
-        $update->tgl_mulai = $this->tanggal_mulai;
-        $update->tgl_berakhir = $this->tanggal_berakhir;
-        $update->para_pihak = $this->para_pihak;
-        $update->tentang = $this->tentang;
-        $update->jenis_dokumen_id = $this->jenis_dokumen_id;
-        $update->path_surat_perjanjian_kerja = $this->path_perjanjian;
-        $update->update();
+        ModelPublish::find($this->idnya)->update([
+            'no_pemkot' => $noSuratValues,
+            'tanggal_mulai' => $this->tgl_mulai,
+            'tanggal_selesai' => $this->tgl_berakhir,
+            'para_pihak' => $this->para_pihak,
+            'tentang' => $this->tentang,
+            'jenis_dokumen_id' => $this->jenis_dokumen_id,
+            'path_surat_perjanjian_kerja' => $this->path_perjanjian
+        ]);
         $this->dispatchBrowserEvent('Update');
         $this->bersihkan();
         $this->showdiv = false;
