@@ -12,9 +12,20 @@ class Publish extends Component
 {
     public $kode, $jenis_dokumen_id, $data,  $no_pemkot, $tgl_mulai, $tgl_berakhir, $para_pihak, $path_perjanjian, $tentang, $tipePerjanjian;
     public $listNoSurat = [], $noSuratString;
-    public $driveLink;
-    public $isAvailable;
+    public $driveLink, $idnya;
+    public $isAvailable, $showdiv = false, $publish;
+    protected $listeners = ['hapus'];
 
+    public function bersihkan()
+    {
+    }
+    public function hapus($id)
+    {
+        $this->idnya = $id;
+        ModelPublish::destroy($this->idnya);
+        $this->dispatchBrowserEvent('Delete');
+        return redirect()->route('manual.publish');
+    }
     public function checkAvailability()
     {
         if ($this->path_perjanjian) {
@@ -35,6 +46,21 @@ class Publish extends Component
         }
     }
 
+    public function kembali()
+    {
+        $this->showdiv = false;
+    }
+    public function tambahData()
+    {
+        $this->showdiv = true;
+    }
+
+    public function removeInput($index)
+    {
+        if (isset($this->lstNoSurat[$index])) {
+            unset($this->listNoSurat[$index]);
+        }
+    }
     public $urutan = [
         'no_pemkot' => ''
 
@@ -78,7 +104,8 @@ class Publish extends Component
             [
                 'jenis_dokumen_id' => $this->jenis_dokumen_id,
                 'tentang' => $this->tentang,
-                'no_pemkot' => $noSuratValues,
+                'no_pemkot' => $this->listNoSurat,
+                // 'no_pemkot' => json_encode($this->listNoSurat),
                 'para_pihak' => $this->para_pihak,
                 'path_surat_perjanjian_kerja' => $this->path_perjanjian,
                 'tanggal_mulai' => $this->tgl_mulai,
@@ -93,6 +120,7 @@ class Publish extends Component
     public function mount()
     {
         $this->tipePerjanjian = JenisDokumen::all();
+        $this->publish = ModelPublish::orderBy('id', 'DESC')->get();
     }
     public function render()
     {
