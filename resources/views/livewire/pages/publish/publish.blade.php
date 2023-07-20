@@ -5,7 +5,6 @@
          vertical-align: top;
 
      }
-
  </style>
  @endpush
  <div>
@@ -170,9 +169,10 @@
                              <div class="row">
                                  <label class="col-sm-3 col-form-label"></label>
                                  @if ($isAvailable)
+                                 @if ($isEdit)
                                  <div class="col-sm-1">
-                                     <button class="btn btn-primary" wire:click="simpan" wire:loading.attr="disabled">
-                                         <span wire:loading.remove>Simpan</span>
+                                     <button class="btn btn-primary" wire:click="update" wire:loading.attr="disabled">
+                                         <span wire:loading.remove>Update</span>
                                          <span wire:loading.delay wire:target="simpan">
                                              <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -180,100 +180,112 @@
                                              </svg>
                                          </span>
                                      </button>
-
-                                 </div>
-                                 <div class="col-sm-1">
-                                     <a class="btn btn-primary" type="btn" wire:click="kembali">
-                                         Kembali
-                                     </a>
-                                 </div>
-                                 @else
-                                 <div class="col-sm-1">
-                                     <a class="btn btn-primary" type="btn" wire:click="kembali">
-                                         Kembali
-                                     </a>
-                                 </div>
-
-                                 @endif
-                             </div>
-                             @elseif($showdiv == false)
-                             <div>
-                                 <div class="ms-auto">
-                                     <div class="btn-group">
-                                         <a href="#" class="btn btn-primary" wire:click="tambahData">
-                                             Tambah Data
+                                     @else
+                                     <div class="col-sm-1">
+                                         <button class="btn btn-primary" wire:click="simpan" wire:loading.attr="disabled">
+                                             <span wire:loading.remove>Simpan</span>
+                                             <span wire:loading.delay wire:target="simpan">
+                                                 <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-1.647zm10-3.882l3 1.646C19.865 17.825 21 15.043 21 12h-4a7.963 7.963 0 01-2 5.291zM12 20a8 8 0 100-16 8 8 0 000 16z"></path>
+                                                 </svg>
+                                             </span>
+                                         </button>
+                                         @endif
+                                     </div>
+                                     <div class="col-sm-1">
+                                         <a class="btn btn-primary" type="btn" wire:click="kembali">
+                                             Kembali
                                          </a>
                                      </div>
+                                     @else
+                                     <div class="col-sm-1">
+                                         <a class="btn btn-primary" type="btn" wire:click="kembali">
+                                             Kembali
+                                         </a>
+                                     </div>
+
+                                     @endif
                                  </div>
-                             </div>
-                             <br>
-                             <table id="example" class="table table-striped table-bordered">
-                                 <thead>
-                                     <tr>
-                                         <th>No</th>
-                                         <th>Nomor Dokumen</th>
-                                         <th>Pihak Kerjasama</th>
-                                         <th>Tentang</th>
-                                         <th>Jangka Waktu</th>
-                                         <th>Batas Akhir</th>
-                                         <th>Download</th>
-                                         <th>Aksi</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-                                     @foreach ($publish as $row)
-                                     <tr>
-                                         <td>{{ $loop->iteration ?? '' }}</td>
-                                         <td>
+                                 @elseif($showdiv == false)
+                                 <div>
+                                     <div class="ms-auto">
+                                         <div class="btn-group">
+                                             <a href="#" class="btn btn-primary" wire:click="tambahData">
+                                                 Tambah Data
+                                             </a>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <br>
+                                 <table id="example" class="table table-striped table-bordered">
+                                     <thead>
+                                         <tr>
+                                             <th>No</th>
+                                             <th>Nomor Dokumen</th>
+                                             <th>Pihak Kerjasama</th>
+                                             <th>Tentang</th>
+                                             <th>Jangka Waktu</th>
+                                             <th>Batas Akhir</th>
+                                             <th>Download</th>
+                                             <th>Aksi</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         @foreach ($publish as $row)
+                                         <tr>
+                                             <td>{{ $loop->iteration ?? '' }}</td>
+                                             <td>
+                                                 @php
+                                                 $a = explode(',',$row->no_pemkot);
+                                                 $b = array_filter($a);
+                                                 $no = 1;
+                                                 foreach($b as $c){
+                                                 echo $no .". ".$c."<br>";
+                                                 $no++;
+                                                 }
+                                                 @endphp
+                                             </td>
+                                             <td>{{ $row->para_pihak ?? ''}}</td>
+                                             <td>{{ $row->pengajuanNya->judul ?? $row->tentang }}</td>
+                                             <td>{{ \Carbon\Carbon::parse($row->tanggal_mulai)->locale('id')->isoFormat('LL') }} s.d {{ \Carbon\Carbon::parse($row->tanggal_selesai)->locale('id')->isoFormat('LL') }}</td>
                                              @php
-                                             $a = explode(',',$row->no_pemkot);
-                                             $b = array_filter($a);
-                                             $no = 1;
-                                             foreach($b as $c){
-                                             echo $no .". ".$c."<br>";
-                                             $no++;
+                                             $tanggalAwal = \Carbon\Carbon::now();
+                                             $tanggalSelesai = \Carbon\Carbon::createFromFormat('Y-m-d', $row->tanggal_selesai);
+                                             $selisih = $tanggalAwal->diff($tanggalSelesai);
+                                             if ($tanggalAwal > $tanggalSelesai) {
+                                             if ($selisih->days > 365) {
+                                             $selisih = '- '.$selisih->format('%y Tahun');
+                                             } elseif ($selisih->days > 30) {
+                                             $selisih = '- '.$selisih->format('%m Bulan');
+                                             } else {
+                                             $selisih = '- '.$selisih->format('%a Hari');
+                                             }
+                                             } else {
+                                             if ($selisih->days > 365) {
+                                             $selisih = $selisih->format('%y Tahun');
+                                             } elseif ($selisih->days > 30) {
+                                             $selisih = $selisih->format('%m Bulan');
+                                             } else {
+                                             $selisih = $selisih->format('%a Hari');
+                                             }
                                              }
                                              @endphp
-                                         </td>
-                                         <td>{{ $row->para_pihak ?? ''}}</td>
-                                         <td>{{ $row->pengajuanNya->judul ?? $row->tentang }}</td>
-                                         <td>{{ \Carbon\Carbon::parse($row->tanggal_mulai)->locale('id')->isoFormat('LL') }} s.d {{ \Carbon\Carbon::parse($row->tanggal_selesai)->locale('id')->isoFormat('LL') }}</td>
-                                         @php
-                                         $tanggalAwal = \Carbon\Carbon::now();
-                                         $tanggalSelesai = \Carbon\Carbon::createFromFormat('Y-m-d', $row->tanggal_selesai);
-                                         $selisih = $tanggalAwal->diff($tanggalSelesai);
-                                         if ($tanggalAwal > $tanggalSelesai) {
-                                         if ($selisih->days > 365) {
-                                         $selisih = '- '.$selisih->format('%y Tahun');
-                                         } elseif ($selisih->days > 30) {
-                                         $selisih = '- '.$selisih->format('%m Bulan');
-                                         } else {
-                                         $selisih = '- '.$selisih->format('%a Hari');
-                                         }
-                                         } else {
-                                         if ($selisih->days > 365) {
-                                         $selisih = $selisih->format('%y Tahun');
-                                         } elseif ($selisih->days > 30) {
-                                         $selisih = $selisih->format('%m Bulan');
-                                         } else {
-                                         $selisih = $selisih->format('%a Hari');
-                                         }
-                                         }
-                                         @endphp
-                                         <td>{{ $selisih }}</td>
-                                         <td><a class="btn btn-sm btn-info" href="{{ $row->path_surat_perjanjian_kerja }}" target="_blank">View</a></td>
-                                         <td>
-                                             <a href="#" wire:click="edit_data({{ $row->id }})" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a>
-                                             <a href="#" wire:click="$emit('showModal', {{ $row->id}})" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-trash-fill"></i></a></td>
-                                     </tr>
-                                     @endforeach
-                                 </tbody>
-                             </table>
-                             @endif
+                                             <td>{{ $selisih }}</td>
+                                             <td><a class="btn btn-sm btn-info" href="{{ $row->path_surat_perjanjian_kerja }}" target="_blank">View</a></td>
+                                             <td>
+                                                 <a href="#" wire:click="edit_data({{ $row->id }})" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                                 <a href="#" wire:click="$emit('showModal', {{ $row->id}})" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-trash-fill"></i></a>
+                                             </td>
+                                         </tr>
+                                         @endforeach
+                                     </tbody>
+                                 </table>
+                                 @endif
+                             </div>
                          </div>
                      </div>
                  </div>
-             </div>
      </main>
      <livewire:global.konfirmasi-hapus />
  </div>

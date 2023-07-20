@@ -18,7 +18,7 @@
 
  </head>
 
- <body class="img js-fullheight" style="background-image:url({{ asset('bg1.jpg') }});object-fit:cover">
+ <body class="img js-fullheight" style="background-image:url({{ asset('2655967.jpg') }});object-fit:cover">
      <section class="ftco-section">
          <div class="container">
              <div class="row justify-content-center">
