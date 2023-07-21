@@ -31,6 +31,7 @@
     <link href="{{ asset('snacked/ltr/assets/css/light-theme.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/header-colors.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('tri.css') }}">
 
     <!-- Or for RTL support -->
 

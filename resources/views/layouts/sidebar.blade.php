@@ -90,7 +90,13 @@
                 <div class="menu-title">Manual Publish</div>
             </a>
         </li>
-
+        <li>
+            <a href="{{ route('master.post') }}">
+                <div class="parent-icon"><i class="lni lni-indent-increase"></i>
+                </div>
+                <div class="menu-title">Post</div>
+            </a>
+        </li>
         <li>
             <a class="has-arrow">
                 <div class="parent-icon"><i class="lni lni-archive"></i>
@@ -98,6 +104,9 @@
                 <div class="menu-title">Master</div>
             </a>
             <ul>
+                <li>
+                    <a href="{{ route('master.kategori') }}"><i class="bi bi-circle"></i>Kategori</a>
+                </li>
                 <li>
                     <a href="{{ route('master.instansi') }}"><i class="bi bi-circle"></i>Instansi</a>
                 </li>

@@ -15,7 +15,7 @@ class ProfileOpdSeeder extends Seeder
     {
         ProfileOpd::create([
             'judul' => 'Website Fasilitasi dan Pengelolaan Pengetahuan Kerja Sama Daerah Wonosobo',
-            'isi' => 'Media digital tunggal untuk mengelola fasilitasi dan pengelolaan pengetahuan kerja sama daerah di Pemerintah daerah wonosobo.',
+            'isi' => 'Media digital tunggal untuk mengelola fasilitasi dan pengelolaan pengetahuan kerja sama daerah di Pemerintah Daerah Wonosobo.',
             'gambar' => 'asiksobo/img/kerjasama.png',
         ]);
     }

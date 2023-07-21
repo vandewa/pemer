@@ -73,7 +73,7 @@
                                  <p class="mb-0">or sign up with:</p>
                              </div>
                              <div class="social_login col-12 text-center">
-                                 <a href="#" class="social_box google">
+                                 <a href="/auth/google" class="social_box google">
                                      <span style="margin-left: 10px; font-weight: bold; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt"><i class="fa fa-google"></i>
                                          Connect with Google
                                      </span>
@@ -103,6 +103,7 @@
          $(function() {
              $(".alert").delay(3000).slideUp(300);
          });
+
      </script>
      <script type="text/javascript">
          (function($) {
@@ -124,6 +125,7 @@
                  }
              });
          })(jQuery);
+
      </script>
  </body>
 

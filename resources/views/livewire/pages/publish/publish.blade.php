@@ -5,6 +5,7 @@
          vertical-align: top;
 
      }
+
  </style>
  @endpush
  <div>
@@ -218,7 +219,7 @@
                                      </div>
                                  </div>
                                  <br>
-                                 <table id="example" class="table table-striped table-bordered">
+                                 <table id="example" class="table table-striped table-bordered rwd-table">
                                      <thead>
                                          <tr>
                                              <th>No</th>

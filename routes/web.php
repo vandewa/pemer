@@ -1,24 +1,27 @@
 <?php
 
+use App\Http\Livewire\Pages\Home;
+use App\Http\Livewire\Front\Index;
+use App\Http\Livewire\Master\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Front\Kerjasama;
 use App\Http\Livewire\Master\Instansi;
-use App\Http\Livewire\Pages\Permohonan\Pengajuan;
+use App\Http\Livewire\Master\Kategori;
+use App\Http\Livewire\Pages\PublishList;
 use App\Http\Livewire\Master\DokumenJenis;
 use App\Http\Livewire\Pages\User\UserPage;
 use App\Http\Livewire\Master\PerjanjianTipe;
+use App\Http\Livewire\Pages\Publish\Publish;
 use App\Http\Livewire\Pages\User\DaftarUser;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SocialiteController;
+use App\Http\Livewire\Pages\User\PermissionRole;
+use App\Http\Livewire\Pages\Permohonan\Pengajuan;
 use App\Http\Controllers\ShowPictureHelperController;
-use App\Http\Livewire\Front\Index;
-use App\Http\Livewire\Front\Kerjasama;
-use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Pages\Permohonan\PengajuanDaftar;
 use App\Http\Livewire\Pages\Permohonan\PengajuanProses;
-use App\Http\Livewire\Pages\Publish\Publish;
-use App\Http\Livewire\Pages\PublishList;
-use App\Http\Livewire\Pages\User\PermissionRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,9 +62,15 @@ Route::middleware([
         Route::post('/ganti-password', [DashboardController::class, 'gantiPassword'])->name('ganti.password');
         Route::get('user-index', DaftarUser::class)->name('user.index');
         Route::get('manual/publish', Publish::class)->name('manual.publish');
+        Route::get('master/kategori', Kategori::class)->name('master.kategori');
+        Route::get('master/post', Post::class)->name('master.post');
     });
     Route::get('user', UserPage::class)->name('profile');
 });
 Route::get('home', Home::class)->name('home');
 Route::get('publish', PublishList::class)->name('publish');
 Route::get('cekWA', [Controller::class, 'cekWA'])->name('cekWA');
+
+// login dengan google
+Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
+Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProvideCallback']);
