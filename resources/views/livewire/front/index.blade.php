@@ -66,7 +66,7 @@
           <div class="row">
               <div class="col-lg-8 offset-lg-2">
                   <div class="section-heading">
-                      <h4>Mitra <em>Kerja Sama</em>Daerah</h4>
+                      <h4>Mitra <em>Kerja Sama</em> Daerah</h4>
                       <img src="{{ asset('chain/assets/images/heading-line-dec.png') }}" alt="">
                       <p>Dipercaya lebih dari 1.000 rekanan di Seluruh Indonesia</p>
                   </div>

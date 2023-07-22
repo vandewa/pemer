@@ -18,7 +18,7 @@ class KategoriSeeder extends Seeder
                 'name' => 'Tutorial Kerja Sama Daerah'
             ],
             [
-                'name' => 'Contoh Surat'
+                'name' => 'Contoh Surat Penawaran / Pengajuan, KAK / Studi Kelayakan'
             ],
             [
                 'name' => 'Peraturan Kerja Sama Daerah'

@@ -214,12 +214,12 @@ body {
 }
 
 ::selection {
-    background: #4b8ef1;
+    background: #f14b59;
     color: #fff !important;
 }
 
 ::-moz-selection {
-    background: #4b8ef1;
+    background: #f14b59;
     color: #fff !important;
 }
 
@@ -255,7 +255,7 @@ body {
 
 .section-heading h4 em {
     font-style: normal;
-    color: #4b8ef1;
+    color: #f14b59;
 }
 
 .section-heading img {
@@ -275,7 +275,7 @@ body {
 .white-button a {
     display: inline-block !important;
     padding: 10px 20px !important;
-    color: #4b8ef1 !important;
+    color: #f14b59 !important;
     text-transform: capitalize;
     font-size: 15px;
     background-color: #fff;
@@ -291,7 +291,7 @@ body {
 }
 
 .white-button a:hover {
-    background-color: #4b8ef1;
+    background-color: #f14b59;
     color: #fff !important;
 }
 
@@ -315,11 +315,11 @@ body {
     color: #fff !important;
     text-transform: capitalize;
     font-size: 15px;
-    background: rgb(19, 175, 240);
+    background: rgb(240, 19, 19);
     background: linear-gradient(
         105deg,
-        rgba(91, 104, 235, 1) 0%,
-        rgba(40, 225, 253, 1) 100%
+        rgb(163, 8, 15) 0%,
+        rgb(245, 88, 93) 100%
     );
     border-radius: 23px;
     font-weight: 500 !important;
@@ -340,8 +340,8 @@ body {
 .border-button a {
     display: inline-block !important;
     padding: 10px 20px !important;
-    color: #4b8ef1 !important;
-    border: 1px solid #4b8ef1;
+    color: #f14b59 !important;
+    border: 1px solid #f14b59;
     text-transform: capitalize;
     font-size: 15px;
     display: inline-block;
@@ -353,7 +353,7 @@ body {
 }
 
 .border-button a:hover {
-    background-color: #4b8ef1;
+    background-color: #f14b59;
     color: #fff !important;
 }
 
@@ -380,7 +380,7 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-    color: #4b8ef1;
+    color: #f14b59;
 }
 
 .background-header .nav li a.active {
@@ -392,7 +392,7 @@ header
     position: absolute;
     width: 100%;
     height: 1px;
-    background-color: #4b8ef1;
+    background-color: #f14b59;
     content: "";
     left: 50%;
     bottom: -20px;
@@ -503,7 +503,7 @@ header
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-    color: #4b8ef1 !important;
+    color: #f14b59 !important;
 }
 
 .header-area .main-nav .nav li:last-child a.active {
@@ -512,7 +512,7 @@ header
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-    color: #4b8ef1 !important;
+    color: #f14b59 !important;
     opacity: 1;
 }
 
@@ -575,7 +575,7 @@ header
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
     background: #fff;
-    color: #4b8ef1 !important;
+    color: #f14b59 !important;
     padding-left: 25px;
 }
 
@@ -715,7 +715,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-    color: #4b8ef1;
+    color: #f14b59;
 }
 
 @media (max-width: 1200px) {
@@ -731,7 +731,7 @@ header
 @media (max-width: 992px) {
     .header-area .main-nav .nav li:last-child,
     .background-header .main-nav .nav li:last-child {
-        color: #069;
+        color: #f14b59;
     }
     .header-area .main-nav .nav li:nth-child(6),
     .background-header .main-nav .nav li:nth-child(6) {
@@ -755,7 +755,7 @@ header
     }
     .header-area.header-sticky .nav li a:hover,
     .header-area.header-sticky .nav li a.active {
-        color: #4b8ef1 !important;
+        color: #f14b59 !important;
         opacity: 1;
     }
     .header-area.header-sticky .nav li.search-icon a {
@@ -817,7 +817,7 @@ header
     }
     .header-area .main-nav .nav li a:hover {
         background: #eee !important;
-        color: #4b8ef1 !important;
+        color: #f14b59 !important;
     }
     .header-area .main-nav .nav li.submenu ul {
         position: relative;
@@ -932,7 +932,7 @@ preloader
     height: 16px;
     top: 12px;
     left: 15px;
-    background: #4b8ef1;
+    background: #dd4b39;
     border-radius: 50%;
     -webkit-transform: translateX(0);
     transform: translateX(0);
@@ -955,7 +955,7 @@ preloader
     width: 16px;
     height: 16px;
     margin-left: 16px;
-    background: #4b8ef1;
+    background: #dd4b39;
     border-radius: 50%;
 }
 
@@ -1025,7 +1025,7 @@ Banner Style
 }
 
 .main-banner .left-content .white-button a {
-    background-color: #4b8ef1;
+    background-color: #dd4b39;
     color: #fff !important;
 }
 
@@ -1123,6 +1123,45 @@ Services Style
     color: #fff;
 }
 
+.submission-service .icon{
+    background-image: url(../images/icons8-to-do-list-48.png);
+}
+
+.submission-service:hover .icon{
+    background-image: url(../images/icons8-to-do-list-48-hover.png);
+}
+
+.knowledge-service .icon{
+    background-image: url(../images/icons8-knowledge-48.png);
+}
+
+.knowledge-service:hover .icon{
+    background-image: url(../images/icons8-knowledge-48-hover.png);
+}
+
+.chart-service .icon{
+    background-image: url(../images/icons8-chart-48.png);
+}
+
+.chart-service:hover .icon{
+    background-image: url(../images/icons8-chart-48-hover.png);
+}
+
+.book-service .icon{
+    background-image: url(../images/icons8-books-48.png);
+}
+
+.book-service:hover .icon{
+    background-image: url(../images/icons8-books-48-hover.png);
+}
+
+.ebook-service .icon{
+    background-image: url(../images/icons8-ebook-48.png);
+}
+
+.ebook-service:hover .icon{
+    background-image: url(../images/icons8-ebook-48-hover.png);
+}
 .first-service .icon {
     background-image: url(../images/service-icon-01.png);
 }
@@ -1207,7 +1246,7 @@ About Us
 }
 
 .about-us .box-item:hover h4 a {
-    color: #4b8ef1;
+    color: #dd4b39;
 }
 
 .about-us .gradient-button {
@@ -1301,7 +1340,7 @@ The Clients
 .the-clients .naccs .menu div.active i,
 .the-clients .naccs .menu div.active span.rating,
 .the-clients .naccs .menu div.active .thumb {
-    color: #4b8ef1;
+    color: #dd4b39;
 }
 
 .the-clients ul.nacc {
@@ -1459,7 +1498,7 @@ The Clients
 }
 
 .pricing-item-regular ul li {
-    color: #4b8ef1;
+    color: #dd4b39;
     font-size: 15px;
     margin-bottom: 15px;
 }
@@ -1536,7 +1575,7 @@ The Clients
 }
 
 .pricing-item-pro ul li {
-    color: #4b8ef1;
+    color: #dd4b39;
     font-size: 15px;
     margin-bottom: 15px;
 }
@@ -1688,7 +1727,7 @@ footer #search button {
 
 footer #search button:hover {
     background-color: #fff;
-    color: #4b8ef1;
+    color: #dd4b39;
 }
 
 .footer-widget .logo img {
@@ -1782,13 +1821,13 @@ PopUp
 
 .btn {
     padding: 10px 20px;
-    background: #4b8ef1;
+    background: #dd4b39;
     color: #fff;
     transition: all 0.3s;
 }
 
 .btn_red {
-    background: #4b8ef1;
+    background: #dd4b39;
     color: #fff;
 }
 
@@ -1841,7 +1880,7 @@ a.btn_red {
     right: 0;
     top: 0;
     padding: 10px 15px;
-    background: #4b8ef1;
+    background: #dd4b39;
     cursor: pointer;
     color: #fff;
     font-size: 16px;
@@ -1887,7 +1926,16 @@ a.btn_red {
     font-size: 16px;
     color: #777;
 }
+   a {
+        color: #dd4b39; /* Default link color */
+        text-decoration: none; /* Remove underline */
+        position: relative; /* Make sure the 'after' pseudo-element is positioned correctly */
+    }
 
+    /* Style the link text when hovered */
+    a:hover {
+        color: white;
+    }
 .social_login .social_box:hover {
     background: #e4e4e2;
 }
@@ -1957,7 +2005,7 @@ a.btn_red {
     clear: both;
     overflow: hidden;
     text-decoration: none;
-    color: #4b8ef1;
+    color: #dd4b39;
     transition: all 0.3s;
 }
 /* User Register Form */
@@ -2048,7 +2096,7 @@ responsive
         margin-right: 0;
     }
     .main-banner .left-content .white-button a {
-        background-color: #4b8ef1;
+        background-color: #dd4b39;
         color: #fff !important;
     }
     form#contact {
@@ -2174,7 +2222,7 @@ responsive
     }
     footer #search button {
         background-color: #fff;
-        color: #4b8ef1;
+        color: #dd4b39;
     }
     footer #search input::placeholder {
         color: #2a2a2a;

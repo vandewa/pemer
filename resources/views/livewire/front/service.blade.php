@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
-            <div class="service-item first-service">
+            <div class="service-item submission-service">
                 <div class="icon"></div>
                 <h4>Pengajuan Kerja Sama Daerah</h4>
                 <div class="text-button">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="service-item second-service">
+            <div class="service-item knowledge-service">
                 <div class="icon"></div>
                 <h4>Pengetahuan Kerja Sama Daerah</h4>
                 <div class="text-button">
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="service-item third-service">
+            <div class="service-item chart-service">
                 <div class="icon"></div>
                 <h4>Statistika Kerja Sama Daerah</h4>
                 <div class="text-button">
@@ -47,5 +47,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>

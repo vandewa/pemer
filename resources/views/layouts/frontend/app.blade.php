@@ -30,6 +30,7 @@ https://templatemo.com/tm-570-chain-app-dev
     <link rel="stylesheet" href="{{ asset('chain/assets/css/animated.css') }}">
     <link rel="stylesheet" href="{{ asset('chain/assets/css/owl.css') }}">
     <livewire:styles />
+
 </head>
 
 <body>
@@ -46,8 +47,6 @@ https://templatemo.com/tm-570-chain-app-dev
         </div>
     </div>
     <!-- ***** Preloader End ***** -->
-
-
 
     {{ $slot ?? '' }}
 
@@ -103,7 +102,7 @@ https://templatemo.com/tm-570-chain-app-dev
         </div>
     </footer>
     @stack('script')
-    <livewire:scripts />
+    @livewireScripts
     <!-- Histats.com  (div with counter) -->
 
     <!-- Histats.com  START  (aync)-->
@@ -120,7 +119,6 @@ https://templatemo.com/tm-570-chain-app-dev
             hs.src = ('//s10.histats.com/js15_as.js');
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
         })();
-
     </script>
     <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4784140&101" alt="" border="0"></a></noscript>
     <!-- Histats.com  END  -->
