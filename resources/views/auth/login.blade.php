@@ -69,7 +69,7 @@
 								box-shadow: none;
 								color: #fff;"><b>Register</b></a>
                              </div>
-                             <div class="col-12 text-center">
+                             <!-- <div class="col-12 text-center">
                                  <p class="mb-0">or sign up with:</p>
                              </div>
                              <div class="social_login col-12 text-center">
@@ -78,7 +78,7 @@
                                          Connect with Google
                                      </span>
                                  </a>
-                             </div>
+                             </div> -->
                          </form>
                      </div>
                  </div>
@@ -103,7 +103,6 @@
          $(function() {
              $(".alert").delay(3000).slideUp(300);
          });
-
      </script>
      <script type="text/javascript">
          (function($) {
@@ -125,7 +124,6 @@
                  }
              });
          })(jQuery);
-
      </script>
  </body>
 
