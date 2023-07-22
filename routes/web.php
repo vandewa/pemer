@@ -51,7 +51,6 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::group(['middleware' => 'profile.completed'], function () {
-        Route::get('show-picture}', [ShowPictureHelperController::class, 'showPicture'])->name('helper.show-picture');
         Route::get('pengajuan', Pengajuan::class)->name('pengajuan');
         Route::get('pengajuan/user', PengajuanDaftar::class)->name('pengajuan.daftar');
         Route::get('pengajuan/proses', PengajuanProses::class)->name(('pengajuan.proses'));
@@ -67,6 +66,7 @@ Route::middleware([
     });
     Route::get('user', UserPage::class)->name('profile');
 });
+Route::get('show-picture}', [ShowPictureHelperController::class, 'showPicture'])->name('helper.show-picture');
 Route::get('home', Home::class)->name('home');
 Route::get('publish', PublishList::class)->name('publish');
 Route::get('cekWA', [Controller::class, 'cekWA'])->name('cekWA');
