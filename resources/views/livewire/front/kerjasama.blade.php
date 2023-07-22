@@ -44,7 +44,7 @@
                 </div>
             </div> -->
                 <div class="col-lg-4">
-                    <div class="service-item fourth-service">
+                    <div class="service-item regulation-service">
                         <div class="icon"></div>
                         <h4>Peraturan Kerja Sama Daerah</h4>
                         <div class="text-button">

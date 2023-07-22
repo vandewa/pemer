@@ -1162,6 +1162,14 @@ Services Style
 .ebook-service:hover .icon{
     background-image: url(../images/icons8-ebook-48-hover.png);
 }
+
+.regulation-service .icon{
+    background-image: url(../images/icons8-ethic-48.png);
+}
+
+.regulation-service:hover .icon{
+    background-image: url(../images/icons8-ethic-48-hover.png);
+}
 .first-service .icon {
     background-image: url(../images/service-icon-01.png);
 }

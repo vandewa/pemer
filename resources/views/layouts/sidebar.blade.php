@@ -85,16 +85,16 @@
         @can('master data')
         <li>
             <a href="{{ route('manual.publish') }}">
-                <div class="parent-icon"><i class="lni lni-indent-increase"></i>
+                <div class="parent-icon"><i class="lni lni-archive"></i>
                 </div>
                 <div class="menu-title">Manual Publish</div>
             </a>
         </li>
         <li>
             <a href="{{ route('master.post') }}">
-                <div class="parent-icon"><i class="lni lni-indent-increase"></i>
+                <div class="parent-icon"><i class="lni lni-library"></i>
                 </div>
-                <div class="menu-title">Post</div>
+                <div class="menu-title">Informasi</div>
             </a>
         </li>
         <li>
