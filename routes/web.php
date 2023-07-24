@@ -37,6 +37,10 @@ use App\Http\Livewire\Pages\Permohonan\PengajuanProses;
 Route::get('/', Index::class)->name('front.index');
 Route::get('kerjasama', Kerjasama::class)->name('front.kerjasama');
 
+Route::get('/countdown', function () {
+    return view('buka');
+})->name('login');
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
