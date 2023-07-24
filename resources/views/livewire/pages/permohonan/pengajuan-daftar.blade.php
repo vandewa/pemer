@@ -13,15 +13,16 @@
                 </nav>
             </div>
         </div>
-        @if (Auth::check())
+        @if (!auth()->user()->hasRole("admin"))
         <div class="mt-4 mb-3">
             <a href="{{ route('pengajuan') }}"><button class="px-5 btn btn-primary radius-30"><i class="mr-1 bx bx-plus-circle"></i>Tambah Pengajuan</button></a>
         </div>
+        @else
         @endif
         <!--end breadcrumb-->
         <div class="card">
             <div class="card-body">
-                <livewire:pages.permohonan.pengajuan-list />
+                <livewire:pages.permohonan.table-pengajuan />
             </div>
         </div>
         <livewire:pages.permohonan.modal.show-pengajuan>
@@ -40,5 +41,6 @@
     window.addEventListener('show-view-modal-path-surat-studi-kelayakan', event => {
         $('#viewModalSuratStudiKelayakan').modal('show');
     });
+
 </script>
 @endpush
