@@ -31,6 +31,7 @@ https://templatemo.com/tm-570-chain-app-dev
     <link rel="stylesheet" href="{{ asset('chain/assets/css/owl.css') }}">
     <livewire:styles />
 
+    @stack('css')
 </head>
 
 <body>

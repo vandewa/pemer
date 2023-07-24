@@ -1,150 +1,107 @@
-  <!-- ***** Header Area Start ***** -->
-  @include('layouts.frontend.header')
-  <!-- ***** Header Area End ***** -->
-  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-      <livewire:front.main>
-  </div>
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+<style>
+    body {
+        background: aliceblue;
+    }
 
-  <div id="services" class="services section">
-      <livewire:front.service>
-  </div>
+    .section-padding {
+        padding: 60px 0;
+    }
 
-  <!-- <div id="about" class="about-us section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 align-self-center">
-                <div class="section-heading">
-                    <h4>About <em>What We Do</em> &amp; Who We Are</h4>
-                    <img src="{{ asset('chain/assets/images/heading-line-dec.png') }}" alt="">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="box-item">
-                            <h4><a href="#">Maintance Problems</a></h4>
-                            <p>Lorem Ipsum Text</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="box-item">
-                            <h4><a href="#">24/7 Support &amp; Help</a></h4>
-                            <p>Lorem Ipsum Text</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="box-item">
-                            <h4><a href="#">Fixing Issues About</a></h4>
-                            <p>Lorem Ipsum Text</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="box-item">
-                            <h4><a href="#">Co. Development</a></h4>
-                            <p>Lorem Ipsum Text</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor idunte ut labore et dolore adipiscing magna.</p>
-                        <div class="gradient-button">
-                            <a href="#">Start 14-Day Free Trial</a>
-                        </div>
-                        <span>*No Credit Card Required</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="right-image">
-                    <img src="{{ asset('chain/assets/images/about-right-dec.png') }}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+    .brand-carousel {
+        background: aliceblue;
+    }
 
-  <div id="clients" class="the-clients">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-8 offset-lg-2">
-                  <div class="section-heading">
-                      <h4>Mitra <em>Kerja Sama</em> Daerah</h4>
-                      <img src="{{ asset('chain/assets/images/heading-line-dec.png') }}" alt="">
-                      <p>Dipercaya lebih dari 1.000 rekanan di Seluruh Indonesia</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    .owl-dots {
+        text-align: center;
+        margin-top: 4%;
+    }
 
-  <!-- <div id="pricing" class="pricing-tables">
+    .owl-dot {
+        display: inline-block;
+        height: 15px !important;
+        width: 15px !important;
+        background-color: #878787 !important;
+        opacity: 0.8;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+    .owl-dot.active {
+        background-color: #000 !important;
+    }
+
+</style>
+@endpush
+<!-- ***** Header Area Start ***** -->
+@include('layouts.frontend.header')
+<!-- ***** Header Area End ***** -->
+<div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <livewire:front.main>
+</div>
+
+<div id="services" class="services section">
+    <livewire:front.service>
+</div>
+
+
+<div id="clients" class="the-clients">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="section-heading">
-                    <h4>We Have The Best Pre-Order <em>Prices</em> You Can Get</h4>
+                    <h4>Mitra <em>Kerja Sama</em> Daerah</h4>
                     <img src="{{ asset('chain/assets/images/heading-line-dec.png') }}" alt="">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
+                    <br>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="pricing-item-regular">
-                    <span class="price">$12</span>
-                    <h4>Standard Plan App</h4>
-                    <div class="icon">
-                        <img src="{{ asset('chain/assets/images/pricing-table-01.png') }}" alt="">
+            <div class="col-lg-12">
+                <div class="brand-carousel section-padding owl-carousel">
+                    <div class="single-logo">
+                        <img src="https://i.postimg.cc/QxPJ8hXy/brand-1.png" alt="">
                     </div>
-                    <ul>
-                        <li>Lorem Ipsum Dolores</li>
-                        <li>20 TB of Storage</li>
-                        <li class="non-function">Life-time Support</li>
-                        <li class="non-function">Premium Add-Ons</li>
-                        <li class="non-function">Fastest Network</li>
-                        <li class="non-function">More Options</li>
-                    </ul>
-                    <div class="border-button">
-                        <a href="#">Purchase This Plan Now</a>
+                    <div class="single-logo">
+                        <img src="https://i.postimg.cc/pdMQjC5Q/brand-2.png" alt="">
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="pricing-item-pro">
-                    <span class="price">$25</span>
-                    <h4>Business Plan App</h4>
-                    <div class="icon">
-                        <img src="{{ asset('chain/assets/images/pricing-table-01.png') }}" alt="">
+                    <div class="single-logo">
+                        <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
                     </div>
-                    <ul>
-                        <li>Lorem Ipsum Dolores</li>
-                        <li>50 TB of Storage</li>
-                        <li>Life-time Support</li>
-                        <li>Premium Add-Ons</li>
-                        <li class="non-function">Fastest Network</li>
-                        <li class="non-function">More Options</li>
-                    </ul>
-                    <div class="border-button">
-                        <a href="#">Purchase This Plan Now</a>
+                    <div class="single-logo">
+                        <img src="https://i.postimg.cc/d14GzKHn/brand-4.png" alt="">
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="pricing-item-regular">
-                    <span class="price">$66</span>
-                    <h4>Premium Plan App</h4>
-                    <div class="icon">
-                        <img src="{{ asset('chain/assets/images/pricing-table-01.png') }}" alt="">
+                    <div class="single-logo">
+                        <img src="https://i.postimg.cc/x8ZM13Sz/brand-5.png" alt="">
                     </div>
-                    <ul>
-                        <li>Lorem Ipsum Dolores</li>
-                        <li>120 TB of Storage</li>
-                        <li>Life-time Support</li>
-                        <li>Premium Add-Ons</li>
-                        <li>Fastest Network</li>
-                        <li>More Options</li>
-                    </ul>
-                    <div class="border-button">
-                        <a href="#">Purchase This Plan Now</a>
+                    <div class="single-logo">
+                        <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
+@push('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $('.brand-carousel').owlCarousel({
+        loop: true
+        , margin: 10
+        , autoplay: true
+        , responsive: {
+            0: {
+                items: 1
+            }
+            , 600: {
+                items: 3
+            }
+            , 1000: {
+                items: 5
+            }
+        }
+    })
+
+</script>
+@endpush
