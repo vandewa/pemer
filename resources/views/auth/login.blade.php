@@ -26,7 +26,7 @@
                      <img src="{{ asset('chain/assets/images/logo3.png') }}" style=" width: 70%;
   height: auto;"></br>
                      <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
-                         Aplikasi Sistem Informasi Kerjasama )</span>
+                         Aplikasi Sistem Informasi Kerja Sama )</span>
                  </div>
              </div>
              <div class="mt-4 row justify-content-center">
