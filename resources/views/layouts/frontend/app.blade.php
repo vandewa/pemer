@@ -73,7 +73,7 @@ https://templatemo.com/tm-570-chain-app-dev
                         <h4>Link Terkait</h4>
                         <p><a target="_blank" href="https://website.wonosobokab.go.id/">◉ Website Pemkab Wonosobo</a></p>
                         <p><a target="_blank" href="https://smartcity.wonosobokab.go.id/">◉ Dashboard Smartcity</a></p>
-                        <p><a target="_blank" href="https://aprizob.wonosobokab.go.id/">◉ Website Aplikasi Peizinan Wonosobo</a></p>
+                        <p><a target="_blank" href="https://aprizob.wonosobokab.go.id/">◉ Website Aplikasi MPP /Aprizob</a></p>
                         <p><a target="_blank" href="https://diskominnfo.wonosobokab.go.id/">◉ Website Diskominfo Wonosobo</a></p>
 
                     </div>
@@ -94,7 +94,7 @@ https://templatemo.com/tm-570-chain-app-dev
                 <div class="col-lg-12">
                     <div class="copyright-text">
                         <p>Copyright © 2022 Chain App Dev Company. © 2023 Diskominfo Wonosobo.
-                            <br>By: <a href="https://github.com/triemaryanto" target="_blank" title="css templates">Tri Maryanto</a>
+                            <br>By: <a href="https://github.com/triemaryanto" target="_blank" title="css templates">Tri Maryanto</a> &amp;
                         </p>
                     </div>
                 </div>
@@ -119,6 +119,7 @@ https://templatemo.com/tm-570-chain-app-dev
             hs.src = ('//s10.histats.com/js15_as.js');
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
         })();
+
     </script>
     <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4784140&101" alt="" border="0"></a></noscript>
     <!-- Histats.com  END  -->
