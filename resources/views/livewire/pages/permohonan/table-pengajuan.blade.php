@@ -14,7 +14,7 @@
 
         <tr>
             <th>No</th>
-            <th>Status</th>
+            <th style='width: 10%;'>Status</th>
             <th>Jenis</th>
             <th>Judul</th>
             <th>Action</th>
