@@ -35,8 +35,6 @@ class Pengajuan extends Component
 
     public function simpan()
     {
-
-
         if ($this->listNoSurat == []) {
             $this->validate([
                 'urutan.no_surat' => 'required'
@@ -89,10 +87,6 @@ class Pengajuan extends Component
         $hari = Carbon::parse($data->created_at)->locale('id')->isoFormat('dddd');
         $hari_indonesia = Lang::get($hari);
         $tanggal = Carbon::parse($data->created_at)->locale('id_ID')->translatedFormat('d F Y');
-        $message = "* $judul*" . urldecode('%0D%0A%0D%0A') .
-            "Pengajuan Anda telah terkirim dan menunggu pihak Pemerintahan Sekretariat Daerah Wonosobo mengkonfirmasi." . urldecode('%0D%0A%0D%0A%0D%0A') .
-            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo  *" . urldecode('%0D%0A') .
-            "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
 
         $message2 =
             "Terdapat pengajuan sebagai berikut :" . urldecode('%0D%0A%0D%0A%0D%0A') .
@@ -106,22 +100,15 @@ class Pengajuan extends Component
             "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo*" . urldecode('%0D%0A%0D%0A%0D%0A') .
             "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
 
-        //kirim pesan dan wa ke Pemohon
         $admin = User::find(1);
+        dd($admin->no_hp);
         Http::withHeaders([
             'Authorization' => config('app.token_wa'),
         ])->withoutVerifying()->post(config('app.wa_url') . "/send-message", [
             'phone' => $admin->no_hp, //6289650352118 admin asik
-            'message' =>  $message,
-        ]);
-
-        //kirim pesan wa ke admin
-        Http::withHeaders([
-            'Authorization' => config('app.token_wa'),
-        ])->withoutVerifying()->post(config('app.wa_url') . "/send-message", [
-            'phone' => $data->pemohon->no_hp,
             'message' =>  $message2,
         ]);
+
         $this->clearfield();
         $this->dispatchBrowserEvent('Success');
         return redirect()->route('pengajuan');
