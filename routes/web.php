@@ -39,7 +39,7 @@ Route::get('kerjasama', Kerjasama::class)->name('front.kerjasama');
 
 Route::get('/countdown', function () {
     return view('buka');
-})->name('login');
+})->name('countdown');
 
 Route::get('/login', function () {
     return view('auth.login');
