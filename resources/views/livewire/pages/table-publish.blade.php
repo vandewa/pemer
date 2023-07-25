@@ -5,7 +5,6 @@
         vertical-align: top;
 
     }
-
 </style>
 @endpush
 
@@ -26,7 +25,15 @@
         @foreach ($publish as $row)
         <tr>
             <td>{{ $loop->iteration ?? '' }}</td>
-            <td>{{ $row->no_pemkot ?? '' }}</td>
+            <td>@php
+                $a = explode(',',$row->no_pemkot);
+                $b = array_filter($a);
+                $no = 1;
+                foreach($b as $c){
+                echo $no .". ".$c."<br>";
+                $no++;
+                }
+                @endphp</td>
             <td>{{ $row->para_pihak ?? ''}}</td>
             <td>{{ $row->pengajuanNya->judul ?? $row->tentang }}</td>
             <td>{{ \Carbon\Carbon::parse($row->tanggal_mulai)->locale('id')->isoFormat('LL') }} s.d {{ \Carbon\Carbon::parse($row->tanggal_selesai)->locale('id')->isoFormat('LL') }}</td>
