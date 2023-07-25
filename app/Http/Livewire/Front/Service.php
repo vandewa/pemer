@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire\Front;
 
+use App\Models\User;
 use Livewire\Component;
 
 class Service extends Component
 {
-    public function sign_in()
+    public $data, $no;
+    public function mount()
     {
-        dd('aa');
+        $this->data = User::find('1');
+        $this->no = $this->data['no_hp'];
     }
     public function render()
     {

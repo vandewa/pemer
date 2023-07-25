@@ -34,7 +34,7 @@
                 <div class="icon"></div>
                 <h4>Statistika Kerja Sama Daerah</h4>
                 <div class="text-button">
-                    <a href="#">Klik To Go..<i class="fa fa-arrow-right"></i></a>
+                    <a href="{{ route('front.statistika') }}">Klik To Go..<i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
                 <div class="icon"></div>
                 <h4>Tanya Disini Kerja Sama Daerah</h4>
                 <div class="text-button">
-                    <a href="#">Klik To Go..<i class="fa fa-arrow-right"></i></a>
+                    <a href="https://wa.me/{{ $no }}" target="_blank">Klik To Go..<i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

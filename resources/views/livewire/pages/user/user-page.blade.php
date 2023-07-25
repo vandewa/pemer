@@ -4,6 +4,12 @@
             <div class="col-12 col-lg-12 col-xl-12 d-flex">
                 <div class="card w-100 rounded-4">
                     <div class="card-body">
+                        @if (session()->has('belum_lengkap'))
+                        <div class="alert alert-info alert-styled-left alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+                            {{ session('belum_lengkap') }}
+                        </div>
+                        @endif
                         <div class="p-4 border rounded">
                             <div class="text-center">
                                 <h5 class="card-title">User</h5>

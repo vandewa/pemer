@@ -22,8 +22,9 @@ class TablePengajuan extends Component
     {
         if (!auth()->user()->hasRole('admin')) {
             $this->pengajuan = Pengajuan::where('pemohon_id', auth()->user()->id)->orderBy('id', 'DESC')->get();
+        } else {
+            $this->pengajuan = Pengajuan::orderBy('id', 'DESC')->get();
         }
-        $this->pengajuan = Pengajuan::orderBy('id', 'DESC')->get();
     }
     public function render()
     {

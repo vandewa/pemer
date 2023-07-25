@@ -84,17 +84,28 @@ class UserPage extends Component
             ]);
         }
         $this->dispatchBrowserEvent('Update');
+        return redirect()->route('pengajuan');
     }
 
     public function mount()
     {
         $data = User::find(auth()->user()->id);
+        if (!$data->isProfileComplete()) {
+            $this->name = $data->name;
+            $this->email = $data->email;
+            $this->no_hp = $data->no_hp;
+            $this->instansi_id = $data->instansi_id;
+            $this->role_user = $data->getRoleNames();
+            $this->role = Role::get();
+            $this->idnya = $data->id;
+            $message =  'Profile Anda belum lengkap ! Lengkapi data diri anda untuk melanjutkan pengajuan kerja sama !';
+            return session()->flash('belum_lengkap', $message);
+        }
         $this->name = $data->name;
         $this->email = $data->email;
         $this->no_hp = $data->no_hp;
         $this->instansi_id = $data->instansi_id;
         $this->role_user = $data->getRoleNames();
-
         $this->role = Role::get();
         $this->idnya = $data->id;
     }

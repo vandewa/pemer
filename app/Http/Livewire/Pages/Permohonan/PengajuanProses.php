@@ -25,7 +25,7 @@ class PengajuanProses extends Component
         $judul = $pengajuan->jenisDokument->perjanjianTipe->name . ' ' . $pengajuan->jenisDokument->name;
         $message = "* $judul*" . urldecode('%0D%0A%0D%0A') .
             "Pengajuan Anda telah Di Terima oleh pihak Pemerintahan Sekretariat Daerah Wonosobo dengan keterangan : $pengajuan->keterangan." . urldecode('%0D%0A%0D%0A%0D%0A') .
-            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo  *" . urldecode('%0D%0A') .
+            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 A𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Sobo  *" . urldecode('%0D%0A') .
             "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
         Http::withHeaders([
             'Authorization' => config('app.token_wa'),
@@ -48,7 +48,7 @@ class PengajuanProses extends Component
         $judul = $pengajuan->jenisDokument->perjanjianTipe->name . ' ' . $pengajuan->jenisDokument->name;
         $message = "* $judul*" . urldecode('%0D%0A%0D%0A') .
             "Pengajuan Anda telah Di Proses oleh pihak Pemerintahan Sekretariat Daerah Wonosobo dengan keterangan : $pengajuan->keterangan." . urldecode('%0D%0A%0D%0A%0D%0A') .
-            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo  *" . urldecode('%0D%0A') .
+            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 A𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Sobo  *" . urldecode('%0D%0A') .
             "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
         Http::withHeaders([
             'Authorization' => config('app.token_wa'),
@@ -105,9 +105,9 @@ class PengajuanProses extends Component
             "Nama Pemohon : $pemohon" . urldecode('%0D%0A') .
             "Lembaga : $lembaga" . urldecode('%0D%0A') .
             "Jangka Waktu : $jangka_waktu" . urldecode('%0D%0A%0D%0A') .
-            "Telah Selesai dan di publish di Web ASIK Wonosobo, klik link berikut untuk detail:" . urldecode('%0D%0A%0D%0A') .
-            "https://asik.wonosobokab.go.id/pengajuan/publish?jenis_id=$publish->jenis_dokumen_id" . urldecode('%0D%0A%0D%0A%0D%0A') .
-            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 𝐚𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Wonosobo*" . urldecode('%0D%0A%0D%0A%0D%0A') .
+            "Telah Selesai dan di publish di Website Asik Sobo, klik link berikut untuk detail:" . urldecode('%0D%0A%0D%0A') .
+            "https://asiksobo.wonosobokab.go.id/pengajuan/user" . urldecode('%0D%0A%0D%0A%0D%0A') .
+            "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 Ap𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Sobo*" . urldecode('%0D%0A%0D%0A%0D%0A') .
             "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
         Http::withHeaders([
             'Authorization' => config('app.token_wa'),

@@ -78,7 +78,13 @@
             <a href="{{ route('pengajuan.daftar') }}">
                 <div class="parent-icon"><i class="lni lni-indent-increase"></i>
                 </div>
-                <div class="menu-title">List Pengajuan</div>
+                <div class="menu-title">List Pengajuan
+                    @if(!auth()->user()->hasRole('admin'))
+                    @else
+                    <span class="badge bg-blue-400 align-self-center ml-auto">
+                        {{ App\Models\Pengajuan::whereNotIn('status', ['Selesai', 'Ditolak'])->count() }}</span>
+                    @endif
+                </div>
             </a>
         </li>
         @endcan

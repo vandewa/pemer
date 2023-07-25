@@ -20,6 +20,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Livewire\Pages\User\PermissionRole;
 use App\Http\Livewire\Pages\Permohonan\Pengajuan;
 use App\Http\Controllers\ShowPictureHelperController;
+use App\Http\Livewire\Front\Statiska;
 use App\Http\Livewire\Pages\Permohonan\PengajuanDaftar;
 use App\Http\Livewire\Pages\Permohonan\PengajuanProses;
 
@@ -36,7 +37,7 @@ use App\Http\Livewire\Pages\Permohonan\PengajuanProses;
 
 Route::get('/', Index::class)->name('front.index');
 Route::get('kerjasama', Kerjasama::class)->name('front.kerjasama');
-
+Route::get('statistika', Statiska::class)->name('front.statistika');
 Route::get('/countdown', function () {
     return view('buka');
 })->name('countdown');
@@ -67,11 +68,11 @@ Route::middleware([
         Route::get('manual/publish', Publish::class)->name('manual.publish');
         Route::get('master/kategori', Kategori::class)->name('master.kategori');
         Route::get('master/post', Post::class)->name('master.post');
+        Route::get('home', Home::class)->name('home');
     });
     Route::get('user', UserPage::class)->name('profile');
 });
 Route::get('show-picture}', [ShowPictureHelperController::class, 'showPicture'])->name('helper.show-picture');
-Route::get('home', Home::class)->name('home');
 Route::get('publish', PublishList::class)->name('publish');
 Route::get('cekWA', [Controller::class, 'cekWA'])->name('cekWA');
 

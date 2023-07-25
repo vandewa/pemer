@@ -7,14 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('snacked/ltr/assets/images/favicon/favicon-32x32.png') }}" type="image/png" />
-
     <!--plugins-->
     <link href="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
-
     <link href="{{ asset('snacked/ltr/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-
     <!-- Bootstrap CSS -->
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/bootstrap-extended.css') }}" rel="stylesheet" />
@@ -22,24 +19,16 @@
     <link href="{{ asset('snacked/ltr/assets/css/icons.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
     <!-- loader-->
     <link href="{{ asset('snacked/ltr/assets/css/pace.min.css') }}" rel="stylesheet" />
-
     <!--Theme Styles-->
     <link href="{{ asset('snacked/ltr/assets/css/dark-theme.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/light-theme.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('snacked/ltr/assets/css/header-colors.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('tri.css') }}">
-
-    <!-- Or for RTL support -->
-
-    <!-- Scripts -->
-
+    <link rel="stylesheet" href="{{ asset('css/tri.css') }}">
     <link href="{{ asset('snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <livewire:styles />
@@ -275,39 +264,34 @@
     <script src="{{ asset('snacked/ltr/assets/plugins/input-tags/js/tagsinput.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/js/pace.min.js') }}"></script>
-
     <script src="{{ asset('snacked/ltr/assets/plugins/chartjs/js/Chart.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
     <!-- Vector map JavaScript -->
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-
-    {{-- <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script> --}}
-
-
-    <!--app-->
     <script src="{{ asset('snacked/ltr/assets/js/app.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ asset('snacked/ltr/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('snacked/ltr/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    {{-- <script src="{{ asset('snacked/ltr/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script> --}}
+    <!--app-->
     {{-- <script src="{{ asset('snacked/ltr/assets/js/index.js')}}"></script> --}}
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script> --}}
-
-
-    <script src="{{ asset('snacked/ltr/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('snacked/ltr/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('snacked/ltr/assets/js/table-datatable.js') }}"></script>
     {{-- Sweet Alert Delete Script --}}
     <script>
         window.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
-                title: 'Are you sure?'
-                , text: " You won't be able to revert this!"
-                , icon: 'warning'
-                , showCancelButton: true
-                , confirmButtonColor: '#3085d6'
-                , cancelButtonColor: '#d33'
-                , confirmButtonText: 'Yes, Delete'
+                title: 'Are you sure?',
+                text: " You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Delete'
             }).then((result) => {
                 if (result.isConfirmed) {
                     Livewire.emit('deleteConfirmed')
@@ -329,7 +313,6 @@
                 'Good job!', 'Data has been updated.', 'success'
             )
         });
-
     </script>
     <script type="text/javascript">
         function sweetAlert2() {
@@ -341,10 +324,9 @@
         @if(session('edit'))
         sweetAlert2();
         @endif
-
     </script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
 
     <!-- Laravel Javascript Validation -->
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
@@ -361,13 +343,13 @@
         $(document).on('click', '.delete-data-table', function(a) {
             a.preventDefault();
             Swal.fire({
-                title: 'Are you sure?'
-                , text: "Do you realy want to delete this records? This process cannot be undone."
-                , type: 'warning'
-                , showCancelButton: true
-                , confirmButtonColor: '#3085d6'
-                , cancelButtonColor: '#d33'
-                , confirmButtonText: 'Delete!'
+                title: 'Are you sure?',
+                text: "Do you realy want to delete this records? This process cannot be undone.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Delete!'
             }).then((result) => {
                 if (result.value) {
                     a.preventDefault();
@@ -379,9 +361,9 @@
                     });
 
                     $.ajax({
-                        url: url
-                        , method: 'delete'
-                        , success: function() {
+                        url: url,
+                        method: 'delete',
+                        success: function() {
                             Swal.fire(
                                 'Dihapus!', 'Data berhasil di hapus.', 'success'
                             )
@@ -393,7 +375,6 @@
                 }
             })
         });
-
     </script>
     <script type="text/javascript">
         function sweetAlert() {
@@ -405,7 +386,6 @@
         @if(session('store'))
         sweetAlert();
         @endif
-
     </script>
     <script type="text/javascript">
         function sweetAlert2() {
@@ -417,7 +397,6 @@
         @if(session('edit'))
         sweetAlert2();
         @endif
-
     </script>
 
 
