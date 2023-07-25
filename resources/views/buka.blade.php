@@ -33,25 +33,16 @@
         }
 
         #playButton {
-            width: 680px;
             height: 400px;
             padding: 8px;
-            background-color: red;
-            color: #fff;
-            font-size: 124px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            animation: pulseBackground 2s infinite;
-            border-radius: 100px;
         }
+
     </style>
 </head>
 
 <body>
     <div class="container">
-        <button id="playButton">Open</button>
+        <img id="playButton" src="{{ asset('hand.png')}}">
     </div>
     <div class="video-container">
         <video id="videoPlayer" width="100%" height="100%" controls>
@@ -79,6 +70,7 @@
                 window.location.href = "https://asiksobo.wonosobokab.go.id";
             });
         });
+
     </script>
 </body>
 

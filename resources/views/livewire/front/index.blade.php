@@ -6,6 +6,10 @@
         background: aliceblue;
     }
 
+    .single-logo {
+        width: 70%;
+    }
+
     .section-padding {
         padding: 60px 0;
     }
@@ -60,22 +64,34 @@
             <div class="col-lg-12">
                 <div class="brand-carousel section-padding owl-carousel">
                     <div class="single-logo">
-                        <img src="https://i.postimg.cc/QxPJ8hXy/brand-1.png" alt="">
+                        <img src="https://e7.pngegg.com/pngimages/509/403/png-clipart-semarang-university-faculty-of-information-and-communication-technology-resume-college-soekarno-resume-logo.png" alt="">
                     </div>
                     <div class="single-logo">
-                        <img src="https://i.postimg.cc/pdMQjC5Q/brand-2.png" alt="">
+                        <img src="https://pbs.twimg.com/media/CpyqP0DVYAEsmm-.jpg" alt="">
                     </div>
                     <div class="single-logo">
-                        <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/b/b4/UIN_SUNAN_KALIJAGA.jpg" alt="">
                     </div>
                     <div class="single-logo">
-                        <img src="https://i.postimg.cc/d14GzKHn/brand-4.png" alt="">
+                        <img src="https://www.pa-wonosobo.go.id/images/LOGO.png" alt="">
                     </div>
                     <div class="single-logo">
-                        <img src="https://i.postimg.cc/x8ZM13Sz/brand-5.png" alt="">
+                        <img src="https://taspenbukittinggii.files.wordpress.com/2014/12/531461_221281074642446_958268533_n.jpg" alt="">
                     </div>
                     <div class="single-logo">
-                        <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+                        <img src="https://w7.pngwing.com/pngs/923/664/png-transparent-perum-perhutani-central-java-regional-division-jakarta-forest-organization-forest.png" alt="">
+                    </div>
+                    <div class="single-logo">
+                        <img src="https://bob.kemenparekraf.go.id/wp-content/uploads/2021/03/logobob-vertikal.png" alt="">
+                    </div>
+                    <div class="single-logo">
+                        <img src="https://wonosobo.kemenag.go.id/wp-content/uploads/2022/06/logo-kemenag-pasa-min.png" alt="">
+                    </div>
+                    <div class="single-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/thumb/0/0f/Makara_of_Universitas_Indonesia.svg/1200px-Makara_of_Universitas_Indonesia.svg.png" alt="">
+                    </div>
+                    <div class="single-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/thumb/9/9f/Emblem_of_Universitas_Gadjah_Mada.svg/1200px-Emblem_of_Universitas_Gadjah_Mada.svg.png" alt="">
                     </div>
                 </div>
             </div>
@@ -88,7 +104,7 @@
 <script>
     $('.brand-carousel').owlCarousel({
         loop: true
-        , margin: 10
+        , margin: 5
         , autoplay: true
         , responsive: {
             0: {
