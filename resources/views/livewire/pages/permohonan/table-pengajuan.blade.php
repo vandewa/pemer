@@ -15,7 +15,7 @@
         <tr>
             <th>No</th>
             <th>Pemohon</th>
-            <th style='width: 10%;'>Status</th>
+            <th style='width: 15%;'>Status</th>
             <th>Jenis</th>
             <th>Judul</th>
             <th>Tanggal Pengajuan</th>
