@@ -14,9 +14,11 @@
 
         <tr>
             <th>No</th>
+            <th>Pemohon</th>
             <th style='width: 10%;'>Status</th>
             <th>Jenis</th>
             <th>Judul</th>
+            <th>Tanggal Pengajuan</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -24,6 +26,7 @@
         @foreach ($pengajuan as $row)
         <tr>
             <td>{{ $loop->iteration ?? '' }}</td>
+            <td>{{ $row->pemohon->name ?? '' }}</td>
             <td>
                 @switch ($row->status)
                 @case ('Pengajuan')
@@ -45,6 +48,8 @@
             </td>
             <td> {{ $row->jenisDokument->perjanjianTipe->name . ' ' . $row->jenisDokument->name }}</td>
             <td> {{ $row->judul }}</td>
+            <td> {{ $row->created_at->settings(['formatFunction' => 'translatedFormat'])->locale('id')->format('l, j F
+                Y') }}</td>
             <td> @if (!auth()->user()->hasRole("admin"))
                 <div class="ms-auto">
                     <div class="btn-group">
