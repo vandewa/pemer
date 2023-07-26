@@ -46,7 +46,7 @@
     </div>
     <div class="video-container">
         <video id="videoPlayer" width="100%" height="100%" controls>
-            <source src="{{ asset('video/vd.mp4') }}" type="video/mp4">
+            <source src="{{ asset('video/vd-2.mp4') }}" type="video/mp4">
             <!-- Add additional video sources for different formats here if needed -->
             Your browser does not support the video tag.
         </video>
