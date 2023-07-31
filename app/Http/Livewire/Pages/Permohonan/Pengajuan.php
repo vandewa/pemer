@@ -96,7 +96,7 @@ class Pengajuan extends Component
             "Hari : $hari_indonesia;" . urldecode('%0D%0A') .
             "Tanggal : $tanggal" . urldecode('%0D%0A%0D%0A') .
             "Silahkan untuk segera mendisposisi, klik pada tautan berikut :" . urldecode('%0D%0A%0D%0A%0D%0A') .
-            "https://asik.wonosobokab.go.id/pengajuan/proses?id=$data->id" . urldecode('%0D%0A%0D%0A%0D%0A') .
+            "https://asiksobo.wonosobokab.go.id/pengajuan/proses?id=$data->id" . urldecode('%0D%0A%0D%0A%0D%0A') .
             "*𝐃𝐢𝐬𝐜𝐥𝐚𝐢𝐦𝐞𝐫: 𝐏𝐞𝐬𝐚𝐧 𝐈𝐧𝐢 𝐚𝐝𝐚𝐥𝐚𝐡 𝐩𝐞𝐬𝐚𝐧 𝐨𝐭𝐨𝐦𝐚𝐭𝐢𝐬 𝐝𝐚𝐫𝐢 A𝐩𝐥𝐢𝐤𝐚𝐬𝐢 A𝐬𝐢𝐤 Sobo*" . urldecode('%0D%0A%0D%0A%0D%0A') .
             "*@2023 Pemerintahan Sekretariat Daerah Wonosobo | Dinas Komunikasi dan Informatika Kab. Wonosobo*" . urldecode('%0D%0A');
 
