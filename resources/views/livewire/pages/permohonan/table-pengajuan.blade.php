@@ -67,8 +67,8 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
                             <a class="dropdown-item" wire:click="getID({{$row->id}})" href="javascript:;">Lihat Data</a>
-
                             <a class="dropdown-item" href="{{route('pengajuan.proses', ['id' => $row->id])}}">Proses</a>
+                            <a href="#" wire:click="$emit('showModal', {{ $row->id}})" class="dropdown-item">Hapus</a>
                         </div>
                     </div>
                 </div>

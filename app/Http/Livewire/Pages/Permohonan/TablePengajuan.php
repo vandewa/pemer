@@ -4,10 +4,13 @@ namespace App\Http\Livewire\Pages\Permohonan;
 
 use Livewire\Component;
 use App\Models\Pengajuan;
+use Illuminate\Support\Facades\Storage;
+
 
 class TablePengajuan extends Component
 {
-    public $pengajuan;
+    public $pengajuan, $idnya;
+    protected $listeners = ['hapus'];
 
     public function getID($terima_id)
     {
@@ -26,6 +29,20 @@ class TablePengajuan extends Component
             $this->pengajuan = Pengajuan::orderBy('id', 'DESC')->get();
         }
     }
+
+    public function hapus($id)
+    {
+        $this->idnya = $id;
+        $data = Pengajuan::find($this->idnya);
+
+        Storage::disk('local')->delete($data['path_surat_permohonan']);
+        Storage::disk('local')->delete($data['path_studi_kak']);
+        Pengajuan::destroy($this->idnya);
+        $this->dispatchBrowserEvent('Delete');
+        $this->idnya = '';
+        return redirect()->route('pengajuan.daftar');
+    }
+
     public function render()
     {
         return view('livewire.pages.permohonan.table-pengajuan');

@@ -29,6 +29,7 @@
             <livewire:pages.permohonan.modal.show-surat-permohonan>
                 <livewire:pages.permohonan.modal.show-surat-studi-kelayakan>
     </main>
+    <livewire:global.konfirmasi-hapus />
 </div>
 @push('script')
 <script>
