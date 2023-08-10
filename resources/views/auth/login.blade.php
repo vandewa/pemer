@@ -51,6 +51,9 @@
                                  <input name="password" placeholder="Password" id="flogin_password" type="password" class="form-control" required>
                                  <span toggle="#flogin_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                              </div>
+                             <div class="form-group text-right">
+                                 <a href="{{ route('password.request')}}"> Lupa Password ?</a>
+                             </div>
                              <div class="form-group">
                                  <button type="submit" class="px-3 form-control btn submit" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
 								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
@@ -103,6 +106,7 @@
          $(function() {
              $(".alert").delay(3000).slideUp(300);
          });
+
      </script>
      <script type="text/javascript">
          (function($) {
@@ -124,6 +128,7 @@
                  }
              });
          })(jQuery);
+
      </script>
  </body>
 

@@ -1,19 +1,7 @@
 @push('css')
-<style>
-    table.dataTable tbody td {
-        word-break: break-word;
-        vertical-align: top;
-
-    }
-</style>
 <!--plugins-->
-<link href="{{ asset('snacked/ltr/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
-<!-- Bootstrap CSS -->
-<link href="{{ asset('snacked/ltr/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('snacked/ltr/assets/css/bootstrap-extended.css') }}" rel="stylesheet" />
-<link rel="stylesheet" href="{{ asset('css/tri.css') }}">
-<link href="{{ asset('snacked/ltr/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 @endpush
 <div>
     <!-- ***** Header Area Start ***** -->
@@ -36,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <table id="example" class="table table-striped table-bordered">
+                        <table id="example" class="table table-striped">
                             <thead>
 
                                 <tr>
@@ -100,10 +88,12 @@
     </div>
 </div>
 @push('script')
-<script src="{{ asset('snacked/ltr/assets/js/bootstrap.bundle.min.js') }}"></script>
-<!--plugins-->
-<script src="{{ asset('snacked/ltr/assets/js/jquery.min.js') }}"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="{{ asset('snacked/ltr/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('snacked/ltr/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript">
+    new DataTable('#example');
+
+</script>
+
 @endpush

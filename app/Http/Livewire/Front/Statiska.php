@@ -10,7 +10,7 @@ class Statiska extends Component
     public $publish;
     public function mount()
     {
-        $this->publish = Publish::all();
+        $this->publish = Publish::all()->sortByDesc("id");;
     }
     public function render()
     {
