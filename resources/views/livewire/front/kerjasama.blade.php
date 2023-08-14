@@ -57,8 +57,12 @@
         <br>
         <div class="container">
             <div class="col-lg-12">
-                <livewire:front.table-post />
-                <livewire:master.modal.modal-post-file />
+                <div class="card">
+                    <div class="card-body">
+                        <livewire:front.table-post />
+                        <livewire:master.modal.modal-post-file />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
