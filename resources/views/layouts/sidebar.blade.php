@@ -37,11 +37,15 @@
                         <a href="{{ route('publish', ['jenis_id' => '3']) }}"><i class="bi bi-circle"></i>Pihak
                             Ketiga</a>
                     </li>
-                    <li>
-                        <a href="{{ route('publish', ['jenis_id' => '4']) }}"><i class="bi bi-circle"></i>Sinergi</a>
-                    </li>
                 </ul>
             </ul>
+        </li>
+        <li>
+            <a href="{{ route('publish', ['jenis_id' => '4']) }}">
+                <div class="parent-icon"><i class="lni lni-database"></i>
+                </div>
+                <div class="menu-title">Sinergi</div>
+            </a>
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
