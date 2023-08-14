@@ -21,9 +21,32 @@
         </div>
 
         <div class="container">
+
             <div class="col-lg-12">
+                <div>
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <!-- Left column content -->
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="input-group mb-3">
+                                <input type="date" class="form-control" wire:model="start_date">&nbsp;
+                                <h4>s.d</h4>&nbsp;
+                                <input type="date" class="form-control" wire:model="end_date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+
+                <div class="col-md-4 offset-4">
+                    <canvas id="myPieChart"></canvas>
+                </div>
+                <br>
                 <div class="card">
                     <div class="card-body">
+
                         <table id="example" class="table table-striped">
                             <thead>
 
@@ -88,11 +111,20 @@
     </div>
 </div>
 @push('script')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 <script type="text/javascript">
     new DataTable('#example');
+    document.addEventListener('livewire:load', function() {
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'pie'
+            , data: @json($data)
+        , });
+    });
 
 </script>
 
