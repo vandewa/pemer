@@ -47,7 +47,7 @@ class Pengajuan extends Component
                 'judul' => 'required',
                 'obyek' => 'required',
                 'ruang_lingkup' => 'required',
-                'path_surat_permohonan' => 'required|mimes:pdf|max:2000',
+                'path_surat_permohonan' => 'required|mimes:pdf|max:20000',
                 'path_studi_kak' => 'required|mimes:pdf|max:20000'
             ],
             [

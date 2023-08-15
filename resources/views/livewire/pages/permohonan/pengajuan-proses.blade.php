@@ -174,7 +174,7 @@
                             <div class="row mb-3">
                                 <label for="inputAddress4" class="col-sm-3 col-form-label">File Surat Perjanjian Kerja</label>
                                 <div class="col-sm-9">
-                                    <input class="form" type="file" wire:model="path_perjanjian">
+                                    <input class="form" type="file" wire:model="path_perjanjian" accept="application/pdf">
                                     @error('path_perjanjian')
                                     <span class="form-text text-danger">{{ $message }}</span>
                                     @enderror

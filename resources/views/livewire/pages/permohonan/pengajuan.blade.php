@@ -97,21 +97,25 @@
 
                                 <div class="col-md-12">
                                     <label class="form-label col-md-3">File Surat Permohonan</label>
-                                    <input class="form col-md-4" type="file" wire:model="path_surat_permohonan">
+                                    <input class="form col-md-4" type="file" wire:model="path_surat_permohonan" accept="application/pdf">
                                     <div wire:loading wire:target="path_surat_permohonan">Uploading...<i class="spinner-border spinner-border-sm" role="status"></i></div>
                                     @if ($path_surat_permohonan)
                                     <i class="fadeIn animated bx bx-check"></i>
-                                    @else
                                     @endif
+                                    @error('path_surat_permohonan')
+                                    <i class="text-danger col-md-3">{{ $message }}</i>
+                                    @enderror
                                 </div>
                                 <div class="col-md-12">
                                     <label class="form-label col-md-3">File Surat Studi Kelayakan / KAK</label>
-                                    <input class="form col-md-4" type="file" wire:model="path_studi_kak">
+                                    <input class="form col-md-4" type="file" wire:model="path_studi_kak" accept="application/pdf">
                                     <div wire:loading wire:target="path_studi_kak">Uploading...<i class="spinner-border spinner-border-sm" role="status"></i></div>
                                     @if ($path_studi_kak)
-                                    <i class="fadeIn animated bx bx-check"></i>
-                                    @else
+                                    <i class="fadeIn animated bx bx-check col-md-2"></i>
                                     @endif
+                                    @error('path_studi_kak')
+                                    <i class="text-danger col-md-3">{{ $message }}</i>
+                                    @enderror
 
                                 </div>
                                 <div class="col-12">
