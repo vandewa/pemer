@@ -12,7 +12,7 @@ class PengajuanProses extends Component
 {
     use WithFileUploads;
     public $kode, $data, $keterangan, $no_pemkot, $tgl_mulai, $tgl_berakhir, $para_pihak, $path_perjanjian, $tentang;
-    public $listNoSurat = [], $noSuratString;
+    public $listNoSurat = [], $noSuratString, $isAvailable;
     protected $queryString = ['kode' => ['except' => '', 'as' => 'id'],];
 
     public function diterima()
@@ -37,7 +37,25 @@ class PengajuanProses extends Component
         return redirect()->route('pengajuan.daftar');
     }
 
+    public function checkAvailability()
+    {
+        if ($this->path_perjanjian) {
+            try {
+                $response = Http::head($this->path_perjanjian);
 
+                if ($response->ok()) {
+                    $this->isAvailable = true;
+                } else {
+                    $this->isAvailable = false;
+                }
+            } catch (\Exception $e) {
+                // Handle the exception here
+                $this->isAvailable = false;
+            }
+        } else {
+            $this->isAvailable = false;
+        }
+    }
     public function diproses()
     {
         $pengajuan = pengajuan::find($this->kode);
@@ -151,7 +169,6 @@ class PengajuanProses extends Component
     public function mount()
     {
         $this->data = Pengajuan::find($this->kode);
-        $this->tentang = $this->data->judul;
     }
     public function render()
     {

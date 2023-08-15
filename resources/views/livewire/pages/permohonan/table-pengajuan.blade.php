@@ -9,7 +9,7 @@
 </style>
 @endpush
 
-<table id="example" class="table table-striped table-bordered">
+<table id="example" class="table  table-bordered">
     <thead>
 
         <tr>

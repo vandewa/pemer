@@ -125,15 +125,14 @@
                              <div class="row mb-3">
                                  <label for="inputAddress4" class="col-sm-3 col-form-label">File Surat Perjanjian Kerja</label>
                                  <div class="col-sm-7">
-
-                                     {{ Form::text(null, null, [
-                            'class' => 'form-control' .
-                            ($errors->has('path_perjanjian') ? '
-                            border-danger' : null),
-                            'wire:model.lazy' => 'path_perjanjian',
-                            'wire:change' => 'checkAvailability()',
-                            'placeholder' => 'Masukan Link Google Drive'
-                            ]) }}
+                                            {{ Form::text(null, null, [
+                                    'class' => 'form-control' .
+                                    ($errors->has('path_perjanjian') ? '
+                                    border-danger' : null),
+                                    'wire:model.lazy' => 'path_perjanjian',
+                                    'wire:change' => 'checkAvailability()',
+                                    'placeholder' => 'Masukan Link Google Drive'
+                                    ]) }}
                                  </div>
                                  <div class="col-sm-2">
                                      <button class="btn btn-primary" wire:click="checkAvailability" wire:loading.attr="disabled">
