@@ -32,14 +32,13 @@
                             <div class="input-group mb-3">
                                 <input type="date" class="form-control" wire:model="start_date">&nbsp;
                                 <h4>s.d</h4>&nbsp;
-                                <input type="date" class="form-control" wire:model="end_date">
+                                <input type="date" class="form-control" wire:model="end_date">&nbsp;<a class="btn btn-sm btn-info" wire:click="cari" target=" _blank">Terapkan</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-12">
-
                 <div class="col-md-4 offset-4">
                     <canvas id="myPieChart"></canvas>
                 </div>
@@ -119,11 +118,29 @@
 <script type="text/javascript">
     new DataTable('#example');
     document.addEventListener('livewire:load', function() {
+
         var ctx = document.getElementById('myPieChart').getContext('2d');
-        var chart = new Chart(ctx, {
+        var chart;
+
+        chart = new Chart(ctx, {
             type: 'pie'
             , data: @json($data)
-        , });
+        });
+
+
+
+        Livewire.on('chartUpdate', function(data) {
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'pie'
+                , data: data
+            });
+
+
+        });
     });
 
 </script>
