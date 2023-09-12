@@ -65,18 +65,18 @@ https://templatemo.com/tm-570-chain-app-dev
                 <div class="col-lg-5">
                     <div class="footer-widget">
                         <h4>Sekretariat Daerah Kabupaten Wonosobo</h4>
-                        <p>Jl. Sindoro No.2-4, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311</p>
+                        <p>Jl. Soekarno - Hatta No.2-4, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311</p>
                         <p><a href="#">(0286) 321345</a></p>
-                        <p><a href="#">diskominfo@wonosobokab.go.id</a></p>
+                        <p><a href="#">bagianpemer.wonosobo@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="footer-widget">
                         <h4>Link Terkait</h4>
-                        <p><a target="_blank" href="https://website.wonosobokab.go.id/">◉ Website Pemkab Wonosobo</a></p>
-                        <p><a target="_blank" href="https://smartcity.wonosobokab.go.id/">◉ Dashboard Smartcity</a></p>
+                        <p><a target="_blank" href="https://website.wonosobokab.go.id/">◉ Pemerintah Kabupaten Wonosobo</a></p>
+                        <p><a target="_blank" href="https://ppidsetda.wonosobokab.go.id/">◉ Sekretariat Daerah Kabupaten Wonosobo</a></p>
                         <p><a target="_blank" href="https://aprizob.wonosobokab.go.id/">◉ Website Aplikasi MPP / Aprizob</a></p>
-                        <p><a target="_blank" href="https://diskominnfo.wonosobokab.go.id/">◉ Website Diskominfo Wonosobo</a></p>
+                        <p><a target="_blank" href="https://diskominnfo.wonosobokab.go.id/">◉ Diskominfo Wonosobo</a></p>
 
                     </div>
                 </div>
