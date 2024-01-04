@@ -53,10 +53,10 @@ class Pengajuan extends Component
             [
                 'path_surat_permohonan.required' => 'Wajib upload File',
                 'path_surat_permohonan.mimes' => 'Hanya format .pdf',
-                'path_surat_permohonan.max' => 'Maksimal upload 2 Mb',
+                'path_surat_permohonan.max' => 'Maksimal upload 20 Mb',
                 'path_studi_kak.required' => 'Wajib upload File',
                 'path_studi_kak.mimes' => 'Hanya format .pdf',
-                'path_studi_kak.max' => 'Maksimal upload 2 Mb',
+                'path_studi_kak.max' => 'Maksimal upload 20 Mb',
             ]
         );
         $noSuratValues = '';
