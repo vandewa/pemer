@@ -33,12 +33,6 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
-            'throw' => false,
-        ],
-
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
             'permissions' => [
                 'file' => [
                     'public' => 0644,
@@ -49,6 +43,12 @@ return [
                     'private' => 0700,
                 ],
             ],
+            'throw' => false,
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
