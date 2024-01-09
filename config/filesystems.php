@@ -39,8 +39,8 @@ return [
                     'private' => 0600,
                 ],
                 'dir' => [
-                    'public' => 0755,
-                    'private' => 0700,
+                    'public' => 0775,
+                    'private' => 0755,
                 ],
             ],
             'throw' => false,
