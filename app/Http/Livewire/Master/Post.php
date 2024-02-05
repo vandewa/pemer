@@ -48,7 +48,7 @@ class Post extends Component
                 'path_file.max' => 'Maksimal upload 2 Mb',
             ]
         );
-        $file1 = $this->path_file->store('asiksobo/post/');
+        $file1 = $this->path_file->store('asiksobo/post/', 'gcs');
         ModelsPost::create([
             'kategori_id' => $this->kategori_id,
             'judul' => $this->judul,
@@ -63,7 +63,7 @@ class Post extends Component
         $post = ModelsPost::find($this->idNya);
         if ($this->path_file !== $post->path_file) {
             Storage::delete($post->path_file);
-            $newFilePath = $this->path_file->store('asiksobo/post/');
+            $newFilePath = $this->path_file->store('asiksobo/post/', 'gcs');
         } else {
             $newFilePath = $post->path_file;
         }
