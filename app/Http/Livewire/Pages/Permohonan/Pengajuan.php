@@ -65,8 +65,8 @@ class Pengajuan extends Component
                 $noSuratValues = $item['no_surat'] . ',' . $noSuratValues;
             }
         }
-        $file1 = $this->path_surat_permohonan->store('asiksobo/surat_permohonan', 'gcs');
-        $file2 = $this->path_studi_kak->store('asiksobo/surat_studi_kelayakan', 'gcs');
+        $file1 = $this->path_surat_permohonan->store('asiksobo/surat_permohonan');
+        $file2 = $this->path_studi_kak->store('asiksobo/surat_studi_kelayakan');
         $data = ModelPengajuan::create(
             [
                 'jenis_dokumen_id' => $this->jenis_dokumen_id,
