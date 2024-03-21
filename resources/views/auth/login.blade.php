@@ -25,7 +25,8 @@
                  <div class="mt-4 mb-0 text-center col-md-6">
                      <img src="{{ asset('chain/assets/images/logo3.png') }}" style=" width: 70%;
   height: auto;"></br>
-                     <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
+                     <span
+                         style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
                          Aplikasi Sistem Informasi Kerja Sama )</span>
                  </div>
              </div>
@@ -33,46 +34,52 @@
                  <div class="col-md-6 col-lg-4">
                      <div class="p-0 login-wrap">
                          <h6 class="mb-4 text-center" style="color: #ffffff;">Masukkan Email dan Password Anda</h6>
-                         <form action="{{ route('login') }}" class="signin-form" id="flogin" onsubmit="return lsogin();" method="post" accept-charset="utf-8">
+                         <form action="{{ route('login') }}" class="signin-form" id="flogin"
+                             onsubmit="return lsogin();" method="post" accept-charset="utf-8">
                              @csrf
 
                              <x-validation-errors class="mb-4" />
 
                              @if (session('status'))
-                             <div class="mb-4 text-sm font-medium text-green-600">
-                                 {{ session('status') }}
-                             </div>
+                                 <div class="mb-4 text-sm font-medium text-green-600">
+                                     {{ session('status') }}
+                                 </div>
                              @endif
 
                              <div class="form-group">
-                                 <input type="email" class="form-control" name="email" placeholder="Email" id="flogin_username" autofocus required>
+                                 <input type="email" class="form-control" name="email" placeholder="Email"
+                                     id="flogin_username" autofocus required>
                              </div>
                              <div class="form-group">
-                                 <input name="password" placeholder="Password" id="flogin_password" type="password" class="form-control" required>
-                                 <span toggle="#flogin_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                 <input name="password" placeholder="Password" id="flogin_password" type="password"
+                                     class="form-control" required>
+                                 <span toggle="#flogin_password"
+                                     class="fa fa-fw fa-eye field-icon toggle-password"></span>
                              </div>
-                             {{-- <div class="form-group text-right">
-                                 <a href="{{ route('password.request')}}"> Lupa Password ?</a>
-                     </div> --}}
-                     <div class="form-group">
-                         <button type="submit" class="px-3 form-control btn submit" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
+                             <div class="form-group text-right">
+                                 <a style="color: #ffffff;" href="{{ route('password.request') }}"> Lupa Password ?</a>
+                             </div>
+                             <div class="form-group">
+                                 <button type="submit" class="px-3 form-control btn submit" id="flogin_tb_ok"
+                                     style="background-color: rgb(51, 88, 244) !important;
 								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
 								background-size: 210% 210%;
 								background-position: 100% 0;
 								transition: all .15s ease;
 								box-shadow: none;
 								color: #fff;"><b>Login</b></button>
-                     </div>
-                     <div class="form-group">
-                         <a href="{{ route('register') }}" class="px-3 form-control btn" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
+                             </div>
+                             <div class="form-group">
+                                 <a href="{{ route('register') }}" class="px-3 form-control btn" id="flogin_tb_ok"
+                                     style="background-color: rgb(51, 88, 244) !important;
 								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
 								background-size: 210% 210%;
 								background-position: 100% 0;
 								transition: all .15s ease;
 								box-shadow: none;
 								color: #fff;"><b>Register</b></a>
-                     </div>
-                     <!-- <div class="col-12 text-center">
+                             </div>
+                             <!-- <div class="col-12 text-center">
                                  <p class="mb-0">or sign up with:</p>
                              </div>
                              <div class="social_login col-12 text-center">
@@ -82,21 +89,22 @@
                                      </span>
                                  </a>
                              </div> -->
-                     </form>
+                         </form>
+                     </div>
                  </div>
              </div>
-         </div>
          </div>
          <div class="pt-3 container-fluid client bg-transparent">
              <div class="container text-center">
                  <span class="small float-center" style="font-size: 10px; color:#fff;"><b>&copy; 2023
                          <?php if (date('Y') == 2023) {
-                                echo '';
-                            } else {
-                                echo '- ' . date('Y');
-                            }
-                            ?>
-                         Sekretariat Daerah Kabupaten Wonosobo | by Tri Maryanto</b></span>
+                             echo '';
+                         } else {
+                             echo '- ' . date('Y');
+                         }
+                         ?>
+                         Sekretariat Daerah Kabupaten Wonosobo | by <a href="https://wa.me/+6285157392291"
+                             style="color: #ffffff;" target="_blank">Tri Maryanto</a></b></span>
              </div>
          </div>
      </section>
@@ -106,7 +114,6 @@
          $(function() {
              $(".alert").delay(3000).slideUp(300);
          });
-
      </script>
      <script type="text/javascript">
          (function($) {
@@ -128,7 +135,6 @@
                  }
              });
          })(jQuery);
-
      </script>
  </body>
 

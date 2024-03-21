@@ -4,6 +4,7 @@ use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Front\Index;
 use App\Http\Livewire\Master\Post;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CPasswordController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Front\Kerjasama;
@@ -49,6 +50,11 @@ Route::get('/login', function () {
 Route::get('docs', function () {
     return File::get(public_path() . '/documentation.html');
 });
+
+Route::get('reset-password/{token}/{email}', [CPasswordController::class, 'index'])->name('password.reset');
+Route::get('reset-link', [CPasswordController::class, 'resetLink'])->name('reset.link');
+Route::post('reset-link', [CPasswordController::class, 'resetLink'])->name('reset.link');
+Route::post('rubah-password', [CPasswordController::class, 'rubahPassword'])->name('rubah.password');
 
 Route::middleware([
     'auth:sanctum',

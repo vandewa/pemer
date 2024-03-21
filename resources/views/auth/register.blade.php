@@ -25,7 +25,8 @@
                  <div class="mt-4 mb-0 text-center col-md-6">
                      <img src="{{ asset('chain/assets/images/logo3.png') }}" style=" width: 70%;
   height: auto;"></br>
-                     <span style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
+                     <span
+                         style="margin-left: 10px; font-weight: normal; font-family: 'Teko', sans-serif; color: #ffffff; font-size: 20pt">(
                          Aplikasi Sistem Informasi Kerja Sama )</span>
                  </div>
              </div>
@@ -33,32 +34,41 @@
                  <div class="col-md-6 col-lg-4">
                      <div class="p-0 login-wrap">
                          <h6 class="mb-4 text-center" style="color: #ffffff;">Form Registrasi</h6>
-                         <form action="{{ route('register') }}" class="signin-form" id="flogin" onsubmit="return lsogin();" method="post" accept-charset="utf-8">
+                         <form action="{{ route('register') }}" class="signin-form" id="flogin"
+                             onsubmit="return lsogin();" method="post" accept-charset="utf-8">
                              @csrf
 
                              <x-validation-errors class="mb-4" />
 
                              @if (session('status'))
-                             <div class="mb-4 text-sm font-medium text-green-600">
-                                 {{ session('status') }}
-                             </div>
+                                 <div class="mb-4 text-sm font-medium text-green-600">
+                                     {{ session('status') }}
+                                 </div>
                              @endif
                              <div class="form-group">
-                                 <input type="text" class="form-control" name="name" placeholder="Name" :value="old('name')" required autofocus autocomplete="name">
+                                 <input type="text" class="form-control" name="name" placeholder="Name"
+                                     :value="old('name')" required autofocus autocomplete="name">
                              </div>
                              <div class="form-group">
-                                 <input type="email" class="form-control" name="email" placeholder="Email" :value="old('email')" required autocomplete="username">
+                                 <input type="email" class="form-control" name="email" placeholder="Email"
+                                     :value="old('email')" required autocomplete="username">
                              </div>
                              <div class="form-group">
-                                 <input name="password" placeholder="Password" id="flogin_password" type="password" class="form-control" required autocomplete="new-password">
-                                 <span toggle="#flogin_password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                 <input name="password" placeholder="Password" id="flogin_password" type="password"
+                                     class="form-control" required autocomplete="new-password">
+                                 <span toggle="#flogin_password"
+                                     class="fa fa-fw fa-eye field-icon toggle-password"></span>
                              </div>
                              <div class="form-group">
-                                 <input name="password_confirmation" placeholder="Confirm Password" id="flogin_password2" type="password" class="form-control" required autocomplete="new-password">
-                                 <span toggle="#flogin_password2" class="fa fa-fw fa-eye field-icon toggle-password2"></span>
+                                 <input name="password_confirmation" placeholder="Confirm Password"
+                                     id="flogin_password2" type="password" class="form-control" required
+                                     autocomplete="new-password">
+                                 <span toggle="#flogin_password2"
+                                     class="fa fa-fw fa-eye field-icon toggle-password2"></span>
                              </div>
                              <div class="form-group">
-                                 <button type="submit" class="px-3 form-control btn submit" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
+                                 <button type="submit" class="px-3 form-control btn submit" id="flogin_tb_ok"
+                                     style="background-color: rgb(51, 88, 244) !important;
 								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
 								background-size: 210% 210%;
 								background-position: 100% 0;
@@ -67,13 +77,16 @@
 								color: #fff;"><b>Register</b></button>
                              </div>
                              <div class="form-group">
-                                 <a href="{{ route('login') }}" class="px-3 form-control btn radius-30" id="flogin_tb_ok" style="background-color: rgb(51, 88, 244) !important;
+                                 <a href="{{ route('login') }}" class="px-3 form-control btn radius-30"
+                                     id="flogin_tb_ok"
+                                     style="background-color: rgb(51, 88, 244) !important;
 								background-image: linear-gradient(to left bottom, rgb(29, 140, 248), rgb(51, 88, 244), rgb(29, 140, 248)) !important;
 								background-size: 210% 210%;
 								background-position: 100% 0;
 								transition: all .15s ease;
 								box-shadow: none;
-								color: #fff;"><b>Sudah Punya Akun?</b> </a>
+								color: #fff;"><b>Sudah
+                                         Punya Akun?</b> </a>
                              </div>
                          </form>
                      </div>
@@ -84,12 +97,13 @@
              <div class="container text-center">
                  <span class="small float-center" style="font-size: 10px; color:#fff;"><b>&copy; 2023
                          <?php if (date('Y') == 2023) {
-                                echo '';
-                            } else {
-                                echo '- ' . date('Y');
-                            }
-                            ?>
-                         Sekretariat Daerah Kabupaten Wonosobo | by Tri Maryanto</b></span>
+                             echo '';
+                         } else {
+                             echo '- ' . date('Y');
+                         }
+                         ?>
+                         Sekretariat Daerah Kabupaten Wonosobo | <a href="https://wa.me/+6285157392291"
+                             style="color: #ffffff;" target="_blank">Tri Maryanto</a></b></span>
              </div>
          </div>
      </section>
@@ -99,7 +113,6 @@
          $(function() {
              $(".alert").delay(3000).slideUp(300);
          });
-
      </script>
      <script type="text/javascript">
          (function($) {
@@ -130,7 +143,6 @@
                  }
              });
          })(jQuery);
-
      </script>
 
  </body>
